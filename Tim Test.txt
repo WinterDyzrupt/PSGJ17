@@ -1,3 +1,1 @@
-Tim has successfully uploaded a file to the repo... or has he?  Yes, he did.
-Edit for branch 1
-Change for edit 2
+Tim has successfully uploaded a file to the repo and modified it... or has he?  Yes, he did. (Edit 2)
