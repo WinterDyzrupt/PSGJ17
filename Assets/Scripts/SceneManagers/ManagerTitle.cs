@@ -1,9 +1,14 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Helper;
 
 public class ManagerTitle : MonoBehaviour
 {
+    // Canvas Groups
+    public CanvasGroup LevelSelectPanel;
+    public CanvasGroup CreditsPanel;
+
+
     void Start()
     {
         LoadData();
@@ -14,32 +19,26 @@ public class ManagerTitle : MonoBehaviour
         Debug.LogWarning("Load Data method is not implemented yet.");
     }
 
-    public void GotoUpgradeScene()
+    public void LoadUpgradeScene()
     {
         SceneManager.LoadScene("Upgrade");
     }
 
-    public void GoToArenaScene()
+    public void LoadArenaScene()
     {
         // Open Modal for Boss Select, let those buttons do the arena later
         SceneManager.LoadScene("Arena");
     }
 
-    public CanvasGroup LevelSelectPanel;
+
     public void ToggleLevelSelect()
     {
-        bool state = !LevelSelectPanel.interactable;
-        LevelSelectPanel.interactable = state;
-        LevelSelectPanel.blocksRaycasts = state;
-        LevelSelectPanel.alpha = state ? 1 : 0;
+        CanvasHelper.ToggleCanvasGroup(LevelSelectPanel);
     }
 
-    public CanvasGroup CreditsPanel;
+
     public void ToggleCredits()
     {
-        bool state = !CreditsPanel.interactable;
-        CreditsPanel.interactable = state;
-        CreditsPanel.blocksRaycasts = state;
-        CreditsPanel.alpha = state ? 1 : 0;
+        CanvasHelper.ToggleCanvasGroup(CreditsPanel);
     }
 }
