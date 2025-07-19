@@ -24,10 +24,10 @@ public class ManagerTitle : MonoBehaviour
         SceneManager.LoadScene("Upgrade");
     }
 
-    public void LoadArenaScene()
+    public void LoadPartySelectScene()
     {
         // Open Modal for Boss Select, let those buttons do the arena later
-        SceneManager.LoadScene("Arena");
+        SceneManager.LoadScene("Party Select");
     }
 
 
