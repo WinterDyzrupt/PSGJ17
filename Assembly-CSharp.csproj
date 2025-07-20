@@ -50,10 +50,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Upgrades\UpgradeProgress.cs" />
     <Compile Include="Assets\Scripts\Upgrades\UpgradeSO.cs" />
+    <Compile Include="Assets\Scripts\Upgrades\UpgradeButton.cs" />
     <Compile Include="Assets\Scripts\SceneManagers\ManagerTitle.cs" />
     <Compile Include="Assets\Scripts\Upgrades\PlayerUpgrades.cs" />
     <Compile Include="Assets\Scripts\Helper\CanvasHelper.cs" />
-    <Compile Include="Assets\Scripts\UpgradeButton.cs" />
     <Compile Include="Assets\Scripts\SceneManagers\ManagerUpgrade.cs" />
   </ItemGroup>
   <ItemGroup>

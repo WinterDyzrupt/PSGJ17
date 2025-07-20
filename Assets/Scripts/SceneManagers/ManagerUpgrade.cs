@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class ManagerUpgrade : MonoBehaviour
 {
+    public static ManagerUpgrade Instance;
     public UpgradeButton[] UpgradeButtons;
     public UpgradeProgress selectedUpgrade;
-    public static ManagerUpgrade Instance;
+    public TMP_Text FameAmount;
     public TMP_Text SelectedName;
     public TMP_Text SelectedDescription;
     public Button PurchaseButton;
-    public TMP_Text FameAmount;
+    public CanvasGroup[] panels;
+    public Button[] toggleButtons;
 
     void Start()
     {
@@ -74,6 +76,13 @@ public class ManagerUpgrade : MonoBehaviour
 
         UpdateButtons();
         UpdateUpgradeScene();
+    }
+
+    //Panel Methods
+    public void TogglePanels()
+    {
+        foreach (CanvasGroup panel in panels) Helper.CanvasHelper.ToggleCanvasGroup(panel);
+        foreach (Button button in toggleButtons) button.enabled = !button.enabled;
     }
 }
 
