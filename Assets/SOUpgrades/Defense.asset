@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Better Armor
   upgradeDescription:
-  - Slightly increase the quality of your warriors armor.
-  - Moderately increase the quality of your warriors armor.
-  - Greatly increase the quality of your warriors armor.
-  - Maxed. Your warrior's armor is the envy of all other warriors.
+  - Slightly increase the quality of your warriors' armor.
+  - Moderately increase the quality of your warriors' armor.
+  - Greatly increase the quality of your warriors' armor.
+  - Maxed. Your warriors' armor is the envy of all other warriors.
   maxRank: 3
   fameCostPerRank: 64000000c800000090010000

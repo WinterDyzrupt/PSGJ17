@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Agility Drills
   upgradeDescription:
-  - Slightly decrease the time between your warriors actions.
-  - Moderately decrease the time between your warriors actions.
-  - Greatly decrease the time between your warriors actions.
-  - Maxed. Your warrior rarely need any respite between their actions.
+  - Slightly decrease the time between your warriors' skills.
+  - Moderately decrease the time between your warriors' skills.
+  - Greatly decrease the time between your warriors' skills.
+  - Maxed. Your warriors' rarely need respite between their skills.
   maxRank: 3
   fameCostPerRank: 64000000c800000090010000

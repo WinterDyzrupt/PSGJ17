@@ -14,12 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Memento
   upgradeDescription:
-  - When one of your warriors are defeated, they now pass on a momento to the next
-    warrior.
-  - When one of your warriors are defeated, they now pass on a greater momento to
-    the next warrior.
-  - When one of your warriors are defeated, they now pass on a divine momento to
-    the next warrior.
+  - The fallen warrior leaves behind a Memento, empowering the next.
+  - The fallen warrior leaves behind a greater Memento, empowering the next.
+  - The fallen warrior leaves behind a divine Memento, empowering the next.
   - Maxed. Fallen warriors bless their successors with divine mementos.
   maxRank: 3
   fameCostPerRank: c80000009001000020030000

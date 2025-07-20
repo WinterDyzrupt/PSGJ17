@@ -17,6 +17,6 @@ MonoBehaviour:
   - Slightly increase the health of all your warriors.
   - Moderately increase the health of all your warriors.
   - Greatly increase the health of all your warriors.
-  - Maxed. Your warriors health has been greatly increased.
+  - Maxed. Your warriors' health has been greatly increased.
   maxRank: 3
   fameCostPerRank: 64000000c800000090010000

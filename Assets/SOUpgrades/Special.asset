@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Special
   upgradeDescription:
-  - A little pricey isn't?
-  - You are the master of the arena. All bow down to your warriors and their crowns.
+  - A little pricey isn't it?
+  - You are the master of the arena. All but the Emperor bow down to your warriors
+    and their crowns.
   maxRank: 1
   fameCostPerRank: a0860100
