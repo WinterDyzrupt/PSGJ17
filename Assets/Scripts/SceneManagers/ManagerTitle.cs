@@ -26,7 +26,6 @@ public class ManagerTitle : MonoBehaviour
 
     public void LoadPartySelectScene()
     {
-        // Open Modal for Boss Select, let those buttons do the arena later
         SceneManager.LoadScene("Party Select");
     }
 
