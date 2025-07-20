@@ -14,6 +14,7 @@ public class ManagerUpgrade : MonoBehaviour
     public Button PurchaseButton;
     public CanvasGroup[] panels;
     public Button[] toggleButtons;
+    public Image[] tabImages;
 
     void Start()
     {
@@ -83,6 +84,10 @@ public class ManagerUpgrade : MonoBehaviour
     {
         foreach (CanvasGroup panel in panels) Helper.CanvasHelper.ToggleCanvasGroup(panel);
         foreach (Button button in toggleButtons) button.enabled = !button.enabled;
+
+        Color colorPlaceholder = tabImages[0].color;
+        tabImages[0].color = tabImages[1].color;
+        tabImages[1].color = colorPlaceholder;
     }
 }
 
