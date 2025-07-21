@@ -13,4 +13,3 @@ namespace PersistentData
         public int Value => useConstant ? constantValue : variable.value;
     }
 }
-

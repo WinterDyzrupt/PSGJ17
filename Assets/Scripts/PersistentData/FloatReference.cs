@@ -8,7 +8,7 @@ namespace PersistentData
     {
         public bool useConstant = true;
         public float constantValue;
-        public IntVariable variable;
+        public FloatVariable variable;
 
         public float Value => useConstant ? constantValue : variable.value;
     }

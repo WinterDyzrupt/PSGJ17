@@ -8,11 +8,10 @@ public class ManagerTitle : MonoBehaviour
     // Canvas Groups
     public CanvasGroup levelSelectPanel;
     public CanvasGroup creditsPanel;
-    
+
     public IntVariable currentlySelectedBossIndex;
-    
+
     // TODO: Remove later, once character select is working
-    //[SerializeField]
     public Party currentParty;
     public Warrior warrior1;
     public Warrior warrior2;

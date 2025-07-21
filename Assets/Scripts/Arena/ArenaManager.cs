@@ -50,11 +50,6 @@ namespace Arena
             _gameOverMessageDisplayTime = TimeSpan.FromSeconds(gameOverMessageDisplayTimeInSeconds);
             _currentState = ArenaState.Awake;
 
-            // TODO: Remove this once character select is working
-            //var characterData = ScriptableObject.CreateInstance<CharacterData>();
-            //characterData.
-            //CharacterData[0] = Instantiate();
-
             Debug.Log("ArenaManager awake end");
         }
 
@@ -118,4 +113,3 @@ namespace Arena
         }
     }
 }
-
