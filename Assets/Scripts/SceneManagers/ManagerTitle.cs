@@ -1,15 +1,23 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Helper;
+using PersistentData;
 
 public class ManagerTitle : MonoBehaviour
 {
     // Canvas Groups
-    public CanvasGroup LevelSelectPanel;
-    public CanvasGroup CreditsPanel;
+    public CanvasGroup levelSelectPanel;
+    public CanvasGroup creditsPanel;
 
+    public IntVariable currentlySelectedBossIndex;
 
-    void Start()
+    // TODO: Remove later, once character select is working
+    public Party currentParty;
+    public Warrior warrior1;
+    public Warrior warrior2;
+    public Warrior warrior3;
+    
+    private void Start()
     {
         LoadData();
     }
@@ -21,23 +29,30 @@ public class ManagerTitle : MonoBehaviour
 
     public void LoadUpgradeScene()
     {
-        SceneManager.LoadScene("Upgrade");
+        SceneManager.LoadScene(SceneData.UpgradeSceneIndex);
     }
 
-    public void LoadPartySelectScene()
+    public void LoadArenaScene(int bossIndex)
     {
-        SceneManager.LoadScene("Party Select");
+        currentlySelectedBossIndex.value = bossIndex;
+        // TODO: Remove once party select is working
+        currentParty.warriors = new[]
+        {
+            warrior2,
+            warrior3,
+            warrior1
+        };
+        Debug.Log("CurrentParty: " + currentParty);
+        SceneManager.LoadScene(SceneData.ArenaSceneIndex);
     }
-
 
     public void ToggleLevelSelect()
     {
-        CanvasHelper.ToggleCanvasGroup(LevelSelectPanel);
+        CanvasHelper.ToggleCanvasGroup(levelSelectPanel);
     }
-
 
     public void ToggleCredits()
     {
-        CanvasHelper.ToggleCanvasGroup(CreditsPanel);
+        CanvasHelper.ToggleCanvasGroup(creditsPanel);
     }
 }
