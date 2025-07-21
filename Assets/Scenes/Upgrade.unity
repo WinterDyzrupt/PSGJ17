@@ -2058,7 +2058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492454594cba31c4c931c2261ac6f11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpgradeButtons:
+  upgradeButtons:
   - {fileID: 1421082713}
   - {fileID: 2127914822}
   - {fileID: 1490673137}
@@ -2074,10 +2074,10 @@ MonoBehaviour:
   selectedUpgrade:
     upgrade: {fileID: 0}
     currentRank: 0
-  FameAmount: {fileID: 1989148923}
-  SelectedName: {fileID: 897822221}
-  SelectedDescription: {fileID: 867712558}
-  PurchaseButton: {fileID: 1746814027}
+  fameAmount: {fileID: 1989148923}
+  selectedName: {fileID: 897822221}
+  selectedDescription: {fileID: 867712558}
+  purchaseButton: {fileID: 1746814027}
   panels:
   - {fileID: 556998242}
   - {fileID: 298296886}

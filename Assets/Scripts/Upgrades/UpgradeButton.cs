@@ -5,16 +5,17 @@ public class UpgradeButton : MonoBehaviour
 {
     public Image Icon;
     public Sprite[] rankIcons;
-    [SerializeField] private UpgradeSO upgradeSO;
+    public Upgrade upgrade;
 
     public void UpdateButton()
     {
-        UpgradeProgress upgradeProgress = PlayerUpgrades.Instance.GetUpgradeProgress(upgradeSO);
-        Icon.sprite = rankIcons[upgradeProgress.currentRank];
-    }
-
-    public void SendSelection()
-    {
-        ManagerUpgrade.Instance.SelectUpgrade(PlayerUpgrades.Instance.GetUpgradeProgress(upgradeSO));
+        if ((rankIcons?.Length ?? 0) < upgrade.currentRank)
+        {
+            Debug.LogError($"Insufficiant images in button upgrade for {upgrade.upgradeName}");
+        }
+        else
+        {
+            Icon.sprite = rankIcons[upgrade.currentRank];
+        }
     }
 }

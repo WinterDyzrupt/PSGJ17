@@ -55,7 +55,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 44f71563dadec254491f03aa49619d7f, type: 3}
   - {fileID: 21300000, guid: 8ff218180168ce044872e5d0706a1108, type: 3}
   - {fileID: 21300000, guid: aebf2158e7640d34fb1547e6ddd77417, type: 3}
-  upgradeSO: {fileID: 11400000, guid: eceda368555566443b52024c2407650c, type: 2}
+  upgrade: {fileID: 0}
 --- !u!1 &1278953957167950198
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,13 +252,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1910130394942053981}
-        m_TargetAssemblyTypeName: UpgradeButton, Assembly-CSharp
-        m_MethodName: SendSelection
-        m_Mode: 1
+      - m_Target: {fileID: 11500000, guid: 492454594cba31c4c931c2261ac6f11b, type: 3}
+        m_TargetAssemblyTypeName: SceneManagers.ManagerUpgrade, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: eceda368555566443b52024c2407650c, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Upgrade, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
