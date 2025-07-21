@@ -9,3 +9,10 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 *.log
+
+# Rider cache
+.idea/
+Assets/Plugins/Editor/JetBrains*
+
+#VisualStudio/etc. user settings
+*.user

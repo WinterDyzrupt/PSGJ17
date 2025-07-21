@@ -1,15 +1,24 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Helper;
+using PersistentData;
 
 public class ManagerTitle : MonoBehaviour
 {
     // Canvas Groups
-    public CanvasGroup LevelSelectPanel;
-    public CanvasGroup CreditsPanel;
-
-
-    void Start()
+    public CanvasGroup levelSelectPanel;
+    public CanvasGroup creditsPanel;
+    
+    public IntVariable currentlySelectedBossIndex;
+    
+    // TODO: Remove later, once character select is working
+    //[SerializeField]
+    public Party currentParty;
+    public Warrior warrior1;
+    public Warrior warrior2;
+    public Warrior warrior3;
+    
+    private void Start()
     {
         LoadData();
     }
@@ -21,24 +30,30 @@ public class ManagerTitle : MonoBehaviour
 
     public void LoadUpgradeScene()
     {
-        SceneManager.LoadScene("Upgrade");
+        SceneManager.LoadScene(SceneData.UpgradeSceneIndex);
     }
 
-    public void LoadArenaScene()
+    public void LoadArenaScene(int bossIndex)
     {
-        // Open Modal for Boss Select, let those buttons do the arena later
-        SceneManager.LoadScene("Arena");
+        currentlySelectedBossIndex.value = bossIndex;
+        // TODO: Remove once party select is working
+        currentParty.warriors = new[]
+        {
+            warrior2,
+            warrior3,
+            warrior1
+        };
+        Debug.Log("CurrentParty: " + currentParty);
+        SceneManager.LoadScene(SceneData.ArenaSceneIndex);
     }
-
 
     public void ToggleLevelSelect()
     {
-        CanvasHelper.ToggleCanvasGroup(LevelSelectPanel);
+        CanvasHelper.ToggleCanvasGroup(levelSelectPanel);
     }
-
 
     public void ToggleCredits()
     {
-        CanvasHelper.ToggleCanvasGroup(CreditsPanel);
+        CanvasHelper.ToggleCanvasGroup(creditsPanel);
     }
 }

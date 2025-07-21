@@ -634,8 +634,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84faa0f9025c71045a7444306f6a4b61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelSelectPanel: {fileID: 1388987289}
-  CreditsPanel: {fileID: 217291173}
+  levelSelectPanel: {fileID: 1388987289}
+  creditsPanel: {fileID: 217291173}
+  currentlySelectedBossIndex: {fileID: 11400000, guid: 8822083e2c7ea264fa6f28e253d44fc2, type: 2}
+  currentParty: {fileID: 11400000, guid: 906468d8f3f1bcc408d879651081450a, type: 2}
+  warrior1: {fileID: 11400000, guid: e8d52773fad31664fa81ad2d9b04740a, type: 2}
+  warrior2: {fileID: 11400000, guid: 0c7d02513663dda4388cad2a7c557b81, type: 2}
+  warrior3: {fileID: 11400000, guid: 6ae5e38a3cf9dfc4593907628aa702c7, type: 2}
 --- !u!4 &444662946
 Transform:
   m_ObjectHideFlags: 0
@@ -1961,7 +1966,7 @@ GameObject:
   - component: {fileID: 1329719967}
   - component: {fileID: 1329719966}
   m_Layer: 5
-  m_Name: Boss2
+  m_Name: Boss1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2034,11 +2039,11 @@ MonoBehaviour:
       - m_Target: {fileID: 444662945}
         m_TargetAssemblyTypeName: ManagerTitle, Assembly-CSharp
         m_MethodName: LoadArenaScene
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2585,7 +2590,7 @@ GameObject:
   - component: {fileID: 1597738975}
   - component: {fileID: 1597738974}
   m_Layer: 5
-  m_Name: Boss3
+  m_Name: Boss2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2658,11 +2663,11 @@ MonoBehaviour:
       - m_Target: {fileID: 444662945}
         m_TargetAssemblyTypeName: ManagerTitle, Assembly-CSharp
         m_MethodName: LoadArenaScene
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2718,7 +2723,7 @@ GameObject:
   - component: {fileID: 1627201851}
   - component: {fileID: 1627201850}
   m_Layer: 5
-  m_Name: Boss4
+  m_Name: Boss3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2791,11 +2796,11 @@ MonoBehaviour:
       - m_Target: {fileID: 444662945}
         m_TargetAssemblyTypeName: ManagerTitle, Assembly-CSharp
         m_MethodName: LoadArenaScene
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2987,7 +2992,7 @@ GameObject:
   - component: {fileID: 1681929130}
   - component: {fileID: 1681929129}
   m_Layer: 5
-  m_Name: Boss1
+  m_Name: Boss0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3060,7 +3065,7 @@ MonoBehaviour:
       - m_Target: {fileID: 444662945}
         m_TargetAssemblyTypeName: ManagerTitle, Assembly-CSharp
         m_MethodName: LoadArenaScene
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

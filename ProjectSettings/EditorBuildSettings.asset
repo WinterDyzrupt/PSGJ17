@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Party Select.unity
     guid: 66e15dd579ffcdd4b9ff3057ac71b406
   - enabled: 1
-    path: Assets/Scenes/Upgrade.unity
-    guid: 657963103db885543b72f59a6b9b7058
-  - enabled: 1
     path: Assets/Scenes/Arena.unity
     guid: f04c443bd13589744bcd65c11d58d860
+  - enabled: 1
+    path: Assets/Scenes/Upgrade.unity
+    guid: 657963103db885543b72f59a6b9b7058
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
