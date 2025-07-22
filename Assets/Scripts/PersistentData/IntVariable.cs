@@ -11,5 +11,7 @@ namespace PersistentData
         {
             value = 0;
         }
+        
+        public static implicit operator int(IntVariable intVariable) => intVariable.value;
     }
 }
