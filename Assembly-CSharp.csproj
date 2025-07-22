@@ -47,16 +47,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\PersistentData\FloatReference.cs" />
+    <Compile Include="Assets\Scripts\PersistentData\Bosses\Boss.cs" />
+    <Compile Include="Assets\Scripts\Arena\Status.cs" />
+    <Compile Include="Assets\Scripts\Arena\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\SceneManagers\ManagerTitle.cs" />
+    <Compile Include="Assets\Scripts\PersistentData\Bosses\CurrentBoss.cs" />
+    <Compile Include="Assets\Scripts\PersistentData\Warriors\Party.cs" />
     <Compile Include="Assets\Scripts\PersistentData\SceneData.cs" />
     <Compile Include="Assets\Scripts\PersistentData\IntVariable.cs" />
-    <Compile Include="Assets\Scripts\PersistentData\Party.cs" />
     <Compile Include="Assets\Scripts\PersistentData\IntReference.cs" />
     <Compile Include="Assets\Scripts\PersistentData\Warriors\Warrior.cs" />
+    <Compile Include="Assets\Scripts\Arena\ColllisionHandler.cs" />
+    <Compile Include="Assets\Scripts\Arena\CombatantAbomination.cs" />
     <Compile Include="Assets\Scripts\Helper\CanvasHelper.cs" />
     <Compile Include="Assets\Scripts\Arena\ArenaManager.cs" />
-    <Compile Include="Assets\Scripts\Arena\BarFiller.cs" />
+    <Compile Include="Assets\Scripts\PersistentData\Combatant.cs" />
     <Compile Include="Assets\Scripts\PersistentData\FloatVariable.cs" />
+    <Compile Include="Assets\Scripts\Arena\HealthBarFiller.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />

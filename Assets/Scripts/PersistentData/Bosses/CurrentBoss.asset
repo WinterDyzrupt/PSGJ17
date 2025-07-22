@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c044d79bcfd55541b17496fd6870d09, type: 3}
-  m_Name: WarriorName3
+  m_Script: {fileID: 11500000, guid: 1aa732c211e25e24197d6cf23399f226, type: 3}
+  m_Name: 
   m_EditorClassIdentifier: 
-  displayName: DisplayName3
-  description: description3
+  displayName: Name3
+  description: Descroption 3
   maxHealth:
     useConstant: 1
-    constantValue: 150
+    constantValue: 200
     variable: {fileID: 0}
   currentHealth:
-    useConstant: 0
+    useConstant: 1
     constantValue: 0
-    variable: {fileID: 0}
+    variable: {fileID: 11400000, guid: 406a907fe498a614e9042de00166b90d, type: 2}
