@@ -1,4 +1,5 @@
 using PersistentData;
+using PersistentData.Warriors;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;

@@ -1,4 +1,4 @@
-using PersistentData;
+using PersistentData.Warriors;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Special", menuName = "Scriptable Objects/Upgrade/Special")]

@@ -35,11 +35,9 @@ namespace Arena
         /// <param name="otherObject"></param>
         private void OnCollisionEnter2D(Collision2D otherObject)
         {
-            Debug.LogError("Collided with other object: " + otherObject.gameObject.name);
             if (otherObject.gameObject.TryGetComponent<CombatantAbomination>(out var otherCombatantAbomination))
             {
                 var otherCombatant = otherCombatantAbomination.combatant;
-                Debug.LogWarning("Collided with other combatant: " + otherCombatant);
                 otherCombatant.currentHealth.Value -= collisionDamage.Value;
             }
         }

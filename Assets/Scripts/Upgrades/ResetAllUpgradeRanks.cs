@@ -1,4 +1,4 @@
-using PersistentData;
+using PersistentData.Warriors;
 using UnityEngine;
 
 public class ResetAllUpgradeRanks : MonoBehaviour
