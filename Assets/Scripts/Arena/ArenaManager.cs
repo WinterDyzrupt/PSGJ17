@@ -92,8 +92,7 @@ namespace Arena
             }
             else
             {
-                Debug.Log("Setting current health to: " + currentBoss.maxHealth.Value / 2);
-                currentBossHealth.value = currentBoss.maxHealth.Value / 2;
+                currentBossHealth.value = currentBoss.maxHealth.Value;
             }
 
             Debug.Log("ArenaManager Start end");

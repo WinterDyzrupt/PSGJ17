@@ -2015,7 +2015,6 @@ MonoBehaviour:
     useConstant: 1
     constantValue: 600
     variable: {fileID: 0}
-  canMoveDiagonally: 1
   rigidBody: {fileID: 2117983103}
 --- !u!61 &2117983106
 BoxCollider2D:
@@ -2485,6 +2484,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2490612119676148298, guid: 7ced605fc4cd43848ab741b5885a429f, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1489016444}
     - target: {fileID: 8950500288057048306, guid: 7ced605fc4cd43848ab741b5885a429f, type: 3}
       propertyPath: m_Name
       value: PlayerStatus

@@ -18,3 +18,7 @@ MonoBehaviour:
     useConstant: 1
     constantValue: 250
     variable: {fileID: 0}
+  currentHealth:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 406a907fe498a614e9042de00166b90d, type: 2}

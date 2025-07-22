@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa732c211e25e24197d6cf23399f226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayName: Name3
-  description: Descroption 3
+  displayName: Name2
+  description: Description 2
   maxHealth:
     useConstant: 1
-    constantValue: 200
+    constantValue: 150
     variable: {fileID: 0}
   currentHealth:
-    useConstant: 1
+    useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 406a907fe498a614e9042de00166b90d, type: 2}
