@@ -1,3 +1,4 @@
+using PersistentData;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,9 +8,8 @@ namespace SceneManagers
 {
     public class ManagerUpgrade : MonoBehaviour
     {
-        public int test;
         public UpgradeButton[] upgradeButtons;
-        public Upgrade selectedUpgrade;
+        private Upgrade _selectedUpgrade;
         public TMP_Text fameAmount;
         public TMP_Text selectedName;
         public TMP_Text selectedDescription;
@@ -17,6 +17,8 @@ namespace SceneManagers
         public CanvasGroup[] panels;
         public Button[] toggleButtons;
         public Image[] tabImages;
+        public IntVariable currentFame;
+        public AllWarriors allWarriors;
 
         void Start()
         {
@@ -34,19 +36,18 @@ namespace SceneManagers
             foreach (UpgradeButton button in upgradeButtons) button.UpdateButton();
         }
 
-
         public void SelectUpgrade(UpgradeButton upgradeButton)
         {
-            selectedUpgrade = upgradeButton.upgrade;
+            _selectedUpgrade = upgradeButton.upgrade;
             RefreshUpgradeTextFields();
         }
 
         public void RefreshUpgradeTextFields()
         {
-            fameAmount.text = PlayerUpgrades.Instance.Fame.ToString();
+            fameAmount.text = currentFame.value.ToString();
 
             // If nothing selected, blank text fields and hide buy button
-            if (selectedUpgrade == null)
+            if (_selectedUpgrade == null)
             {
                 selectedName.text = "";
                 selectedDescription.text = "";
@@ -55,31 +56,33 @@ namespace SceneManagers
             }
 
             // populate Name and description
-            selectedName.text = selectedUpgrade.upgradeName;
+            selectedName.text = _selectedUpgrade.upgradeName;
+            Debug.Log($"Upgrade being used to populate data: {_selectedUpgrade}."); 
 
-            if ((selectedUpgrade.upgradeDescription?.Length ?? 0) < selectedUpgrade.currentRank)
+            if ((_selectedUpgrade.upgradeDescription?.Length ?? 0) < _selectedUpgrade.currentRank)
             {
-                Debug.LogError($"{selectedUpgrade.name} does not have a valid description or have enough elements.");
+                Debug.LogError($"{_selectedUpgrade.name} does not have a valid description or have enough elements.");
                 return;
             }
 
-            selectedDescription.text = selectedUpgrade.upgradeDescription[selectedUpgrade.currentRank];
+            selectedDescription.text = _selectedUpgrade.upgradeDescription[_selectedUpgrade.currentRank];
 
             // If max rank, hide button
-            if (selectedUpgrade.IsMaxed)
+            if (_selectedUpgrade.IsMaxed)
             {
                 purchaseButton.interactable = false;
+                purchaseButton.GetComponentInChildren<TMP_Text>().text = "Maxed";
             }
 
             // else show button and update button with price
             else
             {
                 purchaseButton.interactable = true;
-                purchaseButton.GetComponentInChildren<TMP_Text>().text = selectedUpgrade.GetCostForNextRank().ToString();
+                purchaseButton.GetComponentInChildren<TMP_Text>().text = _selectedUpgrade.GetCostForNextRank().ToString();
             }
 
             // if can afford, enable button
-            if (selectedUpgrade.CanAffordNextRank()) purchaseButton.interactable = true;
+            if (_selectedUpgrade.CanAffordNextRank(currentFame)) purchaseButton.interactable = true;
             // else disable button
             else purchaseButton.interactable = false;
         }
@@ -87,9 +90,9 @@ namespace SceneManagers
         public void PurchaseUpgrade()
         {
             // Deduct Fame
-            PlayerUpgrades.Instance.Fame -= selectedUpgrade.GetCostForNextRank();
+            currentFame.value -= _selectedUpgrade.GetCostForNextRank();
             // Rank up Progress
-            selectedUpgrade.IncreaseRank();
+            _selectedUpgrade.IncreaseRank(allWarriors);
 
             RefreshButtons();
             RefreshUpgradeTextFields();
@@ -99,12 +102,9 @@ namespace SceneManagers
         public void TogglePanels()
         {
             foreach (CanvasGroup panel in panels) Helper.CanvasHelper.ToggleCanvasGroup(panel);
-            foreach (Button button in toggleButtons) button.enabled = !button.enabled;
+            foreach (Button button in toggleButtons) button.interactable = !button.interactable;
 
             (tabImages[1].color, tabImages[0].color) = (tabImages[0].color, tabImages[1].color);
         }
     }
-
-
-
 }

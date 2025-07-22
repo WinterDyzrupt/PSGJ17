@@ -1,3 +1,4 @@
+using PersistentData;
 using UnityEngine;
 
 public class Upgrade : ScriptableObject
@@ -6,10 +7,11 @@ public class Upgrade : ScriptableObject
     public string upgradeName;
     [TextArea]
     public string[] upgradeDescription;
-    public int currentRank;
+    public Sprite[] rankIcons;
+    public int[] fameCostPerRank;
     public int maxRank;
     public bool IsMaxed => currentRank >= maxRank;
-    public int[] fameCostPerRank;
+    public int currentRank;
 
     public int GetCostForNextRank()
     {
@@ -27,16 +29,17 @@ public class Upgrade : ScriptableObject
         return rankCost;
     }
 
-    public bool CanAffordNextRank()
+    public bool CanAffordNextRank(int currentFame)
     {
-        return !IsMaxed && PlayerUpgrades.Instance.Fame >= GetCostForNextRank();
+        return !IsMaxed && currentFame >= GetCostForNextRank();
     }
 
-    public void IncreaseRank()
+    public void IncreaseRank(AllWarriors allWarriors)
     {
         if (!IsMaxed)
         {
             currentRank++;
+            ApplyToAllWarriors(allWarriors);
         }
         else
         {
@@ -44,11 +47,12 @@ public class Upgrade : ScriptableObject
         }
     }
 
-    public void SetRank(int rank)
+    public void SetRank(int rank, AllWarriors allWarriors)
     {
         if (rank <= maxRank)
         {
             currentRank = rank;
+            ApplyToAllWarriors(allWarriors);
         }
         else
         {
@@ -57,19 +61,10 @@ public class Upgrade : ScriptableObject
     }
 
 
-    /*     public void ApplyToAllWarriors(AllWarriors allWarriors)
-        {
-            foreach (Warrior warrior in allWarriors) ApplyUpgrade(warrior, currentRank);
-        }
+    public void ApplyToAllWarriors(AllWarriors allWarriors)
+    {
+        foreach (Warrior warrior in allWarriors.warriors) ApplyUpgrade(warrior, currentRank);
+    }
 
-        internal virtual void ApplyUpgrade(Warrior warrior, int rank) { } */
+    internal virtual void ApplyUpgrade(Warrior warrior, int rank) { }
 }
-
-/* [CreateAssetMenu(menuName = "Upgrades/Health")]
-public class Health : Upgrade
-{
-        internal override void ApplyUpgrade(Warrior warrior, int rank)
-        {
-            warrior.health = rank * 10 + warrior.baseHealth;
-        }
-} */

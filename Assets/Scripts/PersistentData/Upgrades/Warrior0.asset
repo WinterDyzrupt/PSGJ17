@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9edc152a4ae00d2448a20b9888daf899, type: 3}
+  m_Name: Warrior0
+  m_EditorClassIdentifier: 
+  upgradeName: Warrior0 (Please don't leave this)
+  upgradeDescription:
+  - 'Exalt Warrior
+
+    Description of the ability changes for this warrior.'
+  - 'Max
+
+    Description of warrior with updated summary of their playstyle.'
+  rankIcons:
+  - {fileID: 21300000, guid: 861ea56ab1902ef4b85cc14453956b07, type: 3}
+  - {fileID: 21300000, guid: e45524d861072544bb27e62a9a9345f1, type: 3}
+  fameCostPerRank: 20030000
+  maxRank: 1
+  currentRank: 0

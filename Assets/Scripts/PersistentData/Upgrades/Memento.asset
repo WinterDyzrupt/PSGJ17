@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfa1bf22d9ce894abc635b5a806b905, type: 3}
+  m_Name: Memento
+  m_EditorClassIdentifier: 
+  upgradeName: Memento
+  upgradeDescription:
+  - The fallen warrior leaves behind a Memento, empowering the next.
+  - The fallen warrior leaves behind a greater Memento, empowering the next.
+  - The fallen warrior leaves behind a divine Memento, empowering the next.
+  - Maxed. Fallen warriors bless their successors with divine mementos.
+  rankIcons:
+  - {fileID: 21300000, guid: 04a452f93b6f70c438efd8c4365c2932, type: 3}
+  - {fileID: 21300000, guid: db414d9a50b4d6449b999f859461db82, type: 3}
+  - {fileID: 21300000, guid: 0ab7e082f385b124881b6bb96fbcae18, type: 3}
+  - {fileID: 21300000, guid: 09aefe782da1e554db8d1d32807cdd3c, type: 3}
+  fameCostPerRank: c80000009001000020030000
+  maxRank: 3
+  currentRank: 0
