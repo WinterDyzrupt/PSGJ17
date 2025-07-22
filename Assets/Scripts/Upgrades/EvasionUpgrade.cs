@@ -1,4 +1,4 @@
-using PersistentData;
+using PersistentData.Warriors;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Evasion", menuName = "Scriptable Objects/Upgrade/Evasion")]

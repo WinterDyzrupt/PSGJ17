@@ -1,8 +1,9 @@
 using UnityEngine;
 using System;
 using System.Diagnostics;
-//using UnityEngine.SceneManagement;
 using PersistentData;
+using PersistentData.Bosses;
+using PersistentData.Warriors;
 using Debug = UnityEngine.Debug;
 
 namespace Arena
@@ -11,7 +12,13 @@ namespace Arena
     {
         public IntReference currentlySelectedBossIndex;
 
+        public CurrentBoss currentBoss;
+
+        public IntVariable  currentBossHealth;
+
         public Party currentParty;
+
+        public Warrior currentWarrior;
 
         public Canvas introMessage;
 
@@ -43,30 +50,52 @@ namespace Arena
 
         private void Awake()
         {
-            Debug.Log("ArenaManager awake start");
+            Debug.Log("ArenaManager Awake start");
             _messageTimer = new Stopwatch();
             _introMessageDisplayTime = TimeSpan.FromSeconds(introMessageDisplayTimeInSeconds);
             _nextMessageDisplayTime = TimeSpan.FromSeconds(nextMessageDisplayTimeInSeconds);
             _gameOverMessageDisplayTime = TimeSpan.FromSeconds(gameOverMessageDisplayTimeInSeconds);
             _currentState = ArenaState.Awake;
 
-            Debug.Log("ArenaManager awake end");
+            Debug.Log("ArenaManager Awake end");
         }
 
         private void Start()
         {
-            Debug.Log("ArenaManager start start");
-            Debug.Log("currentlySelectedBossIndex: " + currentlySelectedBossIndex.Value);
+            Debug.Log("ArenaManager Start start");
 
-            if ((currentParty?.warriors?.Length ?? 0) == 0)
+            if ((currentParty?.warriors?.Count ?? 0) == 0)
             {
-                Debug.LogError("currentParty is not populated.");
+                Debug.LogError(nameof(currentParty) + " is not populated.");
             }
             else
             {
                 Debug.Log("currentParty: " + currentParty);
+                currentWarrior.SetValues(currentParty.warriors[0]);
+                currentWarrior.currentHealth.Value = currentWarrior.maxHealth.Value;
+                Debug.Log("currentWarrior: " + currentWarrior);
+                currentParty.warriors.RemoveAt(0);
             }
-            Debug.Log("ArenaManager start end");
+
+            if (!currentBoss)
+            {
+                Debug.LogError(nameof(currentBoss) + " is not populated.");
+            }
+            else
+            {
+                Debug.Log("currentBoss: " + currentBoss);
+            }
+
+            if (currentBoss?.maxHealth == null)
+            {
+                Debug.LogError(nameof(currentBoss.maxHealth) + " is null.");
+            }
+            else
+            {
+                currentBossHealth.value = currentBoss.maxHealth.Value;
+            }
+
+            Debug.Log("ArenaManager Start end");
         }
 
         private void Update()
@@ -77,6 +106,8 @@ namespace Arena
                     _messageTimer.Start();
                     introMessage.enabled = true;
                     _currentState = ArenaState.DisplayingIntroMessage;
+                    // TODO: spawn player paused
+                    // TODO: spawn boss paused
                     break;
                 case ArenaState.DisplayingIntroMessage:
                     if (_messageTimer.Elapsed > _introMessageDisplayTime)
@@ -93,9 +124,7 @@ namespace Arena
                     // UnityEngine.Debug.LogWarning("Unexpected state: " + _currentState);
                     // SceneManager.LoadScene(SceneData.MainMenuSceneIndex);
                     break;
-                
             }
-
         }
 
         private enum ArenaState

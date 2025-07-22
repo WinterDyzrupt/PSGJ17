@@ -641,6 +641,12 @@ MonoBehaviour:
   warrior1: {fileID: 11400000, guid: e8d52773fad31664fa81ad2d9b04740a, type: 2}
   warrior2: {fileID: 11400000, guid: 0c7d02513663dda4388cad2a7c557b81, type: 2}
   warrior3: {fileID: 11400000, guid: 6ae5e38a3cf9dfc4593907628aa702c7, type: 2}
+  bosses:
+  - {fileID: 11400000, guid: e11182d9d0a0b7344804a43bdbc21a91, type: 2}
+  - {fileID: 11400000, guid: 7dca1ad27e54790448d6555718534ec4, type: 2}
+  - {fileID: 11400000, guid: 317a8621a01c48141973b64a2706d3ee, type: 2}
+  - {fileID: 11400000, guid: 19a2f2ac3b20d194c94ea62efb2e7834, type: 2}
+  currentBoss: {fileID: 11400000, guid: fdf2429f79cb3dd42abf5e810e17825e, type: 2}
 --- !u!4 &444662946
 Transform:
   m_ObjectHideFlags: 0
@@ -2044,6 +2050,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 444662945}
+        m_TargetAssemblyTypeName: ManagerTitle, Assembly-CSharp
+        m_MethodName: LoadArenaScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

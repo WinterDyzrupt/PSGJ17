@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PersistentData
 {
-    internal class SceneData : ScriptableObject
+    public static class SceneData
     {
         public const int MainMenuSceneIndex = 0;
         public const int PartySelectSceneIndex = 1;

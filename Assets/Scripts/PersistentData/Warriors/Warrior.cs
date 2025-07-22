@@ -1,17 +1,10 @@
 using UnityEngine;
 
-namespace PersistentData
+namespace PersistentData.Warriors
 {
-    [CreateAssetMenu(fileName = "Warrior", menuName = "Scriptable Objects/Warrior")]
-    public class Warrior : ScriptableObject
+    [CreateAssetMenu(fileName = "Warrior", menuName = "Warriors/Warrior")]
+    public class Warrior : Combatant
     {
-        public string displayName;
-        public string description;
-        //TODO: Skills, etc.
 
-        public override string ToString()
-        {
-            return "DisplayName: " + displayName;
-        }
     }
 }

@@ -14,3 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: DisplayName3
   description: description3
+  maxHealth:
+    useConstant: 1
+    constantValue: 150
+    variable: {fileID: 0}
+  currentHealth:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 0}

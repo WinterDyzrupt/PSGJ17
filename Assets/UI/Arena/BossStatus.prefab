@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2099413700817559253}
   - component: {fileID: 2901801216354857117}
   m_Layer: 5
-  m_Name: Name
+  m_Name: BossName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 2994799372857746411}
   - component: {fileID: 7304621765979005081}
   - component: {fileID: 4638674503412386418}
+  - component: {fileID: 6201960739900102758}
   m_Layer: 5
   m_Name: BossStatus
   m_TagString: Untagged
@@ -247,6 +248,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6254698977910176144}
   m_CullTransparentMesh: 1
+--- !u!114 &6201960739900102758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6254698977910176144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0e814c221fb0b45a29e0db121e5c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatant: {fileID: 11400000, guid: fdf2429f79cb3dd42abf5e810e17825e, type: 2}
+  displayNameBox: {fileID: 0}
 --- !u!1 &6977831617799672597
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,14 +453,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4529899661335546381, guid: 08ac7c7a2c159064a8d5b7dc87c85e5a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1081069162133555925}
+      addedObject: {fileID: 2168713702933588}
   m_SourcePrefab: {fileID: 100100000, guid: 08ac7c7a2c159064a8d5b7dc87c85e5a, type: 3}
 --- !u!1 &363927508764695731 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4529899661335546381, guid: 08ac7c7a2c159064a8d5b7dc87c85e5a, type: 3}
   m_PrefabInstance: {fileID: 4310368815955891902}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1081069162133555925
+--- !u!114 &2168713702933588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -458,8 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 6055290185003585763}
-  currentValue: 100
-  maxValue: 100
+  combatant: {fileID: 11400000, guid: fdf2429f79cb3dd42abf5e810e17825e, type: 2}
 --- !u!224 &1025846204355414096 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3885771028918525678, guid: 08ac7c7a2c159064a8d5b7dc87c85e5a, type: 3}
