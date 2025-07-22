@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32d7a346e85bd743bbe1abfc50f5943, type: 3}
+  m_Name: Special
+  m_EditorClassIdentifier: 
+  upgradeName: Special
+  upgradeDescription:
+  - A little pricey isn't it?
+  - You are the master of the arena. All but the Emperor bow down to your warriors
+    and their crowns.
+  rankIcons:
+  - {fileID: 21300000, guid: a346b4b136b7bba419774f8b3711a4b7, type: 3}
+  - {fileID: 21300000, guid: 84e3b396975c3d0449bd84246d6e943f, type: 3}
+  fameCostPerRank: a0860100
+  maxRank: 1
+  currentRank: 0
