@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Arena
 {
-
     /// <summary>
     /// Handles collisions; this should be attached to anything that does damage to a combatant, not non-damaging objects.
     /// </summary>
@@ -38,7 +37,7 @@ namespace Arena
             if (otherObject.gameObject.TryGetComponent<CombatantAbomination>(out var otherCombatantAbomination))
             {
                 var otherCombatant = otherCombatantAbomination.combatant;
-                otherCombatant.currentHealth.Value -= collisionDamage.Value;
+                otherCombatant.ReceiveDamage(collisionDamage.Value);
             }
         }
     }

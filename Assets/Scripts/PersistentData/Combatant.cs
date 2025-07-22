@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
@@ -7,16 +6,11 @@ namespace PersistentData
     public class Combatant : ScriptableObject
     {
         public string displayName;
+        [TextArea]
         public string description;
         public IntReference maxHealth;
         public IntReference currentHealth;
 
-        public override string ToString()
-        {
-            return string.Format(
-                $"Name: {displayName}\nDescription: {description}\nMaxHealth: {maxHealth}\nCurrentHealth: {currentHealth}");
-        }
-        
         public void SetValues(Combatant combatantToGetValuesFrom)
         {
             this.description = combatantToGetValuesFrom.description;
@@ -48,6 +42,20 @@ namespace PersistentData
             this.name = string.Empty;
             this.maxHealth?.ResetValue();
             this.currentHealth?.ResetValue();
+        }
+
+        public void ReceiveDamage(int initialDamage)
+        {
+            Debug.Log($"{displayName} taking damage: {initialDamage}");
+
+            // TODO: Once defense/etc. is added, fill out damage calculation.
+            currentHealth.Value -= initialDamage;
+        }
+
+        public override string ToString()
+        {
+            return string.Format(
+                $"Name: {displayName}\nDescription: {description}\nMaxHealth: {maxHealth}\nCurrentHealth: {currentHealth}");
         }
     }
 }
