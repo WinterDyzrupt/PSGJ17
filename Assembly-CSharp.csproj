@@ -56,7 +56,6 @@
     <Compile Include="Assets\Scripts\Upgrades\DefenseUpgrade.cs" />
     <Compile Include="Assets\Scripts\SceneManagers\ManagerTitle.cs" />
     <Compile Include="Assets\Scripts\Upgrades\AgilityUpgrade.cs" />
-    <Compile Include="Assets\Scripts\UnityTools\ResetPersistentDataOnRun.cs" />
     <Compile Include="Assets\Scripts\Upgrades\EvasionUpgrade.cs" />
     <Compile Include="Assets\Scripts\PersistentData\SceneData.cs" />
     <Compile Include="Assets\Scripts\Upgrades\AllUpgrades.cs" />
@@ -71,6 +70,7 @@
     <Compile Include="Assets\Scripts\Upgrades\SpecialUpgrade.cs" />
     <Compile Include="Assets\Scripts\Helper\CanvasHelper.cs" />
     <Compile Include="Assets\Scripts\Upgrades\Upgrade.cs" />
+    <Compile Include="Assets\Scripts\Upgrades\ResetAllUpgradeRanks.cs" />
     <Compile Include="Assets\Scripts\Arena\ArenaManager.cs" />
     <Compile Include="Assets\Scripts\Upgrades\HealthUpgrade.cs" />
     <Compile Include="Assets\Scripts\Arena\BarFiller.cs" />

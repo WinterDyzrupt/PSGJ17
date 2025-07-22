@@ -57,7 +57,6 @@ namespace SceneManagers
 
             // populate Name and description
             selectedName.text = _selectedUpgrade.upgradeName;
-            Debug.Log($"Upgrade being used to populate data: {_selectedUpgrade}."); 
 
             if ((_selectedUpgrade.upgradeDescription?.Length ?? 0) < _selectedUpgrade.currentRank)
             {
