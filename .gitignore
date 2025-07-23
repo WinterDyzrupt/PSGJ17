@@ -14,6 +14,7 @@
 ExportedObj/
 .consulo/
 *.csproj
+Assembly-CSharp.csproj
 *.sln
 *.suo
 *.tmp
