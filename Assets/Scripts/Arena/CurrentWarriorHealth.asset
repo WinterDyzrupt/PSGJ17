@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a28e0ae04526e7644a08bef85f03a494, type: 3}
-  m_Name: CurrentPlayerHealth
+  m_Name: CurrentWarriorHealth
   m_EditorClassIdentifier: 
   value: 0

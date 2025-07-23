@@ -1,6 +1,5 @@
 using PersistentData;
 using UnityEngine;
-using PersistentData.Bosses;
 using TMPro;
 
 namespace Arena
