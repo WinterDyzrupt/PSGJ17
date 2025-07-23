@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f30b0943a07148a4b83551cce9099492, type: 3}
-  m_Name: CurrentBossHealth
+  m_Script: {fileID: 11500000, guid: da34efe63cbe8ef47ad4a1bbc2ee3c0b, type: 3}
+  m_Name: CurrentPlayerDamageEvent
   m_EditorClassIdentifier: 
-  value: 0
