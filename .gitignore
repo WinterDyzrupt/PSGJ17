@@ -10,9 +10,13 @@
 /[Uu]ser[Ss]ettings/
 *.log
 
+#VisualStudio/etc. user settings
+*.user
+
+# Auto-generated VisualStudio-related files
+*.csproj
+*.sln
+
 # Rider cache
 .idea/
 Assets/Plugins/Editor/JetBrains*
-
-#VisualStudio/etc. user settings
-*.user
