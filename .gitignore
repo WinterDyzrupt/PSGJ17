@@ -11,11 +11,17 @@
 *.log
 
 #VisualStudio/etc. user settings
-*.user
-
-# Auto-generated VisualStudio-related files
+ExportedObj/
+.consulo/
 *.csproj
 *.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+
+# Auto-generated VisualStudio-related files
+
 
 # Rider cache
 .idea/
