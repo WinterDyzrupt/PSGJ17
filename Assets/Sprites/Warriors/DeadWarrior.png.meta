@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e944b2efe10fecc4d8299d6a7db28abe
+guid: 6727c4fe0a3ab954d964727a750dddb1
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HealthBar
+      name: DeadWarrior
       rect:
         serializedVersion: 2
         x: 0
@@ -165,7 +165,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HealthBar: 7482667652216324306
+      DeadWarrior: 7482667652216324306
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

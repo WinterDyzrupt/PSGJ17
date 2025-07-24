@@ -10,7 +10,10 @@ namespace Arena
 {
     public class ArenaManager : MonoBehaviour
     {
-        public IntReference currentlySelectedBossIndex;
+        /// <summary>
+        /// Used to make sure it gets the right sprite, which is picked from a previous scene.
+        /// </summary>
+        public GameObject bossGameObject;
 
         public CurrentBoss currentBoss;
 
@@ -19,6 +22,8 @@ namespace Arena
         public Party currentParty;
 
         public Warrior currentWarrior;
+
+        public GameObject currentWarriorPrefab;
 
         public Canvas introMessage;
 
@@ -57,7 +62,7 @@ namespace Arena
             _introMessageDisplayTime = TimeSpan.FromSeconds(introMessageDisplayTimeInSeconds);
             _warriorDeathMessageDisplayTime = TimeSpan.FromSeconds(warriorDeathMessageDisplayTimeInSeconds);
             _partyDeathMessageDisplayTime = TimeSpan.FromSeconds(partyDeathMessageDisplayTimeInSeconds);
-            _bossDeathMessageDisplayTime = TimeSpan.FromSeconds(partyDeathMessageDisplayTimeInSeconds);
+            _bossDeathMessageDisplayTime = TimeSpan.FromSeconds(bossDeathMessageDisplayTimeInSeconds);
             _currentState = ArenaState.Awake;
 
             Debug.Log("ArenaManager Awake end");
@@ -83,13 +88,14 @@ namespace Arena
             
             Debug.Assert(currentBoss != null, nameof(currentBoss) + " expected to be not null");
             Debug.Assert(currentBoss.maxHealth != null, nameof(currentBoss.maxHealth) + " expected to be not null.");
-
-
+            Debug.Assert(bossGameObject != null, nameof(bossGameObject) + " expected to be not null");
             SendNextWarriorIntoArena(currentWarrior, currentParty);
 
             currentBossHealth.value = currentBoss.maxHealth.Value;
+            var bossSpriteRenderer = bossGameObject.GetComponent<SpriteRenderer>();
+            bossSpriteRenderer.sprite = currentBoss.sprite;
             Debug.Log("currentBoss: " + currentBoss);
-            
+
             Debug.Log("ArenaManager Start end");
         }
 
@@ -111,10 +117,11 @@ namespace Arena
                     break;
                 case ArenaState.CombatStart:
                     // nothing for now, let combat play out
+                    // Player death and boss death are triggered by those events, and OnWarriorDeath and OnBossDeath
+                    // are wired up in Unity.
                     break;
                 case ArenaState.WarriorDeath:
-                    // the dead warrior is made inactive through death event in Unity config
-                    // TODO: add currentPlayer to DeadPlayers
+                    // Warrior gets disabled and left as a corpse in PersistAfterDeath attached to the warrior.
                     if (currentParty.warriors.Count > 0)
                     {
                         ShowMessage(warriorDeathMessage, _messageTimer);
@@ -132,7 +139,6 @@ namespace Arena
                     {
                         // TODO: reset boss position/logic? (not current health)
                         SendNextWarriorIntoArena(currentWarrior, currentParty);
-                        Debug.Log("Starting combat again");
                         _currentState = ArenaState.CombatStart;
                     }
 
@@ -159,7 +165,7 @@ namespace Arena
                     break;
 
                 case ArenaState.DisplayingResults:
-                    // Do nothing?
+                    // Do nothing, player should click a button to go back to title or party select.
                     break;
                 case ArenaState.Unknown:
                 default:
@@ -168,7 +174,7 @@ namespace Arena
                     break;
             }
         }
-        
+
         /// <summary>
         /// Removes a warrior from the part and sets the placeholder to the removed warrior.
         /// </summary>
@@ -179,6 +185,9 @@ namespace Arena
             var nextWarrior = PrepareNextWarriorFromParty(party);
             currentWarriorPlaceholder.SetValues(nextWarrior);
             currentWarriorPlaceholder.currentHealth.Value = currentWarriorPlaceholder.maxHealth.Value;
+
+            var player = Instantiate(currentWarriorPrefab);
+            player.GetComponent<SpriteRenderer>().sprite = currentWarriorPlaceholder.sprite;
         }
 
         /// <summary>
@@ -204,7 +213,7 @@ namespace Arena
             message.gameObject.SetActive(true);
             Debug.Assert(message.isActiveAndEnabled, "expected message to be active an enabled");
         }
-        
+
         /// <summary>
         /// Hides the specified message after the timer has measured the specified timeToShowMessage 
         /// </summary>
@@ -251,8 +260,7 @@ namespace Arena
             DisplayingPartyDeathMessage,
             BossDeath,
             DisplayingBossDeathMessage,
-            DisplayingResults,
-            Finished
+            DisplayingResults
         }
     }
 }
