@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PersistentData.Warriors
 {
-    [CreateAssetMenu(fileName = "AllWarriors", menuName = "Scriptable Objects/AllWarriors")]
+    [CreateAssetMenu(fileName = "AllWarriors", menuName = "Warriors/AllWarriors")]
     public class AllWarriors : ScriptableObject
     {
         public List<Warrior> warriors;
