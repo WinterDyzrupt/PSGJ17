@@ -50,9 +50,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Arena\Combat\BasicArrow.cs" />
     <Compile Include="Assets\Scripts\PersistentData\FloatReference.cs" />
+    <Compile Include="Assets\Scripts\PersistentData\StringReference.cs" />
     <Compile Include="Assets\Scripts\PersistentData\Bosses\Boss.cs" />
+    <Compile Include="Assets\Scripts\PersistentData\StringVariable.cs" />
     <Compile Include="Assets\Scripts\Upgrades\Warrior3Upgrade.cs" />
-    <Compile Include="Assets\Scripts\Arena\Status.cs" />
     <Compile Include="Assets\Scripts\Arena\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Arena\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Upgrades\Warrior4Upgrade.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Assets\Scripts\Upgrades\DefenseUpgrade.cs" />
     <Compile Include="Assets\Scripts\SceneManagers\ManagerTitle.cs" />
     <Compile Include="Assets\Scripts\PersistentData\Bosses\CurrentBoss.cs" />
+    <Compile Include="Assets\Scripts\Arena\PersistAfterDeath.cs" />
     <Compile Include="Assets\Scripts\Upgrades\AgilityUpgrade.cs" />
     <Compile Include="Assets\Scripts\PersistentData\Warriors\Party.cs" />
     <Compile Include="Assets\Scripts\Upgrades\EvasionUpgrade.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Assets\Scripts\Upgrades\Warrior0Upgrade.cs" />
     <Compile Include="Assets\Scripts\Upgrades\MementoUpgrade.cs" />
     <Compile Include="Assets\Scripts\Arena\Collisions\DealsDamageOnCollision.cs" />
+    <Compile Include="Assets\Scripts\Arena\SetStatusDisplay.cs" />
     <Compile Include="Assets\Scripts\PersistentData\Warriors\Warrior.cs" />
     <Compile Include="Assets\Scripts\PersistentData\Warriors\AllWarriors.cs" />
     <Compile Include="Assets\Scripts\Upgrades\SpeedUpgrade.cs" />
@@ -95,7 +98,6 @@
     <Compile Include="Assets\Scripts\Upgrades\Warrior1Upgrade.cs" />
     <Compile Include="Assets\Scripts\PersistentData\FloatVariable.cs" />
     <Compile Include="Assets\Scripts\SceneManagers\ManagerUpgrade.cs" />
-    <Compile Include="Assets\Scripts\Arena\HealthBarFiller.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -29,11 +29,11 @@ public class Projectile : MonoBehaviour
 
     public void InitializeProjectile(FactionType faction)
     {
-        Vector3 rotation = Quaternion.Euler(0, 0, transform.eulerAngles.z) * Vector3.right;
-        transform.localPosition += instantiateOffset * rotation;
-        GetComponent<Rigidbody2D>().linearVelocity = projectileSpeed * (Vector2)rotation;
         transform.SetParent(null);
         transform.localScale = Vector3.one;
+        Vector3 rotation = Quaternion.Euler(0, 0, transform.eulerAngles.z) * Vector3.right;
+        transform.position += instantiateOffset * rotation;
+        GetComponent<Rigidbody2D>().linearVelocity = projectileSpeed * (Vector2)rotation;
 
         gameObject.AddComponent<Faction>().faction = faction;
     }

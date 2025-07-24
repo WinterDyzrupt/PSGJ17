@@ -179,10 +179,9 @@ MonoBehaviour:
   bossGameObject: {fileID: 1670921971}
   currentBoss: {fileID: 11400000, guid: fdf2429f79cb3dd42abf5e810e17825e, type: 2}
   currentBossHealth: {fileID: 11400000, guid: 406a907fe498a614e9042de00166b90d, type: 2}
-  currentParty: {fileID: 11400000, guid: 906468d8f3f1bcc408d879651081450a, type: 2}
+  currentParty: {fileID: 11400000, guid: a984bfaea38967049a7a1bda364619a7, type: 2}
   currentWarrior: {fileID: 11400000, guid: 7089a1bc9a753e4418bfd252aa418eb5, type: 2}
   currentWarriorPrefab: {fileID: 2823093445682186377, guid: b948b636cde7bc84792531e5eebb117a, type: 3}
-  deadWarriors: {fileID: 1381483905}
   introMessage: {fileID: 1602181523}
   introMessageDisplayTimeInSeconds: 2
   warriorDeathMessage: {fileID: 745288356}
@@ -2663,10 +2662,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2634824234098270247, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 7482667652216324306, guid: c92ef63b80783ea4ebe0d2c475378c50, type: 3}
-    - target: {fileID: 2634824234098270247, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -2683,12 +2678,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1498209312392045838, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1948867465}
-    - targetCorrespondingSourceObject: {fileID: 1498209312392045838, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1948867467}
-    - targetCorrespondingSourceObject: {fileID: 1498209312392045838, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1948867468}
   m_SourcePrefab: {fileID: 100100000, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
