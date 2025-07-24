@@ -1,4 +1,3 @@
-using PersistentData;
 using UnityEngine;
 
 public class SkillPart : ScriptableObject
@@ -17,8 +16,5 @@ public class SkillPart : ScriptableObject
 
     // Where the skills will do something
     // It needs to know who fired it.
-    public virtual void ExecuteSkill() { }
-    public virtual void ExecuteSkill(Transform transform) { }
-    public virtual void ExecuteSkill(Combatant combatant) { }
-    // public virtual void ExecuteSkill(Faction faction) { }
+    public virtual void ExecuteSkill(Transform transform, FactionType faction) { }
 }

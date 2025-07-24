@@ -1,5 +1,3 @@
-using Arena;
-using Events;
 using PersistentData;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,11 +15,22 @@ namespace Arena.Collisions
         public UnityEvent damageEvent;
         public UnityEvent deathEvent;
 
+        private FactionType _faction;
+
         public bool resetCurrentHealth = true;
-        
+
         private void Start()
         {
-            Debug.Assert(currentCombatant != null,  $"{nameof(currentCombatant)} was null");
+            if (TryGetComponent(out Faction factionComponent))
+            {
+                _faction = factionComponent.faction;
+            }
+            else
+            {
+                Debug.LogError($"{gameObject.name} doesn't have a faction and can take damage!");
+            }
+
+            Debug.Assert(currentCombatant != null, $"{nameof(currentCombatant)} was null");
             if (resetCurrentHealth)
             {
                 currentCombatant.currentHealth.Value = currentCombatant.maxHealth.Value;
@@ -36,12 +45,37 @@ namespace Arena.Collisions
         {
             if (otherObject.gameObject.TryGetComponent<DealsDamageOnCollision>(out var dealsDamageOnCollision))
             {
-                currentCombatant.ReceiveDamage(dealsDamageOnCollision.damage.Value);
-                damageEvent?.Invoke();
+                FactionType otherFaction = otherObject.gameObject.GetComponent<Faction>().faction;
 
-                if (currentCombatant.currentHealth <= 0f)
+                if (_faction != otherFaction)
                 {
-                    deathEvent?.Invoke();
+                    currentCombatant.ReceiveDamage(dealsDamageOnCollision.damage.Value);
+                    damageEvent?.Invoke();
+
+                    if (currentCombatant.currentHealth <= 0f)
+                    {
+                        deathEvent?.Invoke();
+                    }
+                }
+            }
+        }
+        private void OnTriggerEnter2D(Collider2D otherObject)
+        {
+            if (otherObject.gameObject.TryGetComponent<DealsDamageOnCollision>(out var dealsDamageOnCollision))
+            {
+                FactionType otherFaction = otherObject.gameObject.GetComponent<Faction>().faction;
+
+                Debug.Log($"Damage Detected: from {otherObject.name} with {otherFaction} to {gameObject.name} with {_faction}!");
+
+                if (_faction != otherFaction)
+                {
+                    currentCombatant.ReceiveDamage(dealsDamageOnCollision.damage.Value);
+                    damageEvent?.Invoke();
+
+                    if (currentCombatant.currentHealth <= 0f)
+                    {
+                        deathEvent?.Invoke();
+                    }
                 }
             }
         }

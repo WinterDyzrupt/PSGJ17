@@ -10,13 +10,18 @@ namespace PersistentData
         public string description;
         public FloatReference maxHealth;
         public FloatReference currentHealth;
+        public Skill basicAttack;
+        public Skill ability1;
+        public Skill ability2;
+        public Skill utility;
+
 
         public void SetValues(Combatant combatantToGetValuesFrom)
         {
-            Debug.Assert(this.maxHealth != null,  $"{nameof(this.maxHealth)} expected to be not null.");
-            Debug.Assert(this.currentHealth != null,  $"{nameof(this.currentHealth)} expected to be not null.");
-            Debug.Assert(combatantToGetValuesFrom.maxHealth != null,  $"{nameof(combatantToGetValuesFrom.maxHealth)} expected to be not null.");
-            Debug.Assert(combatantToGetValuesFrom.currentHealth != null,  $"{nameof(combatantToGetValuesFrom.currentHealth)} expected to be not null.");
+            Debug.Assert(this.maxHealth != null, $"{nameof(this.maxHealth)} expected to be not null.");
+            Debug.Assert(this.currentHealth != null, $"{nameof(this.currentHealth)} expected to be not null.");
+            Debug.Assert(combatantToGetValuesFrom.maxHealth != null, $"{nameof(combatantToGetValuesFrom.maxHealth)} expected to be not null.");
+            Debug.Assert(combatantToGetValuesFrom.currentHealth != null, $"{nameof(combatantToGetValuesFrom.currentHealth)} expected to be not null.");
 
             this.description = combatantToGetValuesFrom.description;
             this.displayName = combatantToGetValuesFrom.displayName;
@@ -24,6 +29,10 @@ namespace PersistentData
             this.maxHealth.Value = combatantToGetValuesFrom.maxHealth.Value;
             this.currentHealth.useConstant = combatantToGetValuesFrom.currentHealth.useConstant;
             this.currentHealth.Value = combatantToGetValuesFrom.currentHealth.Value;
+            this.basicAttack = combatantToGetValuesFrom.basicAttack;
+            this.ability1 = combatantToGetValuesFrom.ability1;
+            this.ability2 = combatantToGetValuesFrom.ability2;
+            this.utility = combatantToGetValuesFrom.utility;
         }
 
         public void Reset()

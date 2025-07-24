@@ -22,7 +22,7 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 0}
-  skill1BasicAttack: {fileID: 11400000, guid: 4411e927f23dc594fb4b36e04ba56560, type: 2}
-  skill2Ability1: {fileID: 11400000, guid: 8dfffc72596bd6947b079d403f84ac0b, type: 2}
-  skill3Ability2: {fileID: 0}
-  skill4Utility: {fileID: 0}
+  basicAttack: {fileID: 11400000, guid: 4411e927f23dc594fb4b36e04ba56560, type: 2}
+  ability1: {fileID: 11400000, guid: 8dfffc72596bd6947b079d403f84ac0b, type: 2}
+  ability2: {fileID: 0}
+  utility: {fileID: 0}

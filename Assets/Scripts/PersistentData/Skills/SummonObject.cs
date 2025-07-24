@@ -7,7 +7,7 @@ public class CreateSummon : SkillPart
     public GameObject summonGameObject;
 
     // Override Execute skill so that it performs the attack
-    public override void ExecuteSkill(Transform transform)
+    public override void ExecuteSkill(Transform transform, FactionType faction)
     {
 
         if (summonGameObject == null)

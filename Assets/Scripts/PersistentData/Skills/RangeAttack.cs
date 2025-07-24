@@ -8,7 +8,7 @@ public class RangeAttack : SkillPart
     public GameObject projectileGameObject;
 
     // Override Execute skill so that it performs the attack
-    public override void ExecuteSkill(Transform transform)
+    public override void ExecuteSkill(Transform transform, FactionType faction)
     {
 
         if (projectileGameObject == null)
@@ -22,7 +22,7 @@ public class RangeAttack : SkillPart
 
         if (firedProjectile.TryGetComponent(out Projectile projectile))
         {
-            projectile.InitializeProjectile();
+            projectile.InitializeProjectile(faction);
         }
         else
         {

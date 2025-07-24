@@ -10,6 +10,7 @@ namespace Arena
     public class PlayerController : MonoBehaviour
     {
         public Warrior currentWarrior;
+        private FactionType _faction;
 
         private void Awake()
         {
@@ -19,22 +20,34 @@ namespace Arena
             }
         }
 
+        private void Start()
+        {
+            if (TryGetComponent(out Faction factionComponent))
+            {
+                _faction = factionComponent.faction;
+            }
+            else
+            {
+                Debug.LogError($"{gameObject.name} doesn't have a faction.");
+            }
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                ExecuteSkill(currentWarrior.skill1BasicAttack);
+                ExecuteSkill(currentWarrior.basicAttack);
             }
             if (Input.GetKeyDown(KeyCode.G))
             {
-                ExecuteSkill(currentWarrior.skill2Ability1);
+                ExecuteSkill(currentWarrior.ability1);
             }
         }
 
 
         public void ExecuteSkill(Skill skill)
         {
-            skill.ExecuteSkill(transform);
+            skill.ExecuteSkill(transform, _faction);
         }
     }
 }

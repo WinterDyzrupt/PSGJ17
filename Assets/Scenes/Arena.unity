@@ -2289,6 +2289,39 @@ MonoBehaviour:
     useConstant: 1
     constantValue: 25
     variable: {fileID: 0}
+--- !u!114 &1948867467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670921971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca885619b292dd44ac7f34b856bbac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCombatant: {fileID: 11400000, guid: fdf2429f79cb3dd42abf5e810e17825e, type: 2}
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  resetCurrentHealth: 0
+--- !u!114 &1948867468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670921971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa228a16f83e304b85c31a9812f6b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 0
 --- !u!4 &2117983102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2579678040404460640, guid: a1cddaaee21b76e478d5f078a02d6d8c, type: 3}
@@ -2418,6 +2451,32 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   resetCurrentHealth: 1
+--- !u!114 &2117983108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668487908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec499bd9e1bcea459249ea19a7f87ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWarrior: {fileID: 11400000, guid: 7089a1bc9a753e4418bfd252aa418eb5, type: 2}
+--- !u!114 &2117983110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668487908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa228a16f83e304b85c31a9812f6b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 1
 --- !u!1001 &3063777236413154477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2711,10 +2770,13 @@ PrefabInstance:
       addedObject: {fileID: 2117983105}
     - targetCorrespondingSourceObject: {fileID: 1785121182479124710, guid: a1cddaaee21b76e478d5f078a02d6d8c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2117983109}
+      addedObject: {fileID: 2117983108}
     - targetCorrespondingSourceObject: {fileID: 1785121182479124710, guid: a1cddaaee21b76e478d5f078a02d6d8c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2117983107}
+    - targetCorrespondingSourceObject: {fileID: 1785121182479124710, guid: a1cddaaee21b76e478d5f078a02d6d8c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2117983110}
   m_SourcePrefab: {fileID: 100100000, guid: a1cddaaee21b76e478d5f078a02d6d8c, type: 3}
 --- !u!1001 &6659571804364524778
 PrefabInstance:
@@ -2882,6 +2944,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1498209312392045838, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1948867465}
+    - targetCorrespondingSourceObject: {fileID: 1498209312392045838, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1948867467}
+    - targetCorrespondingSourceObject: {fileID: 1498209312392045838, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1948867468}
   m_SourcePrefab: {fileID: 100100000, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

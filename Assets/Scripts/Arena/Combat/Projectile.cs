@@ -27,21 +27,23 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void InitializeProjectile()
+    public void InitializeProjectile(FactionType faction)
     {
-        Vector3 rotation = Quaternion.Euler(0, 0, transform.eulerAngles.z) * Vector3.right; 
-        transform.position += instantiateOffset * rotation ;
+        Vector3 rotation = Quaternion.Euler(0, 0, transform.eulerAngles.z) * Vector3.right;
+        transform.localPosition += instantiateOffset * rotation;
         GetComponent<Rigidbody2D>().linearVelocity = projectileSpeed * (Vector2)rotation;
         transform.SetParent(null);
         transform.localScale = Vector3.one;
+
+        gameObject.AddComponent<Faction>().faction = faction;
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        ExecuteCollisionAction(collision);
+        ExecuteCollisionAction(collider);
     }
 
-    public virtual void ExecuteCollisionAction(Collider2D collision)
+    public virtual void ExecuteCollisionAction(Collider2D collider)
     {
         DestroyProjectile();
     }
