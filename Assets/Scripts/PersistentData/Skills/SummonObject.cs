@@ -1,14 +1,13 @@
-using PersistentData;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CreateSummon", menuName = "Scriptable Objects/Skills/CreateSummon")]
-public class CreateSummon : Skill
+[CreateAssetMenu(fileName = "CreateSummon", menuName = "Scriptable Objects/Skills/Part-CreateSummon")]
+public class CreateSummon : SkillPart
 {
     // Skill Class for a Melee Attack
     public GameObject summonGameObject;
 
     // Override Execute skill so that it performs the attack
-    public override void ExecuteSkill(Combatant combatant)
+    public override void ExecuteSkill(Transform transform)
     {
 
         if (summonGameObject == null)
