@@ -36,5 +36,8 @@ namespace PersistentData
         {
             return Value.ToString();
         }
+        
+        public static implicit operator int(IntReference intReference) => intReference.Value;
+        
     }
 }

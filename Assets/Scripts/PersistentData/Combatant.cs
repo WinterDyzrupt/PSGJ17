@@ -8,43 +8,33 @@ namespace PersistentData
         public string displayName;
         [TextArea]
         public string description;
-        public IntReference maxHealth;
-        public IntReference currentHealth;
+        public FloatReference maxHealth;
+        public FloatReference currentHealth;
 
         public void SetValues(Combatant combatantToGetValuesFrom)
         {
+            Debug.Assert(this.maxHealth != null,  $"{nameof(this.maxHealth)} expected to be not null.");
+            Debug.Assert(this.currentHealth != null,  $"{nameof(this.currentHealth)} expected to be not null.");
+            Debug.Assert(combatantToGetValuesFrom.maxHealth != null,  $"{nameof(combatantToGetValuesFrom.maxHealth)} expected to be not null.");
+            Debug.Assert(combatantToGetValuesFrom.currentHealth != null,  $"{nameof(combatantToGetValuesFrom.currentHealth)} expected to be not null.");
+
             this.description = combatantToGetValuesFrom.description;
             this.displayName = combatantToGetValuesFrom.displayName;
-            if (this.maxHealth != null && combatantToGetValuesFrom.currentHealth != null)
-            {
-                this.maxHealth.useConstant = combatantToGetValuesFrom.maxHealth.useConstant;
-                this.maxHealth.Value = combatantToGetValuesFrom.maxHealth.Value;
-            }
-            else
-            {
-                Debug.LogError($"{nameof(this.maxHealth)} was not populated.");
-            }
-
-            if (this.currentHealth != null && combatantToGetValuesFrom.currentHealth != null)
-            {
-                this.currentHealth.useConstant = combatantToGetValuesFrom.currentHealth.useConstant;
-                this.currentHealth.Value = combatantToGetValuesFrom.currentHealth.Value;
-            }
-            else
-            {
-                Debug.LogError($"{nameof(this.currentHealth)} was not populated.");
-            }
+            this.maxHealth.useConstant = combatantToGetValuesFrom.maxHealth.useConstant;
+            this.maxHealth.Value = combatantToGetValuesFrom.maxHealth.Value;
+            this.currentHealth.useConstant = combatantToGetValuesFrom.currentHealth.useConstant;
+            this.currentHealth.Value = combatantToGetValuesFrom.currentHealth.Value;
         }
 
         public void Reset()
         {
             this.description = string.Empty;
-            this.name = string.Empty;
+            this.displayName = string.Empty;
             this.maxHealth?.ResetValue();
             this.currentHealth?.ResetValue();
         }
 
-        public void ReceiveDamage(int initialDamage)
+        public void ReceiveDamage(float initialDamage)
         {
             Debug.Log($"{displayName} taking damage: {initialDamage}");
 

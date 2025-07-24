@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatant: {fileID: 11400000, guid: fdf2429f79cb3dd42abf5e810e17825e, type: 2}
-  displayNameBox: {fileID: 0}
+  displayNameBox: {fileID: 2901801216354857117}
 --- !u!1 &6977831617799672597
 GameObject:
   m_ObjectHideFlags: 0

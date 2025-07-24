@@ -14,7 +14,7 @@ namespace Arena
 
         public CurrentBoss currentBoss;
 
-        public IntVariable  currentBossHealth;
+        public FloatVariable  currentBossHealth;
 
         public Party currentParty;
 
@@ -24,17 +24,18 @@ namespace Arena
 
         public int introMessageDisplayTimeInSeconds = 2;
 
-        public Canvas nextMessage;
+        public Canvas warriorDeathMessage;
 
-        public int nextMessageDisplayTimeInSeconds = 2;
+        public int warriorDeathMessageDisplayTimeInSeconds = 2;
 
-        public Canvas gameOverMessage;
+        public Canvas partyDeathMessage;
 
-        /// <summary>
-        /// TODO: Do we display this for a duration or until a button press?
-        /// </summary>
-        public int gameOverMessageDisplayTimeInSeconds = 2;
+        public int partyDeathMessageDisplayTimeInSeconds = 2;
 
+        public Canvas bossDeathMessage;
+        
+        public int bossDeathMessageDisplayTimeInSeconds = 2;
+        
         public Canvas results;
 
         /// <summary>
@@ -45,16 +46,18 @@ namespace Arena
         private ArenaState _currentState;
         private Stopwatch _messageTimer;
         private TimeSpan _introMessageDisplayTime;
-        private TimeSpan _nextMessageDisplayTime;
-        private TimeSpan _gameOverMessageDisplayTime;
+        private TimeSpan _warriorDeathMessageDisplayTime;
+        private TimeSpan _partyDeathMessageDisplayTime;
+        private TimeSpan _bossDeathMessageDisplayTime;
 
         private void Awake()
         {
             Debug.Log("ArenaManager Awake start");
             _messageTimer = new Stopwatch();
             _introMessageDisplayTime = TimeSpan.FromSeconds(introMessageDisplayTimeInSeconds);
-            _nextMessageDisplayTime = TimeSpan.FromSeconds(nextMessageDisplayTimeInSeconds);
-            _gameOverMessageDisplayTime = TimeSpan.FromSeconds(gameOverMessageDisplayTimeInSeconds);
+            _warriorDeathMessageDisplayTime = TimeSpan.FromSeconds(warriorDeathMessageDisplayTimeInSeconds);
+            _partyDeathMessageDisplayTime = TimeSpan.FromSeconds(partyDeathMessageDisplayTimeInSeconds);
+            _bossDeathMessageDisplayTime = TimeSpan.FromSeconds(partyDeathMessageDisplayTimeInSeconds);
             _currentState = ArenaState.Awake;
 
             Debug.Log("ArenaManager Awake end");
@@ -64,37 +67,29 @@ namespace Arena
         {
             Debug.Log("ArenaManager Start start");
 
-            if ((currentParty?.warriors?.Count ?? 0) == 0)
-            {
-                Debug.LogError(nameof(currentParty) + " is not populated.");
-            }
-            else
-            {
-                Debug.Log("currentParty: " + currentParty);
-                currentWarrior.SetValues(currentParty.warriors[0]);
-                currentWarrior.currentHealth.Value = currentWarrior.maxHealth.Value;
-                Debug.Log("currentWarrior: " + currentWarrior);
-                currentParty.warriors.RemoveAt(0);
-            }
+            Debug.Assert(currentWarrior != null,  nameof(currentWarrior) + " is null");
+            Debug.Assert(currentWarrior.currentHealth != null,  nameof(currentWarrior.currentHealth) + " is null");
 
-            if (!currentBoss)
-            {
-                Debug.LogError(nameof(currentBoss) + " is not populated.");
-            }
-            else
-            {
-                Debug.Log("currentBoss: " + currentBoss);
-            }
+            Debug.Assert(currentParty != null,  nameof(currentParty) + " is null");
+            Debug.Assert(currentParty.warriors != null,  nameof(currentParty.warriors) + " is null");
+            Debug.Assert(currentParty.warriors.Count > 0, "Expected more than 0 warriors in current party");
+            
+            Debug.Assert(introMessage != null, nameof(introMessage) + " expected to be not null");
+            Debug.Assert(warriorDeathMessage != null, nameof(warriorDeathMessage) + " expected to be not null");
+            Debug.Assert(partyDeathMessage != null, nameof(partyDeathMessage) + " expected to be not null");
+            Debug.Assert(bossDeathMessage != null, nameof(bossDeathMessage) + " expected to be not null");
+            // TODO: Remove when results are done
+            //Debug.Assert(results != null, nameof(results) + " expected to be not null");
+            
+            Debug.Assert(currentBoss != null, nameof(currentBoss) + " expected to be not null");
+            Debug.Assert(currentBoss.maxHealth != null, nameof(currentBoss.maxHealth) + " expected to be not null.");
 
-            if (currentBoss?.maxHealth == null)
-            {
-                Debug.LogError(nameof(currentBoss.maxHealth) + " is null.");
-            }
-            else
-            {
-                currentBossHealth.value = currentBoss.maxHealth.Value;
-            }
 
+            SendNextWarriorIntoArena(currentWarrior, currentParty);
+
+            currentBossHealth.value = currentBoss.maxHealth.Value;
+            Debug.Log("currentBoss: " + currentBoss);
+            
             Debug.Log("ArenaManager Start end");
         }
 
@@ -103,28 +98,145 @@ namespace Arena
             switch (_currentState)
             {
                 case ArenaState.Awake:
-                    _messageTimer.Start();
-                    introMessage.enabled = true;
+                    ShowMessage(introMessage, _messageTimer);
                     _currentState = ArenaState.DisplayingIntroMessage;
-                    // TODO: spawn player paused
-                    // TODO: spawn boss paused
                     break;
                 case ArenaState.DisplayingIntroMessage:
-                    if (_messageTimer.Elapsed > _introMessageDisplayTime)
+                    if (HideMessageAfterTime(introMessage, _messageTimer, _introMessageDisplayTime))
                     {
-                        _messageTimer.Stop();
-                        introMessage.enabled = false;
+                        // TODO: Enable player/boss movement (and disable by default)
                         _currentState = ArenaState.CombatStart;
                     }
 
                     break;
                 case ArenaState.CombatStart:
+                    // nothing for now, let combat play out
+                    break;
+                case ArenaState.WarriorDeath:
+                    // the dead warrior is made inactive through death event in Unity config
+                    // TODO: add currentPlayer to DeadPlayers
+                    if (currentParty.warriors.Count > 0)
+                    {
+                        ShowMessage(warriorDeathMessage, _messageTimer);
+                        _currentState = ArenaState.DisplayingWarriorDeathMessage;
+                    }
+                    else
+                    {
+                        ShowMessage(partyDeathMessage, _messageTimer);
+                        _currentState = ArenaState.DisplayingPartyDeathMessage;
+                    }
+
+                    break;
+                case ArenaState.DisplayingWarriorDeathMessage:
+                    if (HideMessageAfterTime(warriorDeathMessage, _messageTimer, _warriorDeathMessageDisplayTime))
+                    {
+                        // TODO: reset boss position/logic? (not current health)
+                        SendNextWarriorIntoArena(currentWarrior, currentParty);
+                        Debug.Log("Starting combat again");
+                        _currentState = ArenaState.CombatStart;
+                    }
+
+                    break;
+                case ArenaState.DisplayingPartyDeathMessage:
+                    if (HideMessageAfterTime(partyDeathMessage, _messageTimer, _partyDeathMessageDisplayTime))
+                    {
+                        // TODO: Display results
+                        _currentState = ArenaState.DisplayingResults;
+                    }
+
+                    break;
+                case ArenaState.BossDeath:
+                    ShowMessage(bossDeathMessage, _messageTimer);
+                    _currentState = ArenaState.DisplayingBossDeathMessage;
+                    break;
+                case ArenaState.DisplayingBossDeathMessage:
+                    if (HideMessageAfterTime(bossDeathMessage, _messageTimer, _bossDeathMessageDisplayTime))
+                    {
+                        // TODO: Display results
+                        _currentState = ArenaState.DisplayingResults;
+                    }
+
+                    break;
+
+                case ArenaState.DisplayingResults:
+                    // Do nothing?
+                    break;
                 case ArenaState.Unknown:
                 default:
-                    // UnityEngine.Debug.LogWarning("Unexpected state: " + _currentState);
+                    Debug.LogError("Unexpected state: " + _currentState);
                     // SceneManager.LoadScene(SceneData.MainMenuSceneIndex);
                     break;
             }
+        }
+        
+        /// <summary>
+        /// Removes a warrior from the part and sets the placeholder to the removed warrior.
+        /// </summary>
+        /// <param name="currentWarriorPlaceholder"></param>
+        /// <param name="party"></param>
+        private void SendNextWarriorIntoArena(Warrior currentWarriorPlaceholder, Party party)
+        {
+            var nextWarrior = PrepareNextWarriorFromParty(party);
+            currentWarriorPlaceholder.SetValues(nextWarrior);
+            currentWarriorPlaceholder.currentHealth.Value = currentWarriorPlaceholder.maxHealth.Value;
+        }
+
+        /// <summary>
+        /// Removes and returns the next combatant from the party.
+        /// </summary>
+        /// <param name="party"></param>
+        /// <returns></returns>
+        private Combatant PrepareNextWarriorFromParty(Party party)
+        {
+            Debug.Assert(party.warriors.Count > 0);
+
+            var nextWarrior = party.warriors[0];
+            party.warriors.RemoveAt(0);
+            Debug.Log("Removed warrior; remaining party: " + party);
+
+            return nextWarrior;
+        }
+        
+        private void ShowMessage(Canvas message, Stopwatch timer)
+        {
+            timer.Restart();
+            message.enabled = true;
+            message.gameObject.SetActive(true);
+            Debug.Assert(message.isActiveAndEnabled, "expected message to be active an enabled");
+        }
+        
+        /// <summary>
+        /// Hides the specified message after the timer has measured the specified timeToShowMessage 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="timer"></param>
+        /// <param name="timeToShowMessage"></param>
+        /// <returns>
+        /// true if the time has elapsed and the message has been hid.
+        /// false otherwise
+        /// </returns>
+        private bool HideMessageAfterTime(Canvas message, Stopwatch timer, TimeSpan timeToShowMessage)
+        {
+            if (timer.Elapsed > timeToShowMessage)
+            {
+                timer.Stop();
+                message.enabled = false;
+                return true;
+            }
+
+            return false;
+        }
+
+        public void OnWarriorDeath()
+        {
+            Debug.LogWarning("Warrior death.");
+            _currentState = ArenaState.WarriorDeath;
+        }
+
+        public void OnBossDeath()
+        {
+            Debug.LogWarning("Boss death.");
+            _currentState = ArenaState.BossDeath;
         }
 
         private enum ArenaState
@@ -134,9 +246,11 @@ namespace Arena
             DisplayingIntroMessage,
             CombatStart,
             CombatPaused,
-            CharacterDeath,
-            DisplayingNextMessage,
-            DisplayingGameOverMessage,
+            WarriorDeath,
+            DisplayingWarriorDeathMessage,
+            DisplayingPartyDeathMessage,
+            BossDeath,
+            DisplayingBossDeathMessage,
             DisplayingResults,
             Finished
         }
