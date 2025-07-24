@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 31fe3a848958fed4faf6e591014e5af6
+guid: e944b2efe10fecc4d8299d6a7db28abe
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player1
+      name: RedHealthBar
       rect:
         serializedVersion: 2
         x: 0
@@ -165,7 +165,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Player1: 7482667652216324306
+      RedHealthBar: 7482667652216324306
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

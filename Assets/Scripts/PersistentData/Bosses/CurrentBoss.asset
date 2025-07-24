@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa732c211e25e24197d6cf23399f226, type: 3}
   m_Name: CurrentBoss
   m_EditorClassIdentifier: 
-  displayName: Name1
-  description: Description1
+  displayName:
+    useConstant: 1
+    constantValue: BosSdisplayName4
+    variable: {fileID: 0}
+  description: BossDescription4
   maxHealth:
     useConstant: 1
-    constantValue: 100
+    constantValue: 5000
     variable: {fileID: 0}
   currentHealth:
     useConstant: 0

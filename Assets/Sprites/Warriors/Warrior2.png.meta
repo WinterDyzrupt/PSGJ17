@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d86b783b872c71f429bf7b241d31cd97
+guid: 936d720a428cfe448a245fdcec600266
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boss1
+      name: Warrior2
       rect:
         serializedVersion: 2
         x: 0
@@ -165,7 +165,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Boss1: 7482667652216324306
+      Warrior2: 7482667652216324306
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
