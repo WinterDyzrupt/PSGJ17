@@ -636,7 +636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelSelectPanel: {fileID: 1388987289}
   creditsPanel: {fileID: 217291173}
-  currentParty: {fileID: 11400000, guid: 906468d8f3f1bcc408d879651081450a, type: 2}
+  currentParty: {fileID: 11400000, guid: a984bfaea38967049a7a1bda364619a7, type: 2}
   warrior1: {fileID: 11400000, guid: e8d52773fad31664fa81ad2d9b04740a, type: 2}
   warrior2: {fileID: 11400000, guid: 0c7d02513663dda4388cad2a7c557b81, type: 2}
   warrior3: {fileID: 11400000, guid: 6ae5e38a3cf9dfc4593907628aa702c7, type: 2}

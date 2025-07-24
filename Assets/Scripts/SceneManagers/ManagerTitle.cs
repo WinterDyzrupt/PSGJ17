@@ -65,9 +65,10 @@ public class ManagerTitle : MonoBehaviour
             // TODO: Remove once party select is working
             currentParty.warriors = new List<Warrior>()
             {
-                warrior2,
+                warrior1,
                 warrior3,
-                warrior1
+                warrior2,
+                warrior2,
             };
             Debug.Log("CurrentParty: " + currentParty);
 

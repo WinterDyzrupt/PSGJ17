@@ -2661,6 +2661,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1983675495060560029, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983675495060560029, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983675495060560029, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1670921971}
+    - target: {fileID: 1983675495060560029, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983675495060560029, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983675495060560029, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983675495060560029, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2634824234098270247, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
