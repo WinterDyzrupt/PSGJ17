@@ -11,6 +11,11 @@ namespace PersistentData
         public FloatReference maxHealth;
         public FloatReference currentHealth;
         public Sprite sprite;
+        public Skill basicAttack;
+        public Skill ability1;
+        public Skill ability2;
+        public Skill utility;
+
 
         public void SetValues(Combatant combatantToGetValuesFrom)
         {
@@ -27,6 +32,10 @@ namespace PersistentData
             this.currentHealth.useConstant = combatantToGetValuesFrom.currentHealth.useConstant;
             this.currentHealth.Value = combatantToGetValuesFrom.currentHealth.Value;
             this.sprite = combatantToGetValuesFrom.sprite;
+            this.basicAttack = combatantToGetValuesFrom.basicAttack;
+            this.ability1 = combatantToGetValuesFrom.ability1;
+            this.ability2 = combatantToGetValuesFrom.ability2;
+            this.utility = combatantToGetValuesFrom.utility;
         }
 
         public void Reset()

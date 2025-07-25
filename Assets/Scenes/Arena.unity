@@ -179,10 +179,9 @@ MonoBehaviour:
   bossGameObject: {fileID: 1670921971}
   currentBoss: {fileID: 11400000, guid: fdf2429f79cb3dd42abf5e810e17825e, type: 2}
   currentBossHealth: {fileID: 11400000, guid: 406a907fe498a614e9042de00166b90d, type: 2}
-  currentParty: {fileID: 11400000, guid: 906468d8f3f1bcc408d879651081450a, type: 2}
+  currentParty: {fileID: 11400000, guid: a984bfaea38967049a7a1bda364619a7, type: 2}
   currentWarrior: {fileID: 11400000, guid: 7089a1bc9a753e4418bfd252aa418eb5, type: 2}
   currentWarriorPrefab: {fileID: 2823093445682186377, guid: b948b636cde7bc84792531e5eebb117a, type: 3}
-  deadWarriors: {fileID: 1381483905}
   introMessage: {fileID: 1602181523}
   introMessageDisplayTimeInSeconds: 2
   warriorDeathMessage: {fileID: 745288356}
@@ -2662,10 +2661,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2634824234098270247, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
-      propertyPath: m_Sprite
+    - target: {fileID: 1983675495060560029, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983675495060560029, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983675495060560029, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 7482667652216324306, guid: c92ef63b80783ea4ebe0d2c475378c50, type: 3}
+      objectReference: {fileID: 1670921971}
+    - target: {fileID: 1983675495060560029, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983675495060560029, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983675495060560029, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983675495060560029, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2634824234098270247, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
