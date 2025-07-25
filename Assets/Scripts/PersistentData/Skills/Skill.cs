@@ -18,6 +18,14 @@ public class Skill : ScriptableObject
     [NonSerialized]
     private bool _isThisInitialized = false;
 
+    public bool isOffCooldown
+    {
+        get
+        {
+            return CooldownPercentage >= 1;
+        }
+    }
+
     public float CooldownPercentage
     {
         get
@@ -37,15 +45,13 @@ public class Skill : ScriptableObject
 
     public void DetermineTotalCooldownTime()
     {
-        float total = 0f;
         foreach (SkillPart part in skillParts)
         {
-            total += part.cooldownTime;
+            _totalCooldownTime += part.cooldownTime;
         }
-        _totalCooldownTime = total;
     }
 
-    public void ExecuteSkill(Transform transform, FactionType faction)
+    public void ExecuteSkill(Transform transformParent, FactionType faction)
     {
         if (!_isThisInitialized)
         {
@@ -54,7 +60,7 @@ public class Skill : ScriptableObject
         }
 
         Debug.Log($"Total cooldown: {_totalCooldownTime} and cooldown percentage: {CooldownPercentage}.");
-        if (CooldownPercentage >= 1 || _lastExecutedTime == 0)
+        if (isOffCooldown)
         {
             _lastExecutedTime = Time.time;
 
@@ -69,7 +75,7 @@ public class Skill : ScriptableObject
             {
                 Debug.Log($"Executing part is {skillPart.name}.");
                 // this needs to be the correct transform from where it's spawned.
-                skillPart.ExecuteSkill(transform, faction);
+                skillPart.ExecuteSkill(transformParent, faction);
             }
         }
     }
