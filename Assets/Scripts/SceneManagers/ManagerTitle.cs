@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 using Helper;
 using PersistentData;
 using PersistentData.Bosses;
-using PersistentData.Warriors;
 
 public class ManagerTitle : MonoBehaviour
 {
@@ -12,13 +11,6 @@ public class ManagerTitle : MonoBehaviour
     public CanvasGroup levelSelectPanel;
     public CanvasGroup creditsPanel;
 
-    // TODO: Remove later, once character select is working
-    public Party currentParty;
-    public Warrior warrior1;
-    public Warrior warrior2;
-    public Warrior warrior3;
-
-    //public Boss[] bosses;
     public List<Boss> bosses;
     public CurrentBoss currentBoss;
 
@@ -54,7 +46,7 @@ public class ManagerTitle : MonoBehaviour
         SceneManager.LoadScene(SceneData.UpgradeSceneIndex);
     }
 
-    public void LoadArenaScene(int bossIndex)
+    public void LoadPartySelectScene(int bossIndex)
     {
         if ((bosses?.Count ?? 0) <= bossIndex)
         {
@@ -62,20 +54,10 @@ public class ManagerTitle : MonoBehaviour
         }
         else
         {
-            // TODO: Remove once party select is working
-            currentParty.warriors = new List<Warrior>()
-            {
-                warrior1,
-                warrior3,
-                warrior2,
-                warrior2,
-            };
-            Debug.Log("CurrentParty: " + currentParty);
-
             currentBoss.SetValues(bosses[bossIndex]);
             Debug.Log("CurrentBoss: " + currentBoss);
 
-            SceneManager.LoadScene(SceneData.ArenaSceneIndex);
+            SceneManager.LoadScene(SceneData.PartySelectSceneIndex);
         }
     }
 
