@@ -11,14 +11,14 @@ public class ManagerPartySelect : MonoBehaviour
 {
     // Canvas Groups
     public CanvasGroup characterSelector;
-    public Button ToArenaButton;
+    public Button toArenaButton;
     public Party currentParty;
     public AllWarriors allWarriors;
     public int partySlot;
     public int currentSelectionIndex;
-    private Warrior[] PartyTemp;
-    public int PartySize = 4;
-    public Image[] WarriorDisplays;
+    private Warrior[] _partyTemp;
+    public int partySize = 4;
+    public Image[] warriorDisplays;
 
 
     // Initialize variables
@@ -31,7 +31,7 @@ public class ManagerPartySelect : MonoBehaviour
     public void Start()
     {
         Debug.Assert(currentParty != null, "current party wasn't populated");
-        PartyTemp = new Warrior[PartySize];
+        _partyTemp = new Warrior[partySize];
         CheckToEnableContinue();
         currentParty.warriors = new List<Warrior>();
         Debug.Log("ManagerPartySelect.Start CurrentParty: " + currentParty);
@@ -45,36 +45,36 @@ public class ManagerPartySelect : MonoBehaviour
         partySlot = buttonNumber;
     }
 
-    public void Selection(int classNumberIndex)
+    public void WarriorSelection(int classNumberIndex)
     {
         currentSelectionIndex = classNumberIndex;
         Debug.Log("selecting class" + currentSelectionIndex);
     }
 
-    public void Confirm()
+    public void ConfirmWarriorSelection()
     {
         if (currentSelectionIndex >= allWarriors.warriors.Count)
         {
             Debug.LogError("currentSelectionIndex out of bounds");
         }
-        else if (partySlot >= PartyTemp.Length)
+        else if (partySlot >= _partyTemp.Length)
         {
             Debug.LogError("partySlot out of bounds");
         }
         else
         {
-            PartyTemp[partySlot] = allWarriors.warriors[currentSelectionIndex];
+            _partyTemp[partySlot] = allWarriors.warriors[currentSelectionIndex];
             // testing warrior log
-            Debug.Log("Selected Warrior is:" + PartyTemp[partySlot]);
+            Debug.Log("Selected Warrior is:" + _partyTemp[partySlot]);
             Debug.Log("Warrior is supposed to be:" + allWarriors.warriors[currentSelectionIndex]);
             Debug.Log("Current party is:");
-            for (int n = 0; n < PartyTemp.Length; n++)
+            for (int n = 0; n < _partyTemp.Length; n++)
             {
-                Debug.Log("\n" + PartyTemp[n]);
+                Debug.Log("\n" + _partyTemp[n]);
             }
 
             // Display warrior sprite
-            WarriorDisplays[partySlot].sprite = PartyTemp[partySlot].sprite;
+            warriorDisplays[partySlot].sprite = _partyTemp[partySlot].sprite;
 
             CheckToEnableContinue();
 
@@ -86,17 +86,17 @@ public class ManagerPartySelect : MonoBehaviour
     private void CheckToEnableContinue()
     {
         // Enable Continue button if party is full
-        bool IsPartyFull = true;
-        foreach (var Warrior in PartyTemp)
+        bool _isPartyFull = true;
+        foreach (var Warrior in _partyTemp)
         {
-            if (Warrior == null) IsPartyFull = false;
+            if (Warrior == null) _isPartyFull = false;
         }
-        ToArenaButton.interactable = IsPartyFull;
+        toArenaButton.interactable = _isPartyFull;
     }
 
     public void EnterArena()
     {
-        currentParty.warriors.AddRange(PartyTemp);
+        currentParty.warriors.AddRange(_partyTemp);
         SceneManager.LoadScene(SceneData.ArenaSceneIndex);
     }
 

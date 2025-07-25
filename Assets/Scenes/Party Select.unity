@@ -415,7 +415,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 321055064}
         m_TargetAssemblyTypeName: ManagerPartySelect, Assembly-CSharp
-        m_MethodName: Selection
+        m_MethodName: WarriorSelection
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -782,13 +782,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterSelector: {fileID: 684784082}
-  ToArenaButton: {fileID: 264034627}
+  toArenaButton: {fileID: 264034627}
   currentParty: {fileID: 11400000, guid: a984bfaea38967049a7a1bda364619a7, type: 2}
   allWarriors: {fileID: 11400000, guid: d7f774f2b8975824a84816dcf787045d, type: 2}
   partySlot: 0
   currentSelectionIndex: 0
-  PartySize: 4
-  WarriorDisplays:
+  partySize: 4
+  warriorDisplays:
   - {fileID: 3154958851934288631}
   - {fileID: 1415462628}
   - {fileID: 278819292}
@@ -1496,7 +1496,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 321055064}
         m_TargetAssemblyTypeName: ManagerPartySelect, Assembly-CSharp
-        m_MethodName: Confirm
+        m_MethodName: ConfirmWarriorSelection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2590,7 +2590,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 321055064}
         m_TargetAssemblyTypeName: ManagerPartySelect, Assembly-CSharp
-        m_MethodName: Selection
+        m_MethodName: WarriorSelection
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2728,7 +2728,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 321055064}
         m_TargetAssemblyTypeName: ManagerPartySelect, Assembly-CSharp
-        m_MethodName: Selection
+        m_MethodName: WarriorSelection
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2861,7 +2861,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 321055064}
         m_TargetAssemblyTypeName: ManagerPartySelect, Assembly-CSharp
-        m_MethodName: Selection
+        m_MethodName: WarriorSelection
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
