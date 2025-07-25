@@ -187,7 +187,7 @@ namespace Arena
             currentWarriorPlaceholder.currentHealth.Value = currentWarriorPlaceholder.maxHealth.Value;
 
             var player = Instantiate(currentWarriorPrefab);
-            player.GetComponent<SpriteRenderer>().sprite = currentWarriorPlaceholder.sprite;
+            player.GetComponent<PlayerController>().warriorSprite.sprite = currentWarriorPlaceholder.sprite;
         }
 
         /// <summary>

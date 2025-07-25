@@ -67,10 +67,12 @@
     <Compile Include="Assets\Scripts\PersistentData\Warriors\Party.cs" />
     <Compile Include="Assets\Scripts\Upgrades\EvasionUpgrade.cs" />
     <Compile Include="Assets\Scripts\PersistentData\SceneData.cs" />
+    <Compile Include="Assets\Scripts\SceneManagers\ManagerPartySelect.cs" />
     <Compile Include="Assets\Scripts\PersistentData\Skills\SkillPart.cs" />
     <Compile Include="Assets\Scripts\Upgrades\AllUpgrades.cs" />
     <Compile Include="Assets\Scripts\PersistentData\IntVariable.cs" />
     <Compile Include="Assets\Scripts\PersistentData\IntReference.cs" />
+    <Compile Include="Assets\InputActions\ArenaControls.cs" />
     <Compile Include="Assets\Scripts\Arena\Combat\Projectile.cs" />
     <Compile Include="Assets\Scripts\PersistentData\Skills\Skill.cs" />
     <Compile Include="Assets\Scripts\Arena\Collisions\Faction.cs" />
