@@ -1,24 +1,25 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Helper;
 using PersistentData;
 using PersistentData.Warriors;
-using System;
-using System.Linq;
-using JetBrains.Annotations;
+using UnityEngine.UI;
+
 
 public class ManagerPartySelect : MonoBehaviour
 {
     // Canvas Groups
     public CanvasGroup characterSelector;
+    public Button ToArenaButton;
     public Party currentParty;
     public AllWarriors allWarriors;
     public int partySlot;
     public int currentSelectionIndex;
     private Warrior[] PartyTemp;
     public int PartySize = 4;
+    public Image[] WarriorDisplays;
+
 
     // Initialize variables
     public void Awake()
@@ -31,6 +32,7 @@ public class ManagerPartySelect : MonoBehaviour
     {
         Debug.Assert(currentParty != null, "current party wasn't populated");
         PartyTemp = new Warrior[PartySize];
+        CheckToEnableContinue();
         currentParty.warriors = new List<Warrior>();
         Debug.Log("ManagerPartySelect.Start CurrentParty: " + currentParty);
 
@@ -66,19 +68,41 @@ public class ManagerPartySelect : MonoBehaviour
             Debug.Log("Selected Warrior is:" + PartyTemp[partySlot]);
             Debug.Log("Warrior is supposed to be:" + allWarriors.warriors[currentSelectionIndex]);
             Debug.Log("Current party is:");
-            for(int n=0; n < PartyTemp.Length; n++)
+            for (int n = 0; n < PartyTemp.Length; n++)
             {
                 Debug.Log("\n" + PartyTemp[n]);
             }
+
+            // Display warrior sprite
+            WarriorDisplays[partySlot].sprite = PartyTemp[partySlot].sprite;
+
+            CheckToEnableContinue();
 
             // Toggle selection screen
             CanvasHelper.ToggleCanvasGroup(characterSelector);
         }
     }
 
+    private void CheckToEnableContinue()
+    {
+        // Enable Continue button if party is full
+        bool IsPartyFull = true;
+        foreach (var Warrior in PartyTemp)
+        {
+            if (Warrior == null) IsPartyFull = false;
+        }
+        ToArenaButton.interactable = IsPartyFull;
+    }
+
     public void EnterArena()
-    {       
+    {
         currentParty.warriors.AddRange(PartyTemp);
+        SceneManager.LoadScene(SceneData.ArenaSceneIndex);
+    }
+
+    public void BackToMain()
+    {
+        SceneManager.LoadScene(SceneData.MainMenuSceneIndex);
     }
 
 }
