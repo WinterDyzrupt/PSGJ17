@@ -26,3 +26,8 @@ MonoBehaviour:
     constantValue: 0
     variable: {fileID: 0}
   sprite: {fileID: 7482667652216324306, guid: 11bbc3e559b593b449f88950acdfc855, type: 3}
+  basicAttack: {fileID: 0}
+  ability1: {fileID: 0}
+  ability2: {fileID: 0}
+  utility: {fileID: 0}
+  numberOfPhases: 6
