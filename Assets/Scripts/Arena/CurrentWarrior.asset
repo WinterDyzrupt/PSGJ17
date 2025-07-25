@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c044d79bcfd55541b17496fd6870d09, type: 3}
+  m_Name: CurrentWarrior
+  m_EditorClassIdentifier: 
+  displayName:
+    useConstant: 0
+    constantValue: 
+    variable: {fileID: 11400000, guid: e0435586ae36737488e806ad9c191a8d, type: 2}
+  description: Description2
+  maxHealth:
+    useConstant: 1
+    constantValue: 100
+    variable: {fileID: 0}
+  currentHealth:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 4d53eb5b2781fc543bb8f1fec45b542a, type: 2}
+  basicAttack: {fileID: 11400000, guid: 4411e927f23dc594fb4b36e04ba56560, type: 2}
+  ability1: {fileID: 11400000, guid: 8dfffc72596bd6947b079d403f84ac0b, type: 2}
+  ability2: {fileID: 0}
+  utility: {fileID: 0}

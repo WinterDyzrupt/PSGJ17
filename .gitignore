@@ -10,9 +10,16 @@
 /[Uu]ser[Ss]ettings/
 *.log
 
+#VisualStudio/etc. user settings and auto-generated files (including .csproj and sln)
+ExportedObj/
+.consulo/
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+
 # Rider cache
 .idea/
 Assets/Plugins/Editor/JetBrains*
-
-#VisualStudio/etc. user settings
-*.user

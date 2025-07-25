@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c044d79bcfd55541b17496fd6870d09, type: 3}
   m_Name: WarriorName2
   m_EditorClassIdentifier: 
-  displayName: Name2
-  description: Description2
+  displayName:
+    useConstant: 1
+    constantValue: WarriorDisplayName2
+    variable: {fileID: 0}
+  description: WarriorDescription2
   maxHealth:
     useConstant: 1
     constantValue: 120
@@ -22,3 +25,4 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 0}
+  sprite: {fileID: 7482667652216324306, guid: 936d720a428cfe448a245fdcec600266, type: 3}
