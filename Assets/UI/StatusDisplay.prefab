@@ -277,6 +277,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatantHealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 3414033408497618123, guid: 909ee0fc759fa6d44a90132e91f64917, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5169698065456006262, guid: 909ee0fc759fa6d44a90132e91f64917, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -357,6 +361,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6458510021386375329, guid: 909ee0fc759fa6d44a90132e91f64917, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: e944b2efe10fecc4d8299d6a7db28abe, type: 3}
+    - target: {fileID: 6458510021386375329, guid: 909ee0fc759fa6d44a90132e91f64917, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 93083bbfaef5ee3459324116e0040620, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
