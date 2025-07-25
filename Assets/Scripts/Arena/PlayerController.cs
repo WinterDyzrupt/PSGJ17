@@ -54,7 +54,6 @@ namespace Arena
         {
             _moveDirection = _inputMove.ReadValue<Vector2>();
             _aimDirection = _inputAim.ReadValue<Vector2>();
-            RotatePlayer();
 
             // Checks to see if any of the skill buttons are held down
             // Let the cooldown feature dictate when skills are activated
@@ -70,6 +69,7 @@ namespace Arena
         void FixedUpdate()
         {
             warriorRigidBody.linearVelocity = _moveDirection * _moveSpeed;
+            RotatePlayer();
         }
 
         private void RotatePlayer()
