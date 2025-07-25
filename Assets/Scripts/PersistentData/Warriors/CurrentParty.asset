@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f725016f968cc74f81be24c810d5f92, type: 3}
   m_Name: CurrentParty
   m_EditorClassIdentifier: 
-  warriors: []
+  warriors:
+  - {fileID: 11400000, guid: e8d52773fad31664fa81ad2d9b04740a, type: 2}
+  - {fileID: 11400000, guid: e8d52773fad31664fa81ad2d9b04740a, type: 2}
+  - {fileID: 11400000, guid: e8d52773fad31664fa81ad2d9b04740a, type: 2}
+  - {fileID: 11400000, guid: e8d52773fad31664fa81ad2d9b04740a, type: 2}
