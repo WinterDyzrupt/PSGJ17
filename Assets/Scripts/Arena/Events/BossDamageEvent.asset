@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da34efe63cbe8ef47ad4a1bbc2ee3c0b, type: 3}
   m_Name: BossDamageEvent
   m_EditorClassIdentifier: 
+  warriors:
+  - {fileID: 11400000, guid: e8d52773fad31664fa81ad2d9b04740a, type: 2}
+  - {fileID: 11400000, guid: e8d52773fad31664fa81ad2d9b04740a, type: 2}
+  - {fileID: 11400000, guid: e8d52773fad31664fa81ad2d9b04740a, type: 2}
+  - {fileID: 11400000, guid: e8d52773fad31664fa81ad2d9b04740a, type: 2}
