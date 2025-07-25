@@ -16,8 +16,7 @@ namespace PersistentData
         public Skill ability2;
         public Skill utility;
 
-
-        public void SetValues(Combatant combatantToGetValuesFrom)
+        public virtual void SetValues(Combatant combatantToGetValuesFrom)
         {
             Debug.Assert(combatantToGetValuesFrom != null, nameof(combatantToGetValuesFrom) + " expected to be not null.");
             Debug.Assert(this.maxHealth != null, $"{nameof(this.maxHealth)} expected to be not null.");
@@ -38,12 +37,13 @@ namespace PersistentData
             this.utility = combatantToGetValuesFrom.utility;
         }
 
-        public void Reset()
+        public virtual void Reset()
         {
             this.displayName?.ResetValue();
             this.description = string.Empty;
             this.maxHealth?.ResetValue();
             this.currentHealth?.ResetValue();
+            this.sprite =  null;
         }
 
         public void ReceiveDamage(float initialDamage)
