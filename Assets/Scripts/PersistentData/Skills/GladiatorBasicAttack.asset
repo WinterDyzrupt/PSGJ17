@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09acb87bae8604f4d8734d14eb60f943, type: 3}
-  m_Name: PlayerAttack2
+  m_Name: GladiatorBasicAttack
   m_EditorClassIdentifier: 
-  displayName: RangeAttack
+  displayName: MeleeAttack
   skillParts:
-  - {fileID: 11400000, guid: 847abe75832ed5a46b7c19b036fbd858, type: 2}
+  - {fileID: 11400000, guid: e442b63c27f4c8a459076ae891f03284, type: 2}

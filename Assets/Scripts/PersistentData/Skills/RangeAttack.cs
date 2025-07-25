@@ -2,9 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "RangeAttack", menuName = "Scriptable Objects/Skills/Part-RangeAttack")]
 public class RangeAttack : SkillPart
-{
-    // Skill Class for a Melee Attack
-    
+{    
     public GameObject projectileGameObject;
 
     // Override Execute skill so that it performs the attack

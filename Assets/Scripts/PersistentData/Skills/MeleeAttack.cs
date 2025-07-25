@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MeleeAttack", menuName = "Scriptable Objects/Skills/Part-MeleeAttack")]
 public class MeleeAttack : SkillPart
 {
-    public float offset = 35;
+    public float offsetFromTheSpawner = 35;
     public GameObject shapePrefab;
 
     // Override Execute skill so that it performs the attack
@@ -13,7 +13,7 @@ public class MeleeAttack : SkillPart
         if (shapePrefab != null)
         {
             GameObject shape = Instantiate(shapePrefab, transform);
-            shape.transform.localPosition += Vector3.right * offset / transform.localScale.x;
+            shape.transform.localPosition += Vector3.right * offsetFromTheSpawner / transform.localScale.x;
             shape.AddComponent<Faction>().faction = faction;
             shape.AddComponent<DestroyAfterFirstFrame>();
             shape.transform.SetParent(null);

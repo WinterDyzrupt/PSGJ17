@@ -47,6 +47,8 @@ namespace Arena.Collisions
             {
                 FactionType otherFaction = otherObject.gameObject.GetComponent<Faction>().faction;
 
+                Debug.Log($"Damage Detected: from {otherObject.gameObject.name} with {otherFaction} to {gameObject.name} with {_faction}!");
+
                 if (_faction != otherFaction)
                 {
                     currentCombatant.ReceiveDamage(dealsDamageOnCollision.damage.Value);
