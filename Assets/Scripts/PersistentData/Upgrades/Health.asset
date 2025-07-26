@@ -25,4 +25,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: aebf2158e7640d34fb1547e6ddd77417, type: 3}
   fameCostPerRank: 64000000c800000090010000
   maxRank: 3
-  currentRank: 0
+  currentRank: 3
+  healthPerRank: 10

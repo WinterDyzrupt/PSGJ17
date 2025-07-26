@@ -1,9 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Helper;
 using PersistentData;
-using PersistentData.Bosses;
 
 public class ManagerTitle : MonoBehaviour
 {
@@ -11,34 +9,32 @@ public class ManagerTitle : MonoBehaviour
     public CanvasGroup levelSelectPanel;
     public CanvasGroup creditsPanel;
 
-    public List<Boss> bosses;
-    public CurrentBoss currentBoss;
+    public IntVariable selectedBossIndex;
+    public UpgradeGroup upgradesForAllWarriors;
+    public CombatantGroup allWarriors;
 
     private void Awake()
     {
-        if ((bosses?.Count ?? 0) == 0)
-        {
-            Debug.LogError("Bosses not populated!");
-        }
-
-        if (!currentBoss)
-        {
-            Debug.LogError("CurrentBoss not populated!");
-        }
-        else
-        {
-            currentBoss.Reset();
-        }
+        Debug.Assert(upgradesForAllWarriors != null,  nameof(upgradesForAllWarriors) + " expected to be non-null.");
     }
 
     private void Start()
     {
         LoadData();
+        ApplyUpgrades(upgradesForAllWarriors, allWarriors);
     }
 
     private void LoadData()
     {
         Debug.LogWarning("Load Data method is not implemented yet.");
+    }
+
+    private void ApplyUpgrades(UpgradeGroup upgrades, CombatantGroup combatants)
+    {
+        foreach (var upgrade in upgrades.upgrades)
+        {
+            upgrade.ApplyToCombatantGroup(combatants);
+        }
     }
 
     public void LoadUpgradeScene()
@@ -48,17 +44,10 @@ public class ManagerTitle : MonoBehaviour
 
     public void LoadPartySelectScene(int bossIndex)
     {
-        if ((bosses?.Count ?? 0) <= bossIndex)
-        {
-            Debug.LogError("Selected a boss that doesn't exist.");
-        }
-        else
-        {
-            currentBoss.SetValues(bosses[bossIndex]);
-            Debug.Log("CurrentBoss: " + currentBoss);
+        selectedBossIndex.value = bossIndex;
+        Debug.Log("Selected boss index: " + selectedBossIndex.value);
 
-            SceneManager.LoadScene(SceneData.PartySelectSceneIndex);
-        }
+        SceneManager.LoadScene(SceneData.PartySelectSceneIndex);
     }
 
     public void ToggleLevelSelect()

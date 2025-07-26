@@ -1,11 +1,12 @@
-using PersistentData.Warriors;
+using PersistentData;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Agility", menuName = "Scriptable Objects/Upgrade/Agility")]
+
+[CreateAssetMenu(fileName = "Agility", menuName = "Scriptable Objects/Upgrades/Agility")]
 public class AgilityUpgrade : Upgrade
 {
-        internal override void ApplyUpgrade(Warrior warrior, int rank)
-        {
-            // warrior.health = rank * 10 + warrior.baseHealth;
-        }
+    protected override void ApplyUpgrade(Combatant combatant, int rank)
+    {
+        // warrior.health = rank * 10 + warrior.baseHealth;
+    }
 }

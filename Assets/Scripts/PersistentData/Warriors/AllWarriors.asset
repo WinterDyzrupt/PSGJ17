@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66873e8b5133c8a448283c37fde230a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d1ff270ca8b6484aa504a26b9b41489, type: 3}
   m_Name: AllWarriors
   m_EditorClassIdentifier: 
-  warriors:
+  combatants:
   - {fileID: 11400000, guid: e8d52773fad31664fa81ad2d9b04740a, type: 2}
   - {fileID: 11400000, guid: 0c7d02513663dda4388cad2a7c557b81, type: 2}
   - {fileID: 11400000, guid: 6ae5e38a3cf9dfc4593907628aa702c7, type: 2}

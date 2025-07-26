@@ -9,18 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b31354b65f1ba24a91d71fe98be9780, type: 3}
-  m_Name: AllUpgrades
+  m_Script: {fileID: 11500000, guid: 2753f9aa667d1484b9a8c029825aff98, type: 3}
+  m_Name: WarriorNonStatUpgrades
   m_EditorClassIdentifier: 
-  allUpgrades:
-  - {fileID: 11400000, guid: f1e23618f805f4c49806d4e96a66105c, type: 2}
-  - {fileID: 11400000, guid: ffab0e8c30d5be54c9ed6769a7cd7c88, type: 2}
-  - {fileID: 11400000, guid: 2fd67d96634ba2548900f96035e28b08, type: 2}
-  - {fileID: 11400000, guid: 359a5885b4c540742b26cb351df5614c, type: 2}
+  upgrades:
   - {fileID: 11400000, guid: 74956d975e539ed418f1a4d9d9644f4c, type: 2}
   - {fileID: 11400000, guid: 3ef9e0aad11d43e43ac72e5c9c6fbb95, type: 2}
-  - {fileID: 11400000, guid: 95c14f33df774ba4b9926cd7aaf5baf5, type: 2}
-  - {fileID: 11400000, guid: 6fa27bf1877f499459446cf48ecb4c0d, type: 2}
   - {fileID: 11400000, guid: e181a570dbf578a4bbe0288c775680e8, type: 2}
   - {fileID: 11400000, guid: 0e383746cdde65e438c75dfda92dc6bc, type: 2}
   - {fileID: 11400000, guid: 28585c6fa05e092498ccc17fec212ebb, type: 2}

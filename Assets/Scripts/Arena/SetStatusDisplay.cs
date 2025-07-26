@@ -35,7 +35,7 @@ namespace Arena
         {
             // For when current warrior changes
             displayNameBox.text = combatant.displayName;
-            healthBarImage.fillAmount = combatant.currentHealth.Value / combatant.maxHealth.Value;
+            healthBarImage.fillAmount = combatant.currentHealth.Value / combatant.MaxHealth;
 
             if (_numberOfPhases > 0)
             {

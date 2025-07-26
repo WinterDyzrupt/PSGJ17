@@ -1,0 +1,36 @@
+using UnityEngine;
+
+namespace PersistentData
+{
+    /// <summary>
+    /// A strange workaround to tell UnityEditor to persist these ScriptableObjects across scenes.
+    /// If a ScriptableObject is used in scene1 and scene3, with scene2 in the middle, Unity will reset the
+    /// ScriptableObject to default value.
+    /// This class should have all the ScriptableObjects that we modify and want persisted across scenes.
+    /// NOTE: this does not include ScriptableObjects that are not modified at runtime.
+    /// </summary>
+    public class ScriptableObjectsToPersist : MonoBehaviour
+    {
+        public IntVariable selectedBossIndex;
+        public CombatantGroup currentParty;
+        public IntVariable currentFame;
+        public IntVariable lifetimeFame;
+        public CombatantGroup allWarriors;
+        public UpgradeGroup warriorStatUpgrades;
+        public UpgradeGroup warriorNonStatUpgrades;
+
+        private static GameObject _instance;
+        private void Awake()
+        {
+            if (_instance != null)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                DontDestroyOnLoad(this);
+                _instance = gameObject;
+            }
+        }
+    }
+}

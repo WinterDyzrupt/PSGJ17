@@ -222,17 +222,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &119586098 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4384271196706092953, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-  m_PrefabInstance: {fileID: 384511206}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4ac45305e04c124384ba7cc325a70db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &123090432 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4384271196706092953, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
@@ -483,18 +472,6 @@ PrefabInstance:
       propertyPath: upgrade
       value: 
       objectReference: {fileID: 11400000, guid: f1e23618f805f4c49806d4e96a66105c, type: 2}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 993524043}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectUpgrade
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 717702778}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -594,140 +571,6 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
---- !u!1001 &384511206
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1219872083}
-    m_Modifications:
-    - target: {fileID: 1181893717538565031, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_Name
-      value: UpgradeButtonWarrior0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1910130394942053981, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: upgradeSO
-      value: 
-      objectReference: {fileID: 11400000, guid: d19806a75dc6ac74dbab36baad904955, type: 2}
-    - target: {fileID: 1910130394942053981, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: rankIcons.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1910130394942053981, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: 'rankIcons.Array.data[0]'
-      value: 
-      objectReference: {fileID: 21300000, guid: 861ea56ab1902ef4b85cc14453956b07, type: 3}
-    - target: {fileID: 1910130394942053981, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: 'rankIcons.Array.data[1]'
-      value: 
-      objectReference: {fileID: 21300000, guid: e45524d861072544bb27e62a9a9345f1, type: 3}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384271196706092953, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: upgrade
-      value: 
-      objectReference: {fileID: 11400000, guid: 6fa27bf1877f499459446cf48ecb4c0d, type: 2}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 993524043}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectUpgrade
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 119586098}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
---- !u!224 &384511207 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-  m_PrefabInstance: {fileID: 384511206}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &426028655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -844,18 +687,6 @@ PrefabInstance:
       propertyPath: upgrade
       value: 
       objectReference: {fileID: 11400000, guid: 3ef9e0aad11d43e43ac72e5c9c6fbb95, type: 2}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 993524043}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectUpgrade
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 1704638854}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -956,7 +787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 300
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -978,18 +809,6 @@ PrefabInstance:
       propertyPath: upgrade
       value: 
       objectReference: {fileID: 11400000, guid: 28585c6fa05e092498ccc17fec212ebb, type: 2}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 993524043}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectUpgrade
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 123090432}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1717,18 +1536,6 @@ PrefabInstance:
       propertyPath: upgrade
       value: 
       objectReference: {fileID: 11400000, guid: ffab0e8c30d5be54c9ed6769a7cd7c88, type: 2}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 993524043}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectUpgrade
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 856432388}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1859,18 +1666,6 @@ PrefabInstance:
       propertyPath: upgrade
       value: 
       objectReference: {fileID: 11400000, guid: 74956d975e539ed418f1a4d9d9644f4c, type: 2}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 993524043}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectUpgrade
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 588959327}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2284,6 +2079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 993524044}
   - component: {fileID: 993524043}
+  - component: {fileID: 993524045}
   m_Layer: 0
   m_Name: ManagerUpgrade
   m_TagString: Untagged
@@ -2311,11 +2107,12 @@ MonoBehaviour:
   - {fileID: 1237156743}
   - {fileID: 588959327}
   - {fileID: 1704638854}
-  - {fileID: 119586098}
   - {fileID: 1764219530}
   - {fileID: 17673805}
   - {fileID: 123090432}
   - {fileID: 1689333031}
+  selectedUpgrade: {fileID: 11400000, guid: 4a9bddb7390c5c54ba63c4264c986e7c, type: 2}
+  currentUpgradeSelection: {fileID: 11400000, guid: 24d462b71d28e854a99ca9bd4cdc1041, type: 2}
   fameAmount: {fileID: 1989148923}
   selectedName: {fileID: 897822221}
   selectedDescription: {fileID: 867712558}
@@ -2330,7 +2127,8 @@ MonoBehaviour:
   - {fileID: 712103854}
   - {fileID: 1873763830}
   currentFame: {fileID: 11400000, guid: 3e4385e898bad8341a2f5aa61e0b2b10, type: 2}
-  allWarriors: {fileID: 11400000, guid: d7f774f2b8975824a84816dcf787045d, type: 2}
+  allWarriors: {fileID: 11400000, guid: 8b73dec549dd49143b39d029310ff3c0, type: 2}
+  maxedDisplayString: Maxed
 --- !u!4 &993524044
 Transform:
   m_ObjectHideFlags: 0
@@ -2346,6 +2144,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &993524045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993524042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998e47dae77243b449881acf7d770c54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: de04fc1b25469684dbefee241d79608d, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 993524043}
+        m_TargetAssemblyTypeName: SceneManagers.ManagerUpgrade, Assembly-CSharp
+        m_MethodName: OnUpgradeSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1086675372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,7 +2667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2863,18 +2689,6 @@ PrefabInstance:
       propertyPath: upgrade
       value: 
       objectReference: {fileID: 11400000, guid: 0e383746cdde65e438c75dfda92dc6bc, type: 2}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 993524043}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectUpgrade
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 17673805}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2913,7 +2727,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 384511207}
   - {fileID: 1946543044}
   - {fileID: 1178840716}
   - {fileID: 433646355}
@@ -3056,18 +2869,6 @@ PrefabInstance:
       propertyPath: upgrade
       value: 
       objectReference: {fileID: 11400000, guid: 2fd67d96634ba2548900f96035e28b08, type: 2}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 993524043}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectUpgrade
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 1237156743}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3285,7 +3086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 400
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3307,18 +3108,6 @@ PrefabInstance:
       propertyPath: upgrade
       value: 
       objectReference: {fileID: 11400000, guid: 6f167a26c5d925c49afb1ffdc8d3dbb5, type: 2}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 993524043}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectUpgrade
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 1689333031}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3733,9 +3522,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1880527700}
-        m_TargetAssemblyTypeName: ResetAllUpgradeRanks, Assembly-CSharp
-        m_MethodName: SetAllRanksToZero
-        m_Mode: 1
+        m_TargetAssemblyTypeName: Upgrades.ResetAllUpgradeRanks, Assembly-CSharp
+        m_MethodName: SetAllRanks
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3794,8 +3583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9713cf23da80f8e43ae76b3683c6e924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allUpgrades: {fileID: 11400000, guid: 99773551663f2624e8528daecee631bc, type: 2}
-  allWarriors: {fileID: 11400000, guid: d7f774f2b8975824a84816dcf787045d, type: 2}
+  allUpgrades: {fileID: 0}
+  allWarriors: {fileID: 0}
 --- !u!1 &1891170794
 GameObject:
   m_ObjectHideFlags: 0
@@ -3954,7 +3743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3313935146724575923, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3976,18 +3765,6 @@ PrefabInstance:
       propertyPath: upgrade
       value: 
       objectReference: {fileID: 11400000, guid: e181a570dbf578a4bbe0288c775680e8, type: 2}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 993524043}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectUpgrade
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 1764219530}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4667,18 +4444,6 @@ PrefabInstance:
       propertyPath: upgrade
       value: 
       objectReference: {fileID: 11400000, guid: 95c14f33df774ba4b9926cd7aaf5baf5, type: 2}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 993524043}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectUpgrade
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 1314462334}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4789,18 +4554,6 @@ PrefabInstance:
       propertyPath: upgrade
       value: 
       objectReference: {fileID: 11400000, guid: 359a5885b4c540742b26cb351df5614c, type: 2}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 993524043}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectUpgrade
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598311949666465244, guid: e924fb5317c00f14da2f2307ffce7674, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 2082132055}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
