@@ -62,14 +62,12 @@ namespace Arena
             if (_inputAbility2.IsPressed()) ExecuteSkill(currentWarrior.ability2);
             if (_inputUtility.IsPressed()) ExecuteSkill(currentWarrior.utility);
 
-            if (_aimDirection.x >= 0) warriorSprite.flipX = false;
-            else warriorSprite.flipX = true;
+            RotatePlayer();
         }
 
         void FixedUpdate()
         {
             warriorRigidBody.linearVelocity = _moveDirection * _moveSpeed;
-            RotatePlayer();
         }
 
         private void RotatePlayer()
@@ -77,7 +75,6 @@ namespace Arena
             if (!_isUsingGamepad)
             {
                 _aimDirection = (Vector2)(Camera.main.ScreenToWorldPoint(_aimDirection) - transform.position);
-                Debug.Log("Aim direction is: " + _aimDirection.ToString());
             }
 
             if (_aimDirection.magnitude != 0)
@@ -85,6 +82,12 @@ namespace Arena
                 var angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg;
                 orientationTransform.rotation = Quaternion.Euler(0f, 0f, angle);
             }
+
+            // Should we flip the sprite based on the rotation of the orientation
+            float angleOfOrientation = orientationTransform.eulerAngles.z;
+            Debug.Log($"{angleOfOrientation} of the player (Z Axis).");
+            if (angleOfOrientation > 90 && angleOfOrientation < 270) warriorSprite.flipX = true;
+            else warriorSprite.flipX = false;
         }
 
         void OnEnable()

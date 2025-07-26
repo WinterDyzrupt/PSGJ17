@@ -420,6 +420,7 @@ MonoBehaviour:
   warriorRigidBody: {fileID: 2692544573350887058}
   orientationTransform: {fileID: 5706372733774142849}
   warriorSprite: {fileID: 7264555185871870565}
+  _isUsingGamepad: 0
 --- !u!114 &5216903150493947683
 MonoBehaviour:
   m_ObjectHideFlags: 0
