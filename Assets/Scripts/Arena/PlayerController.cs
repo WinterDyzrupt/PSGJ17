@@ -85,7 +85,6 @@ namespace Arena
 
             // Should we flip the sprite based on the rotation of the orientation
             float angleOfOrientation = orientationTransform.eulerAngles.z;
-            Debug.Log($"{angleOfOrientation} of the player (Z Axis).");
             if (angleOfOrientation > 90 && angleOfOrientation < 270) warriorSprite.flipX = true;
             else warriorSprite.flipX = false;
         }
@@ -144,7 +143,7 @@ namespace Arena
             }
             else
             {
-                Debug.Log($"Attempted to activate skill on {currentWarrior.displayName} but it was empty. Was it supposed to be missing?");
+                Debug.LogWarning($"Attempted to activate skill on {currentWarrior.displayName} but it was empty. Was it supposed to be missing?");
             }
         }
     }
