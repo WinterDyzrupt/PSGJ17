@@ -16,8 +16,12 @@ namespace PersistentData
         public IntVariable currentFame;
         public IntVariable lifetimeFame;
         public CombatantGroup allWarriors;
-        public UpgradeGroup warriorStatUpgrades;
-        public UpgradeGroup warriorNonStatUpgrades;
+        public AgilityUpgrade agility;
+        public DefenseUpgrade defense;
+        public EvasionUpgrade evasion;
+        public HealthUpgrade health;
+        public SpeedUpgrade speed;
+        // TODO: non-stat upgrades
 
         private static GameObject _instance;
         private void Awake()

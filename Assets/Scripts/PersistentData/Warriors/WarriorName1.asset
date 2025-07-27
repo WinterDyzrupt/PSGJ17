@@ -27,4 +27,20 @@ MonoBehaviour:
     constantValue: 0
     variable: {fileID: 0}
   baseMaxHealth: 100
-  bonusMaxHealth: 0
+  bonusMaxHealth: 30
+  baseFlatDamageReduction: 0
+  bonusFlatDamageReduction: 2
+  baseDamageReceivedMultiplier: 1
+  bonusDamageReceivedMultiplier: 1
+  baseOutgoingDamageMultiplier: 1
+  bonusOutgoingDamageMultiplier: 1
+  baseMovementSpeed: 0
+  bonusMovementSpeed: 0
+  baseMovementSpeedMultiplier: 1
+  bonusMovementSpeedMultiplier: 1.1
+  baseCooldownReductionMultiplier: 1
+  bonusCooldownReductionMultiplier: 0.15
+  baseAvoidAttackCount: 0
+  bonusAvoidAttackCount: 2
+  baseAvoidAttackIntervalInSeconds: 10
+  bonusAvoidAttackIntervalInSeconds: 0

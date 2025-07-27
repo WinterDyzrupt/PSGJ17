@@ -8,7 +8,8 @@ public class HealthUpgrade : Upgrade
 
     protected override void ApplyUpgrade(Combatant combatant, int rank)
     {
-        Debug.Log($"Applying upgrade: {base.ToString()} to combatant: {combatant}");
-        combatant.bonusMaxHealth = rank * healthPerRank;
+        base.ApplyUpgrade(combatant, rank);
+
+        combatant.bonusMaxHealth = healthPerRank * rank;
     }
 }

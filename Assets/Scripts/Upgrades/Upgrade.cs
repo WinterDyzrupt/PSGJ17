@@ -35,15 +35,7 @@ public class Upgrade : ScriptableObject
 
     public void IncreaseRank(CombatantGroup group)
     {
-        if (!IsMaxed)
-        {
-            currentRank++;
-            ApplyToCombatantGroup(group);
-        }
-        else
-        {
-            Debug.LogError("Attempted to increase Rank but it was already maxed.");
-        }
+        SetRank(currentRank + 1, group);
     }
 
     public void SetRank(int rank, CombatantGroup group)
@@ -59,7 +51,6 @@ public class Upgrade : ScriptableObject
         }
     }
 
-
     public void ApplyToCombatantGroup(CombatantGroup group)
     {
         Debug.Log($"Applying upgrade: {this.ToString()} to Combatants: {group}");
@@ -71,6 +62,7 @@ public class Upgrade : ScriptableObject
 
     protected virtual void ApplyUpgrade(Combatant combatant, int rank)
     {
+        Debug.Log($"Applying upgrade: {upgradeName}, rank: {rank} to combatant: {combatant}");
     }
 
     public override string ToString()

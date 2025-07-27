@@ -1,3 +1,5 @@
+using Arena.Collisions;
+using PersistentData;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "RangeAttack", menuName = "Scriptable Objects/Skills/Part-RangeAttack")]
@@ -6,7 +8,7 @@ public class RangeAttack : SkillPart
     public GameObject projectileGameObject;
 
     // Override Execute skill so that it performs the attack
-    public override void ExecuteSkill(Transform transform, FactionType faction)
+    public override void ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier = DefaultCombatData.DefaultMultiplier)
     {
 
         if (projectileGameObject == null)
@@ -21,6 +23,7 @@ public class RangeAttack : SkillPart
         if (firedProjectile.TryGetComponent(out Projectile projectile))
         {
             projectile.InitializeProjectile(faction);
+            projectile.gameObject.AddComponent<DealsDamageOnCollision>().damage.Value = baseDamage * damageMultiplier;
         }
         else
         {
