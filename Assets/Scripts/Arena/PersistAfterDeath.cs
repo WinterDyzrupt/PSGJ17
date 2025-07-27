@@ -13,6 +13,7 @@ namespace Arena
         private PlayerController _playerController;
         private PlayerInput _playerInput;
         private BoxCollider2D _boxCollider2D;
+        private SpriteRenderer _warriorDirection;
 
         private void Awake()
         {
@@ -25,6 +26,8 @@ namespace Arena
             Debug.Assert(_boxCollider2D != null, nameof(_boxCollider2D) + " expected to be not null");
             _playerInput = GetComponent<PlayerInput>();
             Debug.Assert(_playerInput != null, nameof(_playerInput) + " expected to be not null");
+            _warriorDirection = _playerController.orientationTransform.gameObject.GetComponentInChildren<SpriteRenderer>();
+            Debug.Assert(_warriorDirection != null, nameof(_warriorDirection.transform.parent.gameObject) + " didn't have direction arrow.");
         }
 
         public void OnDeath()
@@ -34,6 +37,7 @@ namespace Arena
             _playerController.enabled = false;
             _boxCollider2D.enabled = false;
             _playerInput.enabled = false;
+            _warriorDirection.enabled = false;
         }
     }
 }

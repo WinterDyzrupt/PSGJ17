@@ -55,7 +55,7 @@ namespace Arena
 
             orientationTransform.rotation = Quaternion.Euler(0.0f, 0.0f, angleOfOrientation);
 
-            if (angleOfOrientation > 90 && angleOfOrientation < 270) combatantSprite.flipX = true;
+            if (angleOfOrientation > 90 || angleOfOrientation < -90) combatantSprite.flipX = true;
             else combatantSprite.flipX = false;
         }
 
