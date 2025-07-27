@@ -7,7 +7,7 @@ namespace Arena
     [RequireComponent(typeof(ArenaControls))]
     public class PlayerController : CombatantController
     {
-        public Warrior currentWarrior;
+        private Warrior _currentWarrior;
         private ArenaControls _arenaControls;
         private InputAction _inputMove;
         private InputAction _inputAim;
@@ -19,8 +19,14 @@ namespace Arena
 
         private void Awake()
         {
-            Debug.Assert(currentWarrior != null, $"Current Warrior hasn't been assigned to the PlayerController");
-
+            if (currentCombatant is Warrior)
+            {
+                _currentWarrior = currentCombatant as Warrior;
+            }
+            else
+            {
+                Debug.LogError($"Assigned combatant in {gameObject.name} is not a Warrior.");
+            }
             _arenaControls = new();
         }
 
@@ -38,10 +44,10 @@ namespace Arena
 
             // Checks to see if any of the skill buttons are held down
             // Let the cooldown feature dictate when skills are activated
-            if (_inputBasicAttack.IsPressed()) ExecuteSkill(currentWarrior.basicAttack);
-            if (_inputAbility1.IsPressed()) ExecuteSkill(currentWarrior.ability1);
-            if (_inputAbility2.IsPressed()) ExecuteSkill(currentWarrior.ability2);
-            if (_inputUtility.IsPressed()) ExecuteSkill(currentWarrior.utility);
+            if (_inputBasicAttack.IsPressed()) ExecuteSkill(_currentWarrior.basicAttack);
+            if (_inputAbility1.IsPressed()) ExecuteSkill(_currentWarrior.ability1);
+            if (_inputAbility2.IsPressed()) ExecuteSkill(_currentWarrior.ability2);
+            if (_inputUtility.IsPressed()) ExecuteSkill(_currentWarrior.utility);
         }
 
         void OnEnable()

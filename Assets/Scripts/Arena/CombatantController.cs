@@ -1,3 +1,4 @@
+using PersistentData;
 using UnityEngine;
 
 namespace Arena
@@ -7,6 +8,7 @@ namespace Arena
         public Rigidbody2D combatantRigidbody;
         public Transform orientationTransform;
         public SpriteRenderer combatantSprite;
+        public Combatant currentCombatant;
 
         public float moveSpeedBase = 300;
         public float moveSpeedModifierPercentage = 1;
@@ -14,6 +16,12 @@ namespace Arena
         protected FactionType _faction;
         protected Vector2 _moveDirection = new();
         protected Vector2 _aimDirection = new();
+
+        void Awake()
+        {
+            Debug.Assert(currentCombatant != null, $"{gameObject.name} hasn't been assigned to the CombatController");
+
+        }
 
         void Start()
         {

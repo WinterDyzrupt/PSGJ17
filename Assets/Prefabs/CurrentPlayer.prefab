@@ -423,9 +423,9 @@ MonoBehaviour:
   combatantRigidbody: {fileID: 2692544573350887058}
   orientationTransform: {fileID: 5706372733774142849}
   combatantSprite: {fileID: 7264555185871870565}
+  currentCombatant: {fileID: 11400000, guid: 7089a1bc9a753e4418bfd252aa418eb5, type: 2}
   moveSpeedBase: 300
   moveSpeedModifierPercentage: 1
-  currentWarrior: {fileID: 11400000, guid: 7089a1bc9a753e4418bfd252aa418eb5, type: 2}
 --- !u!114 &5216903150493947683
 MonoBehaviour:
   m_ObjectHideFlags: 0
