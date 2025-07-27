@@ -16,7 +16,7 @@ public class MeleeAttack : SkillPart
         {
             GameObject shape = Instantiate(shapePrefab, transform);
             shape.transform.localPosition += Vector3.right * offsetFromTheSpawner / transform.localScale.x;
-            shape.AddComponent<DealsDamageOnCollision>().damage.Value = baseDamage * damageMultiplier;
+            shape.AddComponent<DealsDamageOnCollision>().damage = new FloatReference(baseDamage * damageMultiplier);
             shape.AddComponent<Faction>().faction = faction;
             shape.AddComponent<DestroyAfterFirstFrame>();
             shape.transform.SetParent(null);

@@ -23,7 +23,7 @@ public class RangeAttack : SkillPart
         if (firedProjectile.TryGetComponent(out Projectile projectile))
         {
             projectile.InitializeProjectile(faction);
-            projectile.gameObject.AddComponent<DealsDamageOnCollision>().damage.Value = baseDamage * damageMultiplier;
+            projectile.gameObject.AddComponent<DealsDamageOnCollision>().damage = new FloatReference(baseDamage * damageMultiplier);
         }
         else
         {

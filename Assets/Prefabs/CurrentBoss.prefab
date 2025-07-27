@@ -136,6 +136,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1498209312392045838, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5168636022563210653}
+    - targetCorrespondingSourceObject: {fileID: 1498209312392045838, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8388801560915773454}
   m_SourcePrefab: {fileID: 100100000, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
 --- !u!1 &475227548969080952 stripped
 GameObject:
@@ -259,3 +262,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8388801560915773454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475227548969080952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a5b0d933373b04895c508a73e3a1e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatantRigidbody: {fileID: 1421871862001018172}
+  orientationTransform: {fileID: 779263938863236037}
+  combatantSprite: {fileID: 3945763711985376593}
+  currentCombatant: {fileID: 11400000, guid: f663054053aaec94499e5071a9d55254, type: 2}
+  moveSpeedBase: 300
+  moveSpeedModifierPercentage: 1
+--- !u!4 &779263938863236037 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1766094893885718195, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+  m_PrefabInstance: {fileID: 1320378906108722550}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &3945763711985376593 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2634824234098270247, guid: 438d720981cec8f4ba43f9b70b23ea53, type: 3}
+  m_PrefabInstance: {fileID: 1320378906108722550}
+  m_PrefabAsset: {fileID: 0}

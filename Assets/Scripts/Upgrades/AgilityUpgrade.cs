@@ -12,7 +12,7 @@ public class AgilityUpgrade : Upgrade
     {
         base.ApplyUpgrade(combatant, rank);
 
-        combatant.bonusCooldownReductionMultiplier =
+        combatant.bonusCooldownReductionMultiplier = DefaultCombatData.DefaultMultiplier -
             startingCooldownMultiplier + cooldownReductionMultiplierPerRank * rank;
     }
 }

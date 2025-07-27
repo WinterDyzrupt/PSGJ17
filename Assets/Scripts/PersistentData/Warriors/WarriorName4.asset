@@ -18,10 +18,6 @@ MonoBehaviour:
     variable: {fileID: 0}
   description: Description4
   sprite: {fileID: 7482667652216324306, guid: 541ad95999b50f54eae6904cf7cbb689, type: 3}
-  basicAttack: {fileID: 0}
-  ability1: {fileID: 0}
-  ability2: {fileID: 0}
-  utility: {fileID: 0}
   currentHealth:
     useConstant: 0
     constantValue: 0
@@ -34,13 +30,17 @@ MonoBehaviour:
   bonusDamageReceivedMultiplier: 1
   baseOutgoingDamageMultiplier: 1
   bonusOutgoingDamageMultiplier: 1
-  baseMovementSpeed: 0
+  baseMovementSpeed: 300
   bonusMovementSpeed: 0
   baseMovementSpeedMultiplier: 1
   bonusMovementSpeedMultiplier: 1.1
   baseCooldownReductionMultiplier: 1
   bonusCooldownReductionMultiplier: 0.15
   baseAvoidAttackCount: 0
-  bonusAvoidAttackCount: 2
+  bonusAvoidAttackCount: 1
   baseAvoidAttackIntervalInSeconds: 10
   bonusAvoidAttackIntervalInSeconds: 0
+  basicAttack: {fileID: 0}
+  ability1: {fileID: 0}
+  ability2: {fileID: 0}
+  utility: {fileID: 0}

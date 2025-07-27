@@ -18,10 +18,6 @@ MonoBehaviour:
     variable: {fileID: 0}
   description: WarriorDescription1
   sprite: {fileID: 7482667652216324306, guid: 31fe3a848958fed4faf6e591014e5af6, type: 3}
-  basicAttack: {fileID: 11400000, guid: 4411e927f23dc594fb4b36e04ba56560, type: 2}
-  ability1: {fileID: 11400000, guid: 8dfffc72596bd6947b079d403f84ac0b, type: 2}
-  ability2: {fileID: 0}
-  utility: {fileID: 0}
   currentHealth:
     useConstant: 0
     constantValue: 0
@@ -34,13 +30,17 @@ MonoBehaviour:
   bonusDamageReceivedMultiplier: 1
   baseOutgoingDamageMultiplier: 1
   bonusOutgoingDamageMultiplier: 1
-  baseMovementSpeed: 0
+  baseMovementSpeed: 300
   bonusMovementSpeed: 0
   baseMovementSpeedMultiplier: 1
   bonusMovementSpeedMultiplier: 1.1
   baseCooldownReductionMultiplier: 1
   bonusCooldownReductionMultiplier: 0.15
   baseAvoidAttackCount: 0
-  bonusAvoidAttackCount: 2
+  bonusAvoidAttackCount: 1
   baseAvoidAttackIntervalInSeconds: 10
   bonusAvoidAttackIntervalInSeconds: 0
+  basicAttack: {fileID: 11400000, guid: 4411e927f23dc594fb4b36e04ba56560, type: 2}
+  ability1: {fileID: 11400000, guid: 8dfffc72596bd6947b079d403f84ac0b, type: 2}
+  ability2: {fileID: 0}
+  utility: {fileID: 0}

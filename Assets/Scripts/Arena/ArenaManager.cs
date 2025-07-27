@@ -121,7 +121,7 @@ namespace Arena
             combatantPlaceholder.ResetValues();
             combatantPlaceholder.SetValues(template);
             var newCombatant = Instantiate(prefab);
-            newCombatant.GetComponent<SpriteRenderer>().sprite = combatantPlaceholder.sprite;
+            newCombatant.GetComponent<CombatantController>().combatantSprite.sprite = combatantPlaceholder.sprite;
         }
 
         private void Update()

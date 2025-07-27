@@ -19,9 +19,6 @@ public class Skill : ScriptableObject
     [NonSerialized]
     private float _totalCooldownTimeMultiplier = DefaultCombatData.DefaultMultiplier;
 
-    [NonSerialized]
-    private bool _isThisInitialized = false;
-
     public bool isOffCooldown
     {
         get
