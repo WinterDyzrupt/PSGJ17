@@ -136,7 +136,7 @@ namespace PersistentData
             var actualDamage = initialDamage * DamageReceivedMultiplier - FlatDamageReduction;
             Debug.Log($"{displayName} taking initial damage: {initialDamage}; finalDamage: {actualDamage}");
 
-            currentHealth.Value -= initialDamage;
+            currentHealth.Value -= actualDamage;
         }
 
         public override string ToString()

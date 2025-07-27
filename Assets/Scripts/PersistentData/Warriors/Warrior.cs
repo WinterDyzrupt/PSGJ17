@@ -24,9 +24,9 @@ namespace PersistentData.Warriors
             else { Debug.LogError(combatantToGetValuesFrom + " was not a warrior."); }
         }
 
-        public override void Reset()
+        public override void ResetValues()
         {
-            base.Reset();
+            base.ResetValues();
 
             this.basicAttack = null;
             this.ability1 = null;
