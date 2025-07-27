@@ -784,7 +784,7 @@ MonoBehaviour:
   characterSelector: {fileID: 684784082}
   toArenaButton: {fileID: 264034627}
   currentParty: {fileID: 11400000, guid: a984bfaea38967049a7a1bda364619a7, type: 2}
-  allWarriors: {fileID: 11400000, guid: d7f774f2b8975824a84816dcf787045d, type: 2}
+  allWarriors: {fileID: 11400000, guid: 8b73dec549dd49143b39d029310ff3c0, type: 2}
   partySlot: 0
   currentSelectionIndex: 0
   partySize: 4

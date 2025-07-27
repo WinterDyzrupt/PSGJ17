@@ -1,12 +1,11 @@
-using PersistentData.Warriors;
+using System;
+using PersistentData;
 using UnityEngine;
 
 public class Upgrade : ScriptableObject
 {
-    [TextArea]
     public string upgradeName;
-    [TextArea]
-    public string[] upgradeDescription;
+    [TextArea] public string[] upgradeDescription;
     public Sprite[] rankIcons;
     public int[] fameCostPerRank;
     public int maxRank;
@@ -34,25 +33,17 @@ public class Upgrade : ScriptableObject
         return !IsMaxed && currentFame >= GetCostForNextRank();
     }
 
-    public void IncreaseRank(AllWarriors allWarriors)
+    public void IncreaseRank(CombatantGroup group)
     {
-        if (!IsMaxed)
-        {
-            currentRank++;
-            ApplyToAllWarriors(allWarriors);
-        }
-        else
-        {
-            Debug.LogError("Attempted to increase Rank but it was already maxed.");
-        }
+        SetRank(currentRank + 1, group);
     }
 
-    public void SetRank(int rank, AllWarriors allWarriors)
+    public void SetRank(int rank, CombatantGroup group)
     {
         if (rank <= maxRank)
         {
             currentRank = rank;
-            ApplyToAllWarriors(allWarriors);
+            ApplyToCombatantGroup(group);
         }
         else
         {
@@ -60,11 +51,22 @@ public class Upgrade : ScriptableObject
         }
     }
 
-
-    public void ApplyToAllWarriors(AllWarriors allWarriors)
+    public void ApplyToCombatantGroup(CombatantGroup group)
     {
-        foreach (Warrior warrior in allWarriors.warriors) ApplyUpgrade(warrior, currentRank);
+        Debug.Log($"Applying upgrade: {this.ToString()} to Combatants: {group}");
+        foreach (var combatant in group.combatants)
+        {
+            ApplyUpgrade(combatant, currentRank);
+        }
     }
 
-    internal virtual void ApplyUpgrade(Warrior warrior, int rank) { }
+    protected virtual void ApplyUpgrade(Combatant combatant, int rank)
+    {
+        Debug.Log($"Applying upgrade: {upgradeName}, rank: {rank} to combatant: {combatant}");
+    }
+
+    public override string ToString()
+    {
+        return $"Upgrade: {upgradeName}, currentRank: {currentRank}";
+    }
 }

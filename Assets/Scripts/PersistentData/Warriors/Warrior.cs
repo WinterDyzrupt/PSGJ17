@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PersistentData.Warriors
 {
-    [CreateAssetMenu(fileName = "Warrior", menuName = "Warriors/Warrior")]
+    [CreateAssetMenu(fileName = "Warrior", menuName = "Combatants/Warriors/Warrior")]
     public class Warrior : Combatant
     {
         public Skill basicAttack;
@@ -24,9 +24,9 @@ namespace PersistentData.Warriors
             else { Debug.LogError(combatantToGetValuesFrom + " was not a warrior."); }
         }
 
-        public override void Reset()
+        public override void ResetValues()
         {
-            base.Reset();
+            base.ResetValues();
 
             this.basicAttack = null;
             this.ability1 = null;

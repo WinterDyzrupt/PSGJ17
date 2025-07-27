@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa732c211e25e24197d6cf23399f226, type: 3}
+  m_Script: {fileID: 11500000, guid: c8cc303f6487a164da04ce184cddf365, type: 3}
   m_Name: CurrentBoss
   m_EditorClassIdentifier: 
   displayName:
@@ -17,17 +17,15 @@ MonoBehaviour:
     constantValue: BossDisplayName3
     variable: {fileID: 0}
   description: BossDescroption 3
-  maxHealth:
-    useConstant: 1
-    constantValue: 4000
-    variable: {fileID: 0}
-  currentHealth:
-    useConstant: 0
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 406a907fe498a614e9042de00166b90d, type: 2}
   sprite: {fileID: 7482667652216324306, guid: e6df927fd298c5d429553185c3671bf4, type: 3}
   basicAttack: {fileID: 0}
   ability1: {fileID: 0}
   ability2: {fileID: 0}
   utility: {fileID: 0}
+  currentHealth:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 406a907fe498a614e9042de00166b90d, type: 2}
+  baseMaxHealth: 4500
+  bonusMaxHealth: 0
   numberOfPhases: 5

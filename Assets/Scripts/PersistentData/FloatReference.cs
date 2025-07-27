@@ -11,6 +11,16 @@ namespace PersistentData
         public float constantValue;
         public FloatVariable variable;
 
+        public FloatReference()
+        {
+        }
+
+        public FloatReference(float value)
+        {
+            useConstant = true;
+            Value = value;
+        }
+
         public float Value
         {
             get => useConstant ? constantValue : variable?.value ?? 0f;

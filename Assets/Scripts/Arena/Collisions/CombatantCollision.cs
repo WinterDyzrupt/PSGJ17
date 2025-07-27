@@ -33,7 +33,7 @@ namespace Arena.Collisions
             Debug.Assert(currentCombatant != null, $"{nameof(currentCombatant)} was null");
             if (resetCurrentHealth)
             {
-                currentCombatant.currentHealth.Value = currentCombatant.maxHealth.Value;
+                currentCombatant.currentHealth.Value = currentCombatant.MaxHealth;
             }
         }
 

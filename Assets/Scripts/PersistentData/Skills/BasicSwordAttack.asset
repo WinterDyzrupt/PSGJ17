@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: BasicSwordAttack
   description: Swing with a sword
-  cooldownTime: 0.25
-  basePower: 0
-  offset: 40
+  baseDamage: 10
+  offsetFromTheSpawner: 35
   shapePrefab: {fileID: 775004965186299615, guid: 3657018a9c718e44f8671c62b1569306, type: 3}

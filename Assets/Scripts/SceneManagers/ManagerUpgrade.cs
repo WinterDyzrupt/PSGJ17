@@ -1,5 +1,4 @@
 using PersistentData;
-using PersistentData.Warriors;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,7 +9,7 @@ namespace SceneManagers
     public class ManagerUpgrade : MonoBehaviour
     {
         public UpgradeButton[] upgradeButtons;
-        private Upgrade _selectedUpgrade;
+        public UpgradeSelection currentUpgradeSelection;
         public TMP_Text fameAmount;
         public TMP_Text selectedName;
         public TMP_Text selectedDescription;
@@ -19,12 +18,20 @@ namespace SceneManagers
         public Button[] toggleButtons;
         public Image[] tabImages;
         public IntVariable currentFame;
-        public AllWarriors allWarriors;
+        public CombatantGroup allWarriors;
+        
+        public string maxedDisplayString = "Maxed";
 
-        void Start()
+        private void Awake()
+        {
+            Debug.Assert(currentUpgradeSelection != null,  nameof(currentUpgradeSelection) + " expected to be non null.");
+        }
+
+        private void Start()
         {
             RefreshButtons();
-            RefreshUpgradeTextFields();
+            RefreshFameTextFields(currentFame);
+            InitializeUpgradeTextFields();
         }
 
         public void LoadTitleScene()
@@ -37,65 +44,70 @@ namespace SceneManagers
             foreach (UpgradeButton button in upgradeButtons) button.UpdateButton();
         }
 
-        public void SelectUpgrade(UpgradeButton upgradeButton)
+        public void OnUpgradeSelected()
         {
-            _selectedUpgrade = upgradeButton.upgrade;
-            RefreshUpgradeTextFields();
+            Debug.Log("OnUpgradeSelected; upgrade selection: " + currentUpgradeSelection?.upgrade);
+            RefreshUpgradeTextFields(currentUpgradeSelection?.upgrade);
         }
 
-        public void RefreshUpgradeTextFields()
+        private void RefreshFameTextFields(int fame)
         {
-            fameAmount.text = currentFame.value.ToString();
+            fameAmount.text = fame.ToString();
+        }
 
-            // If nothing selected, blank text fields and hide buy button
-            if (_selectedUpgrade == null)
+        private void InitializeUpgradeTextFields()
+        {
+            selectedName.text = "";
+            selectedDescription.text = "";
+            purchaseButton.interactable = false;
+        }
+
+        private void RefreshUpgradeTextFields(Upgrade upgrade)
+        {
+            Debug.Assert(upgrade != null, nameof(upgrade) + " expected to be non-null.");
+            Debug.Assert(upgrade.upgradeDescription != null, nameof(upgrade.upgradeDescription) + " expected to be non-null.");
+            Debug.Assert(upgrade.upgradeDescription.Length > upgrade.currentRank, "Expected upgrade to have more descriptions.");
+
+            if (upgrade)
             {
-                selectedName.text = "";
-                selectedDescription.text = "";
-                purchaseButton.interactable = false;
-                return;
+                selectedName.text = upgrade.upgradeName;
+                if (upgrade.currentRank < upgrade.upgradeDescription.Length)
+                {
+                    selectedDescription.text = upgrade.upgradeDescription[upgrade.currentRank];
+                }
+                else
+                {
+                    Debug.LogError($"{upgrade.name} does not have a valid description or have enough elements.");
+                }
+                
+                if (upgrade.IsMaxed)
+                {
+                    purchaseButton.interactable = false;
+                    purchaseButton.GetComponentInChildren<TMP_Text>().text = maxedDisplayString;
+                }
+                else
+                {
+                    purchaseButton.interactable = upgrade.CanAffordNextRank(currentFame);
+                    purchaseButton.GetComponentInChildren<TMP_Text>().text = upgrade.GetCostForNextRank().ToString();
+                }
             }
-
-            // populate Name and description
-            selectedName.text = _selectedUpgrade.upgradeName;
-
-            if ((_selectedUpgrade.upgradeDescription?.Length ?? 0) < _selectedUpgrade.currentRank)
-            {
-                Debug.LogError($"{_selectedUpgrade.name} does not have a valid description or have enough elements.");
-                return;
-            }
-
-            selectedDescription.text = _selectedUpgrade.upgradeDescription[_selectedUpgrade.currentRank];
-
-            // If max rank, hide button
-            if (_selectedUpgrade.IsMaxed)
-            {
-                purchaseButton.interactable = false;
-                purchaseButton.GetComponentInChildren<TMP_Text>().text = "Maxed";
-            }
-
-            // else show button and update button with price
             else
             {
-                purchaseButton.interactable = true;
-                purchaseButton.GetComponentInChildren<TMP_Text>().text = _selectedUpgrade.GetCostForNextRank().ToString();
+                Debug.LogWarning("RefreshUpgradeTextFields called for null upgrade.");
             }
-
-            // if can afford, enable button
-            if (_selectedUpgrade.CanAffordNextRank(currentFame)) purchaseButton.interactable = true;
-            // else disable button
-            else purchaseButton.interactable = false;
         }
 
         public void PurchaseUpgrade()
         {
+            var upgrade = currentUpgradeSelection.upgrade;
             // Deduct Fame
-            currentFame.value -= _selectedUpgrade.GetCostForNextRank();
+            currentFame.value -= upgrade.GetCostForNextRank();
             // Rank up Progress
-            _selectedUpgrade.IncreaseRank(allWarriors);
+            upgrade.IncreaseRank(allWarriors);
 
             RefreshButtons();
-            RefreshUpgradeTextFields();
+            RefreshFameTextFields(currentFame);
+            RefreshUpgradeTextFields(upgrade);
         }
 
         //Panel Methods

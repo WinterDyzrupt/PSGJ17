@@ -10,9 +10,6 @@ namespace Arena
         public SpriteRenderer combatantSprite;
         public Combatant currentCombatant;
 
-        public float moveSpeedBase = 300;
-        public float moveSpeedModifierPercentage = 1;
-
         protected FactionType _faction;
         protected Vector2 _moveDirection = new();
         protected Vector2 _aimDirection = new();
@@ -39,7 +36,7 @@ namespace Arena
 
         void FixedUpdate()
         {
-            combatantRigidbody.linearVelocity = _moveDirection * moveSpeedBase * moveSpeedModifierPercentage;
+            combatantRigidbody.linearVelocity = _moveDirection * (currentCombatant.MovementSpeed * currentCombatant.MovementSpeedMultiplier);
         }
 
         public void UpdateMoveDirection(Vector2 newMoveDirection)

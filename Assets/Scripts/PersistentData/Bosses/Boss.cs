@@ -1,9 +1,8 @@
-using System.Text;
 using UnityEngine;
 
 namespace PersistentData.Bosses
 {
-    [CreateAssetMenu(fileName = "Boss", menuName = "Bosses/Boss")]
+    [CreateAssetMenu(fileName = "Boss", menuName = "Combatants/Bosses/Boss")]
     public class Boss : Combatant
     {
         public int numberOfPhases;
@@ -16,9 +15,9 @@ namespace PersistentData.Bosses
             numberOfPhases = otherBoss.numberOfPhases;
         }
 
-        public override void Reset()
+        public override void ResetValues()
         {
-            base.Reset();
+            base.ResetValues();
             numberOfPhases = 0;
         }
     }

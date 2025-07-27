@@ -1,16 +1,16 @@
-using PersistentData.Warriors;
+using PersistentData;
 using UnityEngine;
 
 public class ResetAllUpgradeRanks : MonoBehaviour
 {
-    public AllUpgrades allUpgrades;
-    public AllWarriors allWarriors;
+    public UpgradeGroup allUpgrades;
+    public CombatantGroup allWarriors;
 
-    public void SetAllRanksToZero()
+    public void SetAllRanks(int rank)
     {
-        foreach (Upgrade upgrade in allUpgrades)
+        foreach (var upgrade in allUpgrades.upgrades)
         {
-            upgrade.SetRank(0, allWarriors);
+            upgrade.SetRank(rank, allWarriors);
         }
     }
 }

@@ -1,3 +1,5 @@
+using Arena.Collisions;
+using PersistentData;
 using Arena.Combat;
 using UnityEngine;
 
@@ -8,12 +10,13 @@ public class MeleeAttack : SkillPart
     public GameObject shapePrefab;
 
     // Override Execute skill so that it performs the attack
-    public override void ExecuteSkill(Transform transform, FactionType faction)
+    public override void ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier = DefaultCombatData.DefaultMultiplier)
     {
         if (shapePrefab != null)
         {
             GameObject shape = Instantiate(shapePrefab, transform);
             shape.transform.localPosition += Vector3.right * offsetFromTheSpawner / transform.localScale.x;
+            shape.AddComponent<DealsDamageOnCollision>().damage = new FloatReference(baseDamage * damageMultiplier);
             shape.AddComponent<Faction>().faction = faction;
             shape.AddComponent<DestroyAfterFirstFrame>();
             shape.transform.SetParent(null);

@@ -17,17 +17,15 @@ MonoBehaviour:
     constantValue: BosSdisplayName4
     variable: {fileID: 0}
   description: BossDescription4
-  maxHealth:
-    useConstant: 1
-    constantValue: 5000
-    variable: {fileID: 0}
-  currentHealth:
-    useConstant: 0
-    constantValue: 0
-    variable: {fileID: 0}
   sprite: {fileID: 7482667652216324306, guid: 11bbc3e559b593b449f88950acdfc855, type: 3}
   basicAttack: {fileID: 0}
   ability1: {fileID: 0}
   ability2: {fileID: 0}
   utility: {fileID: 0}
+  currentHealth:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 0}
+  baseMaxHealth: 5000
+  bonusMaxHealth: 0
   numberOfPhases: 6

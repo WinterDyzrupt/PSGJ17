@@ -17,12 +17,30 @@ MonoBehaviour:
     constantValue: WarriorDisplayName2
     variable: {fileID: 0}
   description: WarriorDescription2
-  maxHealth:
-    useConstant: 1
-    constantValue: 120
-    variable: {fileID: 0}
+  sprite: {fileID: 7482667652216324306, guid: 936d720a428cfe448a245fdcec600266, type: 3}
   currentHealth:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 0}
-  sprite: {fileID: 7482667652216324306, guid: 936d720a428cfe448a245fdcec600266, type: 3}
+  baseMaxHealth: 80
+  bonusMaxHealth: 30
+  baseFlatDamageReduction: 0
+  bonusFlatDamageReduction: 2
+  baseDamageReceivedMultiplier: 1
+  bonusDamageReceivedMultiplier: 1
+  baseOutgoingDamageMultiplier: 1
+  bonusOutgoingDamageMultiplier: 1
+  baseMovementSpeed: 300
+  bonusMovementSpeed: 0
+  baseMovementSpeedMultiplier: 1
+  bonusMovementSpeedMultiplier: 1.1
+  baseCooldownReductionMultiplier: 1
+  bonusCooldownReductionMultiplier: 0.15
+  baseAvoidAttackCount: 0
+  bonusAvoidAttackCount: 1
+  baseAvoidAttackIntervalInSeconds: 10
+  bonusAvoidAttackIntervalInSeconds: 0
+  basicAttack: {fileID: 0}
+  ability1: {fileID: 0}
+  ability2: {fileID: 0}
+  utility: {fileID: 0}

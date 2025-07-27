@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace PersistentData
 {
     public static class SceneData
@@ -9,6 +7,4 @@ namespace PersistentData
         public const int ArenaSceneIndex = 2;
         public const int UpgradeSceneIndex = 3;
     }
-
-
 }

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: b215d715021e4514b93a3026141f6b7e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - selectedBossIndex: {fileID: 11400000, guid: ab4e86dc178330a4d99febcf1cdfc886, type: 2}
+  - currentParty: {fileID: 11400000, guid: a984bfaea38967049a7a1bda364619a7, type: 2}
+  - currentFame: {fileID: 11400000, guid: 3e4385e898bad8341a2f5aa61e0b2b10, type: 2}
+  - lifetimeFame: {fileID: 11400000, guid: 59b972fdde2e68943904aad1804947c2, type: 2}
+  - warriorStatUpgrades: {fileID: 11400000, guid: 54496af0bd50d6e419abe34db30638cc, type: 2}
+  - warriorNonStatUpgrades: {fileID: 11400000, guid: f927f3c781def14428ddc8b6a233874a, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
