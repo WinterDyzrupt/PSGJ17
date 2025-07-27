@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: GladiatorSpecial1
   m_EditorClassIdentifier: 
   displayName: RangeAttack
+  baseTotalCooldownTime: 1
   skillParts:
   - {fileID: 11400000, guid: 847abe75832ed5a46b7c19b036fbd858, type: 2}
