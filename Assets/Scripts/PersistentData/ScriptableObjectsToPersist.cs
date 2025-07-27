@@ -1,3 +1,4 @@
+using PersistentData.Warriors;
 using UnityEngine;
 
 namespace PersistentData
@@ -12,10 +13,12 @@ namespace PersistentData
     public class ScriptableObjectsToPersist : MonoBehaviour
     {
         public IntVariable selectedBossIndex;
-        public CombatantGroup currentParty;
         public IntVariable currentFame;
         public IntVariable lifetimeFame;
-        public CombatantGroup allWarriors;
+        public Warrior warrior1;
+        public Warrior warrior2;
+        public Warrior warrior3;
+        public Warrior warrior4;
         public AgilityUpgrade agility;
         public DefenseUpgrade defense;
         public EvasionUpgrade evasion;
