@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: BasicArrowAttack
   description: Shoot a basic arrow
-  cooldownTime: 0.25
+  cooldownTime: 1
   basePower: 0
   projectileGameObject: {fileID: 390150444203895657, guid: 417dce5bcf57e984b8963ca112abb259, type: 3}
