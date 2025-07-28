@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b920436a1b7f1429def03bcc5ebd17, type: 3}
+  m_Name: PartGladiatorRoarBuff
+  m_EditorClassIdentifier: 
+  displayName: Gladiator Roar
+  description: Doubles damage but reduces armor by 5
+  baseDamage: 0
+  buffDebuffChild: {fileID: 11500000, guid: 1a60e15afd0c8454ba32eee7b4b1cd21, type: 3}
+  buffVFXPrefab: {fileID: 29206602515962668, guid: 24e52618fed3ea34480a035cf91f5bf5, type: 3}
+  buffDuration: 5

@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09acb87bae8604f4d8734d14eb60f943, type: 3}
-  m_Name: GladiatorSpecial2
+  m_Name: GladiatorAbility1
   m_EditorClassIdentifier: 
-  displayName: 
-  baseTotalCooldownTime: 0
-  skillParts: []
+  displayName: Trident Throw
+  baseTotalCooldownTime: 0.7
+  skillParts:
+  - {fileID: 11400000, guid: 847abe75832ed5a46b7c19b036fbd858, type: 2}

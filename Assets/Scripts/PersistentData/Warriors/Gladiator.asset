@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c044d79bcfd55541b17496fd6870d09, type: 3}
-  m_Name: WarriorName1
+  m_Name: Gladiator
   m_EditorClassIdentifier: 
   displayName:
     useConstant: 1
-    constantValue: WarriorDisplayName1
+    constantValue: Gladiator
     variable: {fileID: 0}
-  description: WarriorDescription1
+  description: A veteran of the arena. Equipped with a gladius and clipeus, they
+    strike at a very disciplined pace. They are known for being survivors and coming
+    out on top against any foe.
   sprite: {fileID: 7482667652216324306, guid: 31fe3a848958fed4faf6e591014e5af6, type: 3}
   currentHealth:
     useConstant: 0
@@ -42,5 +44,5 @@ MonoBehaviour:
   bonusAvoidAttackIntervalInSeconds: 0
   basicAttack: {fileID: 11400000, guid: 4411e927f23dc594fb4b36e04ba56560, type: 2}
   ability1: {fileID: 11400000, guid: 8dfffc72596bd6947b079d403f84ac0b, type: 2}
-  ability2: {fileID: 0}
-  utility: {fileID: 0}
+  ability2: {fileID: 11400000, guid: 5f510799b7e63d746900b780169a59b7, type: 2}
+  utility: {fileID: 11400000, guid: d97fd3342a8177f42b32130abbce98de, type: 2}

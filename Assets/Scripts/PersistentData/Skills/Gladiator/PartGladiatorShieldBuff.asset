@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b920436a1b7f1429def03bcc5ebd17, type: 3}
+  m_Name: PartGladiatorShieldBuff
+  m_EditorClassIdentifier: 
+  displayName: Gladiator Utility
+  description: Buffs the armor for a short duration.
+  baseDamage: 0
+  buffDebuffChild: {fileID: 11500000, guid: 3186b3df5095d9b4098cf4658732f550, type: 3}
+  buffVFXPrefab: {fileID: 3955225239749614313, guid: 1baa608f4f3b7c543aa06e86ec76778c, type: 3}
+  buffDuration: 1
