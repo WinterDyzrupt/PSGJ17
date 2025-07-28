@@ -1,38 +1,41 @@
 using System;
+using PersistentData;
 using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ApplyBuffToSelf", menuName = "Scriptable Objects/Skills/Part-ApplyBuffToSelf")]
-public class ApplyBuffToSelf : SkillPart
+public class ApplyStatusEffectToSelf : SkillPart
 {
-    public MonoScript buffDebuffChild;
+    public MonoScript statusComponent;
     public GameObject buffVFXPrefab;
-    public float buffDuration = 5;
+    public float buffDurationInSeconds = 5;
 
-    public override void ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier = 1)
+    public override void ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier = DefaultCombatData.DefaultMultiplier)
     {
-        if (buffDebuffChild == null)
+        if (statusComponent == null)
         {
             Debug.LogError($"{displayName} wasn't assigned a script.");
         }
         else
         {
-            Type buffClass = buffDebuffChild.GetClass();
+            Type buffClass = statusComponent.GetClass();
 
-            if (buffClass == null || !typeof(BuffDebuff).IsAssignableFrom(buffClass))
+            if (!typeof(StatusEffect).IsAssignableFrom(buffClass))
             {
                 Debug.LogError($"The script given to {displayName} wasn't of class BuffDebuff.");
             }
             else
             {
-                BuffDebuff buffComponent = (BuffDebuff)transform.parent.gameObject.AddComponent(buffClass);
+                StatusEffect buffComponent = (StatusEffect)transform.parent.gameObject.AddComponent(buffClass);
+
+                buffComponent.buffDuration = buffDurationInSeconds;
+
                 if (buffVFXPrefab == null)
                 {
                     Debug.LogWarning($"{displayName} was not given a VFX prefab.");
                 }
                 else
                 {
-                    buffComponent.buffDuration = buffDuration;
                     buffComponent.buffVFXPrefab = buffVFXPrefab;
                 }
             }

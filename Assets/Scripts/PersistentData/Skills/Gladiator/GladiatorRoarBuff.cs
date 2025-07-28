@@ -1,21 +1,21 @@
-public class GladiatorRoarBuff : BuffDebuff
+public class GladiatorRoarBuff : StatusEffect
 {
     public float damageBuffMultiplier = 2;
     public float armorDebuff = -5;
 
-    protected override void ApplyBuffDebuff()
+    protected override void ApplyStatusEffect()
     {
-        combatantController.currentCombatant.bonusOutgoingDamageMultiplier *= damageBuffMultiplier;
-        combatantController.currentCombatant.bonusFlatDamageReduction += armorDebuff;
+        combatant.bonusOutgoingDamageMultiplier *= damageBuffMultiplier;
+        combatant.bonusFlatDamageReduction += armorDebuff;
 
-        base.ApplyBuffDebuff();
+        base.ApplyStatusEffect();
     }
 
-    protected override void UninstallBuffDebuff()
+    public override void RemoveStatusEffect()
     {
-        combatantController.currentCombatant.bonusOutgoingDamageMultiplier *= 1.0f / damageBuffMultiplier;
-        combatantController.currentCombatant.bonusFlatDamageReduction -= armorDebuff;
+        combatant.bonusOutgoingDamageMultiplier /= damageBuffMultiplier;
+        combatant.bonusFlatDamageReduction -= armorDebuff;
 
-        base.UninstallBuffDebuff();
+        base.RemoveStatusEffect();
     }
 }

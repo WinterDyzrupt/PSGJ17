@@ -1,30 +1,36 @@
-using Arena;
+using Arena.Collisions;
+using PersistentData;
 using UnityEngine;
 
-public class BuffDebuff : MonoBehaviour
+public class StatusEffect : MonoBehaviour
 {
     public string displayName;
     public float buffDuration;
     public GameObject buffVFXPrefab;
-    protected CombatantController combatantController;
+    protected Combatant combatant;
     [SerializeField]private float _elapsedTime = 0;
     private GameObject _buffVFX;
 
     void Start()
     {
-        TryGetComponent(out combatantController);
-        Debug.Assert(combatantController != null, displayName + " couldn't fine a combatantController.");
-        ApplyBuffDebuff();
+        if (TryGetComponent(out CombatantCollision combatantCollision))
+        {
+            combatant = combatantCollision.currentCombatant;
+        }
+
+        Debug.Assert(combatant != null, displayName + " couldn't fine a combatantController.");
+
+        ApplyStatusEffect();
     }
 
     void Update()
     {
-        if (_elapsedTime >= buffDuration) { UninstallBuffDebuff(); }
+        if (_elapsedTime >= buffDuration) { RemoveStatusEffect(); }
         else { _elapsedTime += Time.deltaTime; }
     }
 
 
-    protected virtual void ApplyBuffDebuff()
+    protected virtual void ApplyStatusEffect()
     {
         if (buffVFXPrefab != null)
         {
@@ -33,7 +39,7 @@ public class BuffDebuff : MonoBehaviour
         else { Debug.Log($"{displayName} didn't have a VFX assigned to it."); }
     }
 
-    protected virtual void UninstallBuffDebuff()
+    public virtual void RemoveStatusEffect()
     {
         Destroy(_buffVFX);
         Destroy(this);

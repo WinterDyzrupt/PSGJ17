@@ -1,21 +1,21 @@
-public class GladiatorUtilityBuff : BuffDebuff
+public class GladiatorUtilityBuff : StatusEffect
 {
     public float armorDebuff = 100;
     public float MovementSpeedMultiplierDebuff = 0.1f;
 
-    protected override void ApplyBuffDebuff()
+    protected override void ApplyStatusEffect()
     {
-        combatantController.currentCombatant.bonusFlatDamageReduction += armorDebuff;
-        combatantController.currentCombatant.bonusMovementSpeedMultiplier *= MovementSpeedMultiplierDebuff;
+        combatant.bonusFlatDamageReduction += armorDebuff;
+        combatant.bonusMovementSpeedMultiplier *= MovementSpeedMultiplierDebuff;
 
-        base.ApplyBuffDebuff();
+        base.ApplyStatusEffect();
     }
 
-    protected override void UninstallBuffDebuff()
+    public override void RemoveStatusEffect()
     {
-        combatantController.currentCombatant.bonusFlatDamageReduction -= armorDebuff;
-        combatantController.currentCombatant.bonusMovementSpeedMultiplier *= 1.0f / MovementSpeedMultiplierDebuff;
+        combatant.bonusFlatDamageReduction -= armorDebuff;
+        combatant.bonusMovementSpeedMultiplier /= MovementSpeedMultiplierDebuff;
 
-        base.UninstallBuffDebuff();
+        base.RemoveStatusEffect();
     }
 }

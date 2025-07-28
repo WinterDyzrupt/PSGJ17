@@ -35,7 +35,7 @@ namespace Arena
 
         void FixedUpdate()
         {
-            combatantRigidbody.linearVelocity = _moveDirection * currentCombatant.MovementSpeed * currentCombatant.MovementSpeedMultiplier;
+            combatantRigidbody.linearVelocity = (currentCombatant.MovementSpeed * currentCombatant.MovementSpeedMultiplier) * _moveDirection;
         }
 
         public void UpdateMoveDirection(Vector2 newMoveDirection)
@@ -69,8 +69,7 @@ namespace Arena
                     orientationTransform,
                     _faction,
                     currentCombatant.CooldownReductionMultiplier,
-                    currentCombatant.OutgoingDamageMultiplier
-                    );
+                    currentCombatant.OutgoingDamageMultiplier);
             }
             else
             {
