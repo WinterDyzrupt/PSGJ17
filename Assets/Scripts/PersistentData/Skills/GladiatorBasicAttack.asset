@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GladiatorBasicAttack
   m_EditorClassIdentifier: 
   displayName: MeleeAttack
-  baseTotalCooldownTime: 0.25
+  baseTotalCooldownTimeInSeconds: 0.25
   skillParts:
   - {fileID: 11400000, guid: e442b63c27f4c8a459076ae891f03284, type: 2}

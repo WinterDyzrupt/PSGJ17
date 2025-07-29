@@ -14,18 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName:
     useConstant: 1
-    constantValue: BossDisplayName3
+    constantValue: Barnie
     variable: {fileID: 0}
-  description: BossDescroption 3
-  sprite: {fileID: 7482667652216324306, guid: e6df927fd298c5d429553185c3671bf4, type: 3}
-  basicAttack: {fileID: 0}
-  ability1: {fileID: 0}
-  ability2: {fileID: 0}
-  utility: {fileID: 0}
+  description: BossDescription1
+  sprite: {fileID: 7482667652216324306, guid: c92ef63b80783ea4ebe0d2c475378c50, type: 3}
   currentHealth:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 406a907fe498a614e9042de00166b90d, type: 2}
-  baseMaxHealth: 4500
+  baseMaxHealth: 100
   bonusMaxHealth: 0
-  numberOfPhases: 5
+  baseFlatDamageReduction: 0
+  bonusFlatDamageReduction: 0
+  baseDamageReceivedMultiplier: 1
+  bonusDamageReceivedMultiplier: 1
+  baseOutgoingDamageMultiplier: 1
+  bonusOutgoingDamageMultiplier: 1
+  baseMovementSpeed: 1
+  bonusMovementSpeed: 0
+  baseMovementSpeedMultiplier: 1
+  bonusMovementSpeedMultiplier: 1
+  baseCooldownReductionMultiplier: 1
+  bonusCooldownReductionMultiplier: 1
+  baseAvoidAttackCount: 0
+  bonusAvoidAttackCount: 0
+  baseAvoidAttackIntervalInSeconds: 10
+  bonusAvoidAttackIntervalInSeconds: 10
+  numberOfPhases: 3
+  allSkillsForAllPhases:
+  - {fileID: 11400000, guid: e1ab072e796e9b545b21d83baa57a55d, type: 2}
+  - {fileID: 11400000, guid: 7cd0e10d008cd6f45b6e4c60db879536, type: 2}
+  - {fileID: 11400000, guid: 3892a6ce21ee6704ca7801a8a02e295e, type: 2}

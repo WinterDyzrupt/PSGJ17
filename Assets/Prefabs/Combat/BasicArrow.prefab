@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 3610318212938416658}
   - component: {fileID: 7607319514964035317}
   - component: {fileID: 5135606966728445051}
-  - component: {fileID: -7762020163658770675}
-  - component: {fileID: 2857456874595333222}
   m_Layer: 0
   m_Name: BasicArrow
   m_TagString: Untagged
@@ -80,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: f915820202abbd94baa551dc345a0a58, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -107,7 +105,7 @@ MonoBehaviour:
   displayName: BasicArrow
   isDying: 0
   deathTime: 0
-  instantiateOffset: 100
+  instantiateOffset: 200
   projectileSpeed: 1000
 --- !u!61 &7607319514964035317
 BoxCollider2D:
@@ -182,32 +180,3 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-7762020163658770675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390150444203895657}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd772b43a4947b44cbf4e6978c4a5112, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage:
-    useConstant: 1
-    constantValue: 25
-    variable: {fileID: 0}
---- !u!114 &2857456874595333222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390150444203895657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caa228a16f83e304b85c31a9812f6b9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  faction: 1

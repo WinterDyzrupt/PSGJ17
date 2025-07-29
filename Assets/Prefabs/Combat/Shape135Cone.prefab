@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3885190467588045700}
   - component: {fileID: -2910486607995735828}
   - component: {fileID: 5325394789680069797}
-  - component: {fileID: 1535995772952916107}
   m_Layer: 0
   m_Name: Shape135Cone
   m_TagString: Untagged
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: eec821f552370b448941f1915f905b96, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -142,19 +141,3 @@ PolygonCollider2D:
       - {x: 69, y: -62}
       - {x: 38, y: -92}
   m_UseDelaunayMesh: 0
---- !u!114 &1535995772952916107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 775004965186299615}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd772b43a4947b44cbf4e6978c4a5112, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage:
-    useConstant: 1
-    constantValue: 10
-    variable: {fileID: 0}

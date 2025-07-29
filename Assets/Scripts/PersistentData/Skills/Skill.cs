@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using PersistentData;
 using UnityEngine;
 
@@ -7,7 +8,9 @@ using UnityEngine;
 public class Skill : ScriptableObject
 {
     public string displayName;
-    public float baseTotalCooldownTime;
+    public float baseTotalCooldownTimeInSeconds;
+    public bool executePartsSerially;
+    public bool isRanged;
     public List<SkillPart> skillParts;
 
     [NonSerialized]
@@ -19,7 +22,7 @@ public class Skill : ScriptableObject
     [NonSerialized]
     private float _totalCooldownTimeMultiplier = DefaultCombatData.DefaultMultiplier;
 
-    public bool isOffCooldown
+    public bool IsOffCooldown
     {
         get
         {
@@ -44,27 +47,75 @@ public class Skill : ScriptableObject
         }
     }
 
-    public float TotalCooldownTime => baseTotalCooldownTime * _totalCooldownTimeMultiplier;
+    public float TotalCooldownTime => baseTotalCooldownTimeInSeconds * _totalCooldownTimeMultiplier;
     
-    public void ExecuteSkill(Transform transformParent, FactionType faction, float cooldownMultiplier = DefaultCombatData.DefaultMultiplier, float damageMultiplier = DefaultCombatData.DefaultMultiplier)
+    public async Task ExecuteSkillAsync(Transform transformParent, FactionType faction, float cooldownMultiplier = DefaultCombatData.DefaultMultiplier, float damageMultiplier = DefaultCombatData.DefaultMultiplier)
     {
-        Debug.Log($"Total cooldown: {baseTotalCooldownTime}; cooldown multiplier: {_totalCooldownTimeMultiplier} and cooldown percentage: {CooldownPercentage}.");
-        if (isOffCooldown)
+        //Debug.Log($"Total cooldown: {baseTotalCooldownTimeInSeconds}; cooldown multiplier: {_totalCooldownTimeMultiplier} and cooldown percentage: {CooldownPercentage}.");
+        if (IsOffCooldown)
         {
             _totalCooldownTimeMultiplier = cooldownMultiplier;
             _lastExecutedTime = Time.time;
-
             if ((skillParts?.Count ?? 0) == 0)
             {
                 Debug.LogError($"{displayName}'s Skill doesn't have a list of parts.");
             }
-
-            foreach (SkillPart skillPart in skillParts)
+            else
             {
-                Debug.Log($"Executing part is {skillPart.name}.");
-                // this needs to be the correct transform from where it's spawned.
-                skillPart.ExecuteSkill(transformParent, faction, damageMultiplier: damageMultiplier);
+                var target = FindTarget();
+                var targetPosition = FindTargetPosition(target);
+                var targetRotation = FindTargetRotation(target);
+                foreach (var skillPart in skillParts)
+                {
+                    // this needs to be the correct transform from where it's spawned.
+                    if (executePartsSerially)
+                    {
+                        await Task.Delay(TimeSpan.FromSeconds(skillPart.windupTimeInSeconds));
+                    }
+
+                    if (target == null)
+                    {
+                        Debug.Log("Executing skill with no specific target.");
+                        await skillPart.ExecuteSkill(transformParent, faction, damageMultiplier);
+                    }
+                    else
+                    {
+                        Debug.Log("Executing skill with a target.");
+                        await skillPart.ExecuteSkill(transformParent, faction, damageMultiplier, targetPosition, targetRotation);
+                    }
+
+                    if (executePartsSerially)
+                    {
+                        await Task.Delay(TimeSpan.FromSeconds(skillPart.recoveryTimeInSeconds));
+                    }
+                }
             }
         }
+    }
+
+    protected virtual GameObject FindTarget()
+    {
+        return null;
+    }
+
+    protected virtual Vector3 FindTargetPosition(GameObject target)
+    {
+        return target != null
+            ? new Vector3(
+                target.transform.position.x,
+                target.transform.position.y,
+                target.transform.position.z)
+            : Vector3.zero;
+    }
+
+    protected virtual Quaternion FindTargetRotation(GameObject target)
+    {
+        return target != null
+            ? new Quaternion(
+                target.transform.rotation.x,
+                target.transform.rotation.y,
+                target.transform.rotation.z,
+                target.transform.rotation.w)
+            : Quaternion.identity;
     }
 }

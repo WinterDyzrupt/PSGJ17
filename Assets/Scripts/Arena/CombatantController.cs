@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using PersistentData;
 using UnityEngine;
 
@@ -17,7 +18,6 @@ namespace Arena
         void Awake()
         {
             Debug.Assert(currentCombatant != null, $"{gameObject.name} hasn't been assigned to the CombatController");
-
         }
 
         void Start()
@@ -34,7 +34,7 @@ namespace Arena
             RotateOrientation();
         }
 
-        void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
             combatantRigidbody.linearVelocity = _moveDirection * (currentCombatant.MovementSpeed * currentCombatant.MovementSpeedMultiplier);
         }
@@ -59,11 +59,11 @@ namespace Arena
             else combatantSprite.flipX = false;
         }
 
-        public void ExecuteSkill(Skill skill)
+        public async Task ExecuteSkillAsync(Skill skill)
         {
             if (skill != null)
             {
-                skill.ExecuteSkill(orientationTransform, _faction);
+                await skill.ExecuteSkillAsync(orientationTransform, _faction);
             }
             else
             {

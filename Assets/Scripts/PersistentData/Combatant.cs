@@ -1,3 +1,4 @@
+using Unity.Mathematics.Geometry;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
@@ -7,6 +8,7 @@ namespace PersistentData
     {
         private const float DefaultMultiplier = 1f;
         private const int DefaultAvoidAttackIntervalInSeconds = 10;
+        private const float MinimumDamageToReceive = 0f;
 
         public StringReference displayName;
         [TextArea] public string description;
@@ -22,11 +24,11 @@ namespace PersistentData
         public float baseFlatDamageReduction;
         public float bonusFlatDamageReduction;
 
-        public float DamageReceivedMultiplier => baseDamageReceivedMultiplier + bonusDamageReceivedMultiplier;
+        public float DamageReceivedMultiplier => baseDamageReceivedMultiplier * bonusDamageReceivedMultiplier;
         public float baseDamageReceivedMultiplier = DefaultMultiplier;
         public float bonusDamageReceivedMultiplier = DefaultMultiplier;
 
-        public float OutgoingDamageMultiplier => baseOutgoingDamageMultiplier + bonusOutgoingDamageMultiplier;
+        public float OutgoingDamageMultiplier => baseOutgoingDamageMultiplier * bonusOutgoingDamageMultiplier;
         public float baseOutgoingDamageMultiplier = DefaultMultiplier;
         public float bonusOutgoingDamageMultiplier = DefaultMultiplier;
 
@@ -34,11 +36,11 @@ namespace PersistentData
         public float baseMovementSpeed;
         public float bonusMovementSpeed;
 
-        public float MovementSpeedMultiplier => baseMovementSpeedMultiplier + bonusMovementSpeedMultiplier;
+        public float MovementSpeedMultiplier => baseMovementSpeedMultiplier * bonusMovementSpeedMultiplier;
         public float baseMovementSpeedMultiplier = DefaultMultiplier;
         public float bonusMovementSpeedMultiplier = DefaultMultiplier;
 
-        public float CooldownReductionMultiplier => baseCooldownReductionMultiplier + bonusCooldownReductionMultiplier;
+        public float CooldownReductionMultiplier => baseCooldownReductionMultiplier * bonusCooldownReductionMultiplier;
         public float baseCooldownReductionMultiplier = DefaultMultiplier;
         public float bonusCooldownReductionMultiplier = DefaultMultiplier;
 
@@ -60,7 +62,7 @@ namespace PersistentData
             Debug.Assert(combatantToGetValuesFrom.currentHealth != null,
                 $"{nameof(combatantToGetValuesFrom.currentHealth)} expected to be not null.");
 
-            this.displayName = combatantToGetValuesFrom.displayName;
+            this.displayName.Value = combatantToGetValuesFrom.displayName.Value;
             this.description = combatantToGetValuesFrom.description;
             this.sprite = combatantToGetValuesFrom.sprite;
 
@@ -133,7 +135,8 @@ namespace PersistentData
 
         public void ReceiveDamage(float initialDamage)
         {
-            var actualDamage = initialDamage * DamageReceivedMultiplier - FlatDamageReduction;
+            var reducedDamage = initialDamage * DamageReceivedMultiplier - FlatDamageReduction;
+            var actualDamage = Mathf.Max(reducedDamage, MinimumDamageToReceive);
             Debug.Log($"{displayName} taking initial damage: {initialDamage}; finalDamage: {actualDamage}");
 
             currentHealth.Value -= actualDamage;
