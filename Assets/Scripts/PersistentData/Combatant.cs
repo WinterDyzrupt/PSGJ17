@@ -22,11 +22,11 @@ namespace PersistentData
         public float baseFlatDamageReduction;
         public float bonusFlatDamageReduction;
 
-        public float DamageReceivedMultiplier => baseDamageReceivedMultiplier + bonusDamageReceivedMultiplier;
+        public float DamageReceivedMultiplier => baseDamageReceivedMultiplier * bonusDamageReceivedMultiplier;
         public float baseDamageReceivedMultiplier = DefaultMultiplier;
         public float bonusDamageReceivedMultiplier = DefaultMultiplier;
 
-        public float OutgoingDamageMultiplier => baseOutgoingDamageMultiplier + bonusOutgoingDamageMultiplier;
+        public float OutgoingDamageMultiplier => baseOutgoingDamageMultiplier * bonusOutgoingDamageMultiplier;
         public float baseOutgoingDamageMultiplier = DefaultMultiplier;
         public float bonusOutgoingDamageMultiplier = DefaultMultiplier;
 
@@ -34,11 +34,11 @@ namespace PersistentData
         public float baseMovementSpeed;
         public float bonusMovementSpeed;
 
-        public float MovementSpeedMultiplier => baseMovementSpeedMultiplier + bonusMovementSpeedMultiplier;
+        public float MovementSpeedMultiplier => baseMovementSpeedMultiplier * bonusMovementSpeedMultiplier;
         public float baseMovementSpeedMultiplier = DefaultMultiplier;
         public float bonusMovementSpeedMultiplier = DefaultMultiplier;
 
-        public float CooldownReductionMultiplier => baseCooldownReductionMultiplier + bonusCooldownReductionMultiplier;
+        public float CooldownReductionMultiplier => baseCooldownReductionMultiplier * bonusCooldownReductionMultiplier;
         public float baseCooldownReductionMultiplier = DefaultMultiplier;
         public float bonusCooldownReductionMultiplier = DefaultMultiplier;
 

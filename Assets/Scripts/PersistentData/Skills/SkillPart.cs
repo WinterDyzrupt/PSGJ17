@@ -17,5 +17,9 @@ public class SkillPart : ScriptableObject
 
     // Where the skills will do something
     // It needs to know who fired it.
-    public virtual void ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier = DefaultCombatData.DefaultMultiplier) { }
+    public virtual void ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier = DefaultCombatData.DefaultMultiplier)
+    {
+        ExecuteSkill(transform, faction);
+    }
+    public virtual void ExecuteSkill(Transform transform, FactionType faction) { }
 }

@@ -48,7 +48,8 @@ public class Skill : ScriptableObject
     
     public void ExecuteSkill(Transform transformParent, FactionType faction, float cooldownMultiplier = DefaultCombatData.DefaultMultiplier, float damageMultiplier = DefaultCombatData.DefaultMultiplier)
     {
-        Debug.Log($"Total cooldown: {baseTotalCooldownTime}; cooldown multiplier: {_totalCooldownTimeMultiplier} and cooldown percentage: {CooldownPercentage}.");
+        // Debug.Log($"Total cooldown: {baseTotalCooldownTime}; cooldown multiplier: {_totalCooldownTimeMultiplier} and cooldown percentage: {CooldownPercentage}.");
+        // TODO: Refactor so that Update checks don't call for an execute if !isOffCooldown. (There might be a way in unity input system.) 
         if (isOffCooldown)
         {
             _totalCooldownTimeMultiplier = cooldownMultiplier;

@@ -7,6 +7,7 @@ namespace Arena
     [RequireComponent(typeof(ArenaControls))]
     public class PlayerController : CombatantController
     {
+        public SpriteRenderer warriorDirectionIndicator;
         private Warrior _currentWarrior;
         private ArenaControls _arenaControls;
         private InputAction _inputMove;

@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97ef59cf018d027489d243d1861b98a7, type: 3}
-  m_Name: BasicArrowAttack
+  m_Script: {fileID: 11500000, guid: 09acb87bae8604f4d8734d14eb60f943, type: 3}
+  m_Name: GladiatorBasicAttack
   m_EditorClassIdentifier: 
-  displayName: BasicArrowAttack
-  description: Shoot a basic arrow
-  baseDamage: 30
-  projectileGameObject: {fileID: 390150444203895657, guid: 417dce5bcf57e984b8963ca112abb259, type: 3}
+  displayName: Gladius
+  baseTotalCooldownTime: 0.3
+  skillParts:
+  - {fileID: 11400000, guid: e442b63c27f4c8a459076ae891f03284, type: 2}
