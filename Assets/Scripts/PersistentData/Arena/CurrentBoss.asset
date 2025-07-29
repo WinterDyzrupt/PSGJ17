@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName:
     useConstant: 1
-    constantValue: BossDisplayname1
+    constantValue: BossdisplayName2
     variable: {fileID: 0}
-  description: BossDescription1
-  sprite: {fileID: 7482667652216324306, guid: c92ef63b80783ea4ebe0d2c475378c50, type: 3}
+  description: BossDescription 2
+  sprite: {fileID: 7482667652216324306, guid: d038bfb56aaf0a249abb7c3e11af4d56, type: 3}
   currentHealth:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 406a907fe498a614e9042de00166b90d, type: 2}
-  baseMaxHealth: 3000
+  baseMaxHealth: 4000
   bonusMaxHealth: 0
   baseFlatDamageReduction: 0
   bonusFlatDamageReduction: 0
@@ -40,4 +40,5 @@ MonoBehaviour:
   bonusAvoidAttackCount: 0
   baseAvoidAttackIntervalInSeconds: 10
   bonusAvoidAttackIntervalInSeconds: 10
-  numberOfPhases: 3
+  numberOfPhases: 4
+  fameValue: 600

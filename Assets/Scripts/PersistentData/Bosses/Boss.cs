@@ -6,6 +6,7 @@ namespace PersistentData.Bosses
     public class Boss : Combatant
     {
         public int numberOfPhases;
+        public int fameValue;
 
         public override void SetValues(Combatant combatantToGetValuesFrom)
         {

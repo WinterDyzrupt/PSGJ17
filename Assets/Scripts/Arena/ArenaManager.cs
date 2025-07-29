@@ -5,6 +5,8 @@ using PersistentData;
 using PersistentData.Bosses;
 using PersistentData.Warriors;
 using Debug = UnityEngine.Debug;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 namespace Arena
 {
@@ -13,9 +15,9 @@ namespace Arena
         public GameObject bossPrefab;
 
         public CombatantGroup allBosses;
-        
+
         public IntVariable selectedBossIndex;
-        
+
         public Boss currentBoss;
 
         //public FloatVariable  currentBossHealth;
@@ -34,15 +36,19 @@ namespace Arena
 
         public int warriorDeathMessageDisplayTimeInSeconds = 2;
 
-        public Canvas partyDeathMessage;
-
-        public int partyDeathMessageDisplayTimeInSeconds = 2;
-
-        public Canvas bossDeathMessage;
-        
-        public int bossDeathMessageDisplayTimeInSeconds = 2;
-        
         public Canvas results;
+
+        public CanvasGroup resultsVictory;
+        public TMP_Text victoryFame;
+        public CanvasGroup resultsDefeat;
+        public TMP_Text defeatFame;
+
+        public IntVariable currentFame;
+        public IntVariable lifetimeFame;
+
+        public RectTransform bossHealthBarRectTransform;
+        public GameObject healthBarPipPrefab;
+
 
         /// <summary>
         /// TODO: probably replace with button
@@ -53,8 +59,7 @@ namespace Arena
         private Stopwatch _messageTimer;
         private TimeSpan _introMessageDisplayTime;
         private TimeSpan _warriorDeathMessageDisplayTime;
-        private TimeSpan _partyDeathMessageDisplayTime;
-        private TimeSpan _bossDeathMessageDisplayTime;
+        private int _totalPlayerMaxHealth = 0;
 
         private void Awake()
         {
@@ -63,27 +68,25 @@ namespace Arena
             Debug.Assert(allBosses != null, nameof(allBosses) + " expected to be not null.");
             Debug.Assert(currentBoss != null, nameof(currentBoss) + " expected to be not null");
             Debug.Assert(selectedBossIndex != null, nameof(selectedBossIndex) + " expected to be not null.");
-            Debug.Assert(currentParty != null,  nameof(currentParty) + " expected to be not null.");
-            Debug.Assert(currentParty.combatants != null,  nameof(currentParty.combatants) + " expected to be not null.");
+            Debug.Assert(currentParty != null, nameof(currentParty) + " expected to be not null.");
+            Debug.Assert(currentParty.combatants != null, nameof(currentParty.combatants) + " expected to be not null.");
             Debug.Assert(currentParty.combatants.Count > 0, "Expected more than 0 warriors in current party");
-            Debug.Assert(currentWarrior != null,  nameof(currentWarrior) + " expected to be not null.");
-            Debug.Assert(currentWarrior.currentHealth != null,  nameof(currentWarrior.currentHealth) + " expected to be not null.");
-            Debug.Assert(currentWarriorPrefab != null,  nameof(currentWarriorPrefab) + " expected to be not null.");
+            Debug.Assert(currentWarrior != null, nameof(currentWarrior) + " expected to be not null.");
+            Debug.Assert(currentWarrior.currentHealth != null, nameof(currentWarrior.currentHealth) + " expected to be not null.");
+            Debug.Assert(currentWarriorPrefab != null, nameof(currentWarriorPrefab) + " expected to be not null.");
             Debug.Assert(introMessage != null, nameof(introMessage) + " expected to be not null.");
             Debug.Assert(warriorDeathMessage != null, nameof(warriorDeathMessage) + " expected to be not null.");
-            Debug.Assert(partyDeathMessage != null, nameof(partyDeathMessage) + " expected to be not null.");
-            Debug.Assert(bossDeathMessage != null, nameof(bossDeathMessage) + " expected to be not null.");
             // TODO: Remove when results are done
             //Debug.Assert(results != null, nameof(results) + " expected to be not null");
-            
+
+            foreach (Combatant combatant in currentParty.combatants) { _totalPlayerMaxHealth += (int)combatant.MaxHealth; }
+
             InitializeBoss(selectedBossIndex, allBosses);
             SendNextWarriorIntoArena(currentWarrior, currentParty, currentWarriorPrefab);
 
             _messageTimer = new Stopwatch();
             _introMessageDisplayTime = TimeSpan.FromSeconds(introMessageDisplayTimeInSeconds);
             _warriorDeathMessageDisplayTime = TimeSpan.FromSeconds(warriorDeathMessageDisplayTimeInSeconds);
-            _partyDeathMessageDisplayTime = TimeSpan.FromSeconds(partyDeathMessageDisplayTimeInSeconds);
-            _bossDeathMessageDisplayTime = TimeSpan.FromSeconds(bossDeathMessageDisplayTimeInSeconds);
             _currentState = ArenaState.Awake;
 
             Debug.Log("ArenaManager Awake end");
@@ -99,10 +102,24 @@ namespace Arena
 
         private void InitializeBoss(int bossIndex, CombatantGroup bosses)
         {
-            Debug.Log("Initializing boss; boss index: " +  bossIndex);
-            var bossTemplate = bosses.combatants[bossIndex]; 
+            Debug.Log("Initializing boss; boss index: " + bossIndex);
+            var bossTemplate = bosses.combatants[bossIndex];
             InitializeCombatant(currentBoss, bossTemplate, bossPrefab);
             Debug.Log("Boss: " + currentBoss);
+
+            // install pips
+            int numberOfSections = currentBoss.numberOfPhases;
+            float width = bossHealthBarRectTransform.rect.width;
+
+            for (int i = 1; i < numberOfSections; i++)
+            {
+                float normalizedSectionWidth = (float)i / numberOfSections;
+                float positionX = -width / 2f + width * normalizedSectionWidth;
+
+                GameObject pip = Instantiate(healthBarPipPrefab, bossHealthBarRectTransform);
+                RectTransform pipRectTransform = pip.GetComponent<RectTransform>();
+                pipRectTransform.anchoredPosition = new(positionX, 0);
+            }
         }
 
         /// <summary>
@@ -154,7 +171,6 @@ namespace Arena
                     }
                     else
                     {
-                        ShowMessage(partyDeathMessage, _messageTimer);
                         _currentState = ArenaState.DisplayingPartyDeathMessage;
                     }
 
@@ -166,27 +182,20 @@ namespace Arena
                         SendNextWarriorIntoArena(currentWarrior, currentParty, currentWarriorPrefab);
                         _currentState = ArenaState.CombatStart;
                     }
-
                     break;
+
                 case ArenaState.DisplayingPartyDeathMessage:
-                    if (HideMessageAfterTime(partyDeathMessage, _messageTimer, _partyDeathMessageDisplayTime))
-                    {
-                        // TODO: Display results
-                        _currentState = ArenaState.DisplayingResults;
-                    }
-
+                    ShowResults(resultsDefeat, defeatFame);
+                    _currentState = ArenaState.DisplayingResults;
                     break;
+
                 case ArenaState.BossDeath:
-                    ShowMessage(bossDeathMessage, _messageTimer);
                     _currentState = ArenaState.DisplayingBossDeathMessage;
                     break;
-                case ArenaState.DisplayingBossDeathMessage:
-                    if (HideMessageAfterTime(bossDeathMessage, _messageTimer, _bossDeathMessageDisplayTime))
-                    {
-                        // TODO: Display results
-                        _currentState = ArenaState.DisplayingResults;
-                    }
 
+                case ArenaState.DisplayingBossDeathMessage:
+                    ShowResults(resultsVictory, victoryFame);
+                    _currentState = ArenaState.DisplayingResults;
                     break;
 
                 case ArenaState.DisplayingResults:
@@ -215,13 +224,42 @@ namespace Arena
 
             return nextWarrior;
         }
-        
+
         private void ShowMessage(Canvas message, Stopwatch timer)
         {
             timer.Restart();
             message.enabled = true;
             message.gameObject.SetActive(true);
             Debug.Assert(message.isActiveAndEnabled, "expected message to be active an enabled");
+        }
+
+        private void ShowResults(CanvasGroup canvasGroup, TMP_Text fameText)
+        {
+            // Pause the combat?
+            Helper.CanvasHelper.ToggleCanvasGroup(canvasGroup);
+
+            // Calculate Fame Earned Ratios
+            int currentPartyTotalRemainingHealth = 0;
+            foreach (Combatant combatant in currentParty.combatants) { currentPartyTotalRemainingHealth += (int)combatant.MaxHealth; }
+            currentPartyTotalRemainingHealth += (int)currentWarrior.currentHealth;
+            float playerRatio = currentPartyTotalRemainingHealth / _totalPlayerMaxHealth;
+            playerRatio = playerRatio > 0 ? playerRatio : 0.0f;
+
+            float bossRatio = currentBoss.currentHealth / currentBoss.MaxHealth;
+            bossRatio = bossRatio > 0 ? bossRatio : 0.0f; 
+
+
+            int fameEarned = (int)((1f + playerRatio - bossRatio) * currentBoss.fameValue);
+
+            currentFame.value += fameEarned;
+            lifetimeFame.value += fameEarned;
+
+            fameText.text = $"{fameEarned}\n{currentFame.value}";
+        }
+
+        public void LoadMainMenuScene()
+        {
+            SceneManager.LoadScene(SceneData.MainMenuSceneIndex);
         }
 
         /// <summary>
