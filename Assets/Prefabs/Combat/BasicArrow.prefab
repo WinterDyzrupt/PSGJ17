@@ -106,7 +106,7 @@ MonoBehaviour:
   displayName: BasicArrow
   isDying: 0
   deathTime: 0
-  instantiateOffset: 50
+  instantiateOffset: 75
   projectileSpeed: 1000
   faction: {fileID: 2857456874595333222}
 --- !u!61 &7607319514964035317

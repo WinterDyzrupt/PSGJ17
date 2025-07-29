@@ -1,5 +1,4 @@
 using System;
-using PersistentData;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,7 +9,7 @@ public class ApplyStatusEffectToSelf : SkillPart
     public GameObject buffVFXPrefab;
     public float buffDurationInSeconds = 5;
 
-    public override void ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier = DefaultCombatData.DefaultMultiplier)
+    public override void ExecuteSkill(Transform transform, FactionType faction)
     {
         if (statusComponent == null)
         {
@@ -18,17 +17,13 @@ public class ApplyStatusEffectToSelf : SkillPart
         }
         else
         {
-            Type buffClass = statusComponent.GetClass();
+            Type statusEffectClass = statusComponent.GetClass();
 
-            if (!typeof(StatusEffect).IsAssignableFrom(buffClass))
+            if (typeof(StatusEffect).IsAssignableFrom(statusEffectClass))
             {
-                Debug.LogError($"The script given to {displayName} wasn't of class BuffDebuff.");
-            }
-            else
-            {
-                StatusEffect buffComponent = (StatusEffect)transform.parent.gameObject.AddComponent(buffClass);
+                StatusEffect statusEffectComponent = (StatusEffect)transform.parent.gameObject.AddComponent(statusEffectClass);
 
-                buffComponent.buffDuration = buffDurationInSeconds;
+                statusEffectComponent.buffDurationInSeconds = buffDurationInSeconds;
 
                 if (buffVFXPrefab == null)
                 {
@@ -36,8 +31,12 @@ public class ApplyStatusEffectToSelf : SkillPart
                 }
                 else
                 {
-                    buffComponent.buffVFXPrefab = buffVFXPrefab;
+                    statusEffectComponent.buffVFXPrefab = buffVFXPrefab;
                 }
+            }
+            else
+            {
+                Debug.LogError($"The script given to {displayName} wasn't of class StatusEffect.");
             }
         }
     }

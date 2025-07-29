@@ -32,7 +32,7 @@ namespace Arena
 
         public void OnDeath()
         {
-            UninstallDebuff();
+            RemoveStatusEffect();
             _spriteRenderer.sprite = deadSprite;
             _spriteRenderer.sortingOrder = deadSpriteLayer;
             _playerController.enabled = false;
@@ -41,7 +41,7 @@ namespace Arena
             _warriorDirectionIndicator.enabled = false;
         }
 
-        private void UninstallDebuff()
+        private void RemoveStatusEffect()
         {
             StatusEffect[] statusEffects = GetComponents<StatusEffect>();
 

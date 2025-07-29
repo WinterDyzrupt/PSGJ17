@@ -5,10 +5,10 @@ using UnityEngine;
 public class StatusEffect : MonoBehaviour
 {
     public string displayName;
-    public float buffDuration;
+    public float buffDurationInSeconds;
     public GameObject buffVFXPrefab;
     protected Combatant combatant;
-    [SerializeField]private float _elapsedTime = 0;
+    private float _elapsedTime = 0;
     private GameObject _buffVFX;
 
     void Start()
@@ -16,16 +16,17 @@ public class StatusEffect : MonoBehaviour
         if (TryGetComponent(out CombatantCollision combatantCollision))
         {
             combatant = combatantCollision.currentCombatant;
+            ApplyStatusEffect();
         }
-
-        Debug.Assert(combatant != null, displayName + " couldn't fine a combatantController.");
-
-        ApplyStatusEffect();
+        else
+        {
+            Debug.Assert(combatant != null, displayName + " couldn't fine a combatant.");
+        }
     }
 
     void Update()
     {
-        if (_elapsedTime >= buffDuration) { RemoveStatusEffect(); }
+        if (_elapsedTime >= buffDurationInSeconds) { RemoveStatusEffect(); }
         else { _elapsedTime += Time.deltaTime; }
     }
 

@@ -50,14 +50,17 @@ public class Projectile : MonoBehaviour
 
     public virtual void ExecuteCollisionAction(Collider2D collider)
     {
-        if (collider.gameObject.TryGetComponent(out Faction factionOther))
-        {
-            if (faction.faction != factionOther.faction) { DestroyProjectile(); }
-        }
-        else { DestroyProjectile(); }
+        /*         if (collider.gameObject.TryGetComponent(out Faction factionOther))
+                {
+                    if (faction.faction != factionOther.faction) { DestroyProjectile(); }
+                }
+                else { DestroyProjectile(); } */
         // Destroy if no faction was found.
         // Unsure if this is the perfect solution, but this makes sense to me on the surface.
         // Maybe it would be more proper to put factions on the wall.
+
+        // Original Logic
+        DestroyProjectile();
     }
 
     internal void DestroyProjectile()
