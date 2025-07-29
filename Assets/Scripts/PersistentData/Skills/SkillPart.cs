@@ -27,7 +27,7 @@ public abstract class SkillPart : ScriptableObject
     public virtual Task ExecuteSkill(Transform transform, FactionType faction,
         float damageMultiplier = DefaultCombatData.DefaultMultiplier)
     {
-        ExecuteSkill(transform, faction);
+        return ExecuteSkill(transform, faction);
     }
 
     public virtual Task ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier, Vector3 targetPosition, Quaternion targetRotation)

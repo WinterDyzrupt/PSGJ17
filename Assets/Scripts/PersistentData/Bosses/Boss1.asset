@@ -22,7 +22,7 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 0}
-  baseMaxHealth: 100
+  baseMaxHealth: 3000
   bonusMaxHealth: 0
   baseFlatDamageReduction: 0
   bonusFlatDamageReduction: 0
