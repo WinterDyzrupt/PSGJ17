@@ -36,7 +36,7 @@ namespace Arena
 
         protected virtual void FixedUpdate()
         {
-            combatantRigidbody.linearVelocity = _moveDirection * (currentCombatant.MovementSpeed * currentCombatant.MovementSpeedMultiplier);
+            combatantRigidbody.linearVelocity = (currentCombatant.MovementSpeed * currentCombatant.MovementSpeedMultiplier) * _moveDirection;
         }
 
         public void UpdateMoveDirection(Vector2 newMoveDirection)
@@ -51,19 +51,26 @@ namespace Arena
 
         private void RotateOrientation()
         {
-            float angleOfOrientation = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg;
+            if (_aimDirection.magnitude > .1) // controller deadzone so it doesn't default to right
+            {
+                float angleOfOrientation = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg;
 
-            orientationTransform.rotation = Quaternion.Euler(0.0f, 0.0f, angleOfOrientation);
+                orientationTransform.rotation = Quaternion.Euler(0.0f, 0.0f, angleOfOrientation);
 
-            if (angleOfOrientation > 90 && angleOfOrientation < 270) combatantSprite.flipX = true;
-            else combatantSprite.flipX = false;
+                if (angleOfOrientation > 90 || angleOfOrientation < -90) combatantSprite.flipX = true;
+                else combatantSprite.flipX = false;
+            }
         }
 
         public async Task ExecuteSkillAsync(Skill skill)
         {
             if (skill != null)
             {
-                await skill.ExecuteSkillAsync(orientationTransform, _faction);
+                await skill.ExecuteSkillAsync(
+                    orientationTransform,
+                    _faction,
+                    currentCombatant.CooldownReductionMultiplier,
+                    currentCombatant.OutgoingDamageMultiplier);
             }
             else
             {

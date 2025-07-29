@@ -52,6 +52,7 @@ public class Skill : ScriptableObject
     public async Task ExecuteSkillAsync(Transform transformParent, FactionType faction, float cooldownMultiplier = DefaultCombatData.DefaultMultiplier, float damageMultiplier = DefaultCombatData.DefaultMultiplier)
     {
         //Debug.Log($"Total cooldown: {baseTotalCooldownTimeInSeconds}; cooldown multiplier: {_totalCooldownTimeMultiplier} and cooldown percentage: {CooldownPercentage}.");
+        // TODO: Refactor so that Update checks don't call for an execute if !isOffCooldown. (There might be a way in unity input system.) 
         if (IsOffCooldown)
         {
             _totalCooldownTimeMultiplier = cooldownMultiplier;
@@ -67,6 +68,7 @@ public class Skill : ScriptableObject
                 var targetRotation = FindTargetRotation(target);
                 foreach (var skillPart in skillParts)
                 {
+                    Debug.Log($"Executing part is {skillPart.name}.");
                     // this needs to be the correct transform from where it's spawned.
                     if (executePartsSerially)
                     {

@@ -18,10 +18,16 @@ public abstract class SkillPart : ScriptableObject
 
     // Where the skills will do something
     // It needs to know who fired it.
+
+    public virtual Task ExecuteSkill(Transform transform, FactionType faction)
+    {
+        return Task.CompletedTask;
+    }
+    
     public virtual Task ExecuteSkill(Transform transform, FactionType faction,
         float damageMultiplier = DefaultCombatData.DefaultMultiplier)
     {
-        return Task.CompletedTask;
+        ExecuteSkill(transform, faction);
     }
 
     public virtual Task ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier, Vector3 targetPosition, Quaternion targetRotation)

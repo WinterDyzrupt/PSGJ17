@@ -29,6 +29,8 @@ namespace PersistentData
         private static GameObject _instance;
         private void Awake()
         {
+            Application.targetFrameRate = 60;
+
             if (_instance != null)
             {
                 Destroy(this);

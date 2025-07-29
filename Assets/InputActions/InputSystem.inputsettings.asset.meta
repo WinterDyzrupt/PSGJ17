@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/InputActions/InputSystem.inputsettings.asset.meta
 guid: 8cee25032a3c11d458eb57da825230cf
+========
+guid: ab4e86dc178330a4d99febcf1cdfc886
+>>>>>>>> origin/main:Assets/Scripts/PersistentData/Arena/SelectedBossIndex.asset.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
