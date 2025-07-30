@@ -162,15 +162,8 @@ namespace Arena
                             _previousBossAction = BossState.StartingMeleeAttack;
                             break;
                         case BossState.WaitingForAttackToComplete:
-                            // if (_attackTask.IsCompleted)
-                            // {
+                            // Boss state goes from waiting -> thinking in OnSkillCompleted()
                             Debug.Log("Done waiting for attack to complete");
-                            _bossState = BossState.Thinking;
-                            // }
-                            // else
-                            // {
-                            //  Debug.Log("...Still waiting for attack to complete...");
-                            // }
 
                             break;
                         default:
@@ -216,6 +209,12 @@ namespace Arena
             Debug.Log($"OnPhaseChange {currentPhaseNumber} -> {_bossPhaseMonitor.currentPhaseNumber}");
             currentPhaseNumber = _bossPhaseMonitor.currentPhaseNumber;
             PopulateSkillsForPhase(currentPhaseNumber);
+        }
+
+        protected override void OnSkillCompleted(Skill completedSkill)
+        {
+            Debug.Log($"OnSkillCompleted {completedSkill.displayName}");
+            _bossState = BossState.Thinking;
         }
 
         private GameObject FindNewPlayerObject()

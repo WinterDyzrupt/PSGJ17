@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c044d79bcfd55541b17496fd6870d09, type: 3}
-  m_Name: WarriorName2
+  m_Name: Ranger
   m_EditorClassIdentifier: 
   displayName:
     useConstant: 1
-    constantValue: WarriorDisplayName2
+    constantValue: Rogue
     variable: {fileID: 0}
   description: WarriorDescription2
   sprite: {fileID: 7482667652216324306, guid: 936d720a428cfe448a245fdcec600266, type: 3}
@@ -22,7 +22,7 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 0}
-  baseMaxHealth: 80
+  baseMaxHealth: 100
   bonusMaxHealth: 30
   baseFlatDamageReduction: 0
   bonusFlatDamageReduction: 2
@@ -40,7 +40,7 @@ MonoBehaviour:
   bonusAvoidAttackCount: 1
   baseAvoidAttackIntervalInSeconds: 10
   bonusAvoidAttackIntervalInSeconds: 0
-  basicAttack: {fileID: 0}
-  ability1: {fileID: 0}
-  ability2: {fileID: 0}
-  utility: {fileID: 0}
+  basicAttack: {fileID: 11400000, guid: 0f4040111c2004e45b2165fc6e9bb1f8, type: 2}
+  ability1: {fileID: 11400000, guid: 6cc82d4302599b54298c69a6346258c2, type: 2}
+  ability2: {fileID: 11400000, guid: 134f853134d24a440a8e9fa6fd780d80, type: 2}
+  utility: {fileID: 11400000, guid: c14b5579cdd85fd44990d55bba05cac8, type: 2}

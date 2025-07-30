@@ -341,7 +341,7 @@ MonoBehaviour:
   orientationTransform: {fileID: 7074725755960991880}
   combatantSprite: {fileID: 3608440201983980533}
   currentCombatant: {fileID: 11400000, guid: f663054053aaec94499e5071a9d55254, type: 2}
-  minimumTimeBetweenActionsInSeconds: 1
+  minimumTimeBetweenActionsInSeconds: 0.25
   minimumDistanceForMeleeAttacks: 260
   currentPhaseNumber: 1
 --- !u!114 &-2223431456227055545

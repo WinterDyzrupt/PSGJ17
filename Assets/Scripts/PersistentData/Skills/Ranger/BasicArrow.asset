@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dda5c1e605eda6488a50ef8294df295, type: 3}
-  m_Name: CreateRock
+  m_Script: {fileID: 11500000, guid: 97ef59cf018d027489d243d1861b98a7, type: 3}
+  m_Name: BasicArrow
   m_EditorClassIdentifier: 
-  displayName: That rock is staying there
+  displayName: 
   description: 
-  baseDamage: 20
-  windupTimeInSeconds: 0.1
+  baseDamage: 10
+  windupTimeInSeconds: 0
   recoveryTimeInSeconds: 0
-  summonGameObject: {fileID: 26067508785476390, guid: 0bf41e65f3f8d614b8ad5288c366c782, type: 3}
+  projectileGameObject: {fileID: 390150444203895657, guid: 417dce5bcf57e984b8963ca112abb259, type: 3}

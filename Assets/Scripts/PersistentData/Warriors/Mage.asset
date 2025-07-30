@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c044d79bcfd55541b17496fd6870d09, type: 3}
-  m_Name: WarriorName4
+  m_Name: Mage
   m_EditorClassIdentifier: 
   displayName:
     useConstant: 1
-    constantValue: WarriorDisplayName4
+    constantValue: Mage
     variable: {fileID: 0}
   description: Description4
   sprite: {fileID: 7482667652216324306, guid: 541ad95999b50f54eae6904cf7cbb689, type: 3}
@@ -22,7 +22,7 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 0}
-  baseMaxHealth: 150
+  baseMaxHealth: 80
   bonusMaxHealth: 30
   baseFlatDamageReduction: 0
   bonusFlatDamageReduction: 2
@@ -40,7 +40,7 @@ MonoBehaviour:
   bonusAvoidAttackCount: 1
   baseAvoidAttackIntervalInSeconds: 10
   bonusAvoidAttackIntervalInSeconds: 0
-  basicAttack: {fileID: 0}
-  ability1: {fileID: 0}
-  ability2: {fileID: 0}
-  utility: {fileID: 0}
+  basicAttack: {fileID: 11400000, guid: dc34c5a7084f02947ae9ed6883fbe5f3, type: 2}
+  ability1: {fileID: 11400000, guid: 4a220f575c47f414988c3747f46a902b, type: 2}
+  ability2: {fileID: 11400000, guid: 19da5158e3efae74fb967906425f66e7, type: 2}
+  utility: {fileID: 11400000, guid: f6839664c3ffc434fa7b100555d52a9b, type: 2}
