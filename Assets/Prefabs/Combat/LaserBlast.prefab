@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3610318212938416658}
   - component: {fileID: 7607319514964035317}
   - component: {fileID: 5135606966728445051}
+  - component: {fileID: 7000269847361637934}
   m_Layer: 0
   m_Name: LaserBlast
   m_TagString: Untagged
@@ -107,6 +108,7 @@ MonoBehaviour:
   deathTime: 0
   instantiateOffset: 180
   projectileSpeed: 800
+  faction: {fileID: 0}
 --- !u!61 &7607319514964035317
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -180,3 +182,16 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7000269847361637934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390150444203895657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa228a16f83e304b85c31a9812f6b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2

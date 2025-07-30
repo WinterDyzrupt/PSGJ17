@@ -71,11 +71,16 @@ namespace Arena
                     _faction,
                     currentCombatant.CooldownReductionMultiplier,
                     currentCombatant.OutgoingDamageMultiplier);
+                OnSkillCompleted(skill);
             }
             else
             {
                 Debug.LogWarning($"Attempted to activate skill on {gameObject.name} but was given null. Was it supposed to be missing?");
             }
+        }
+
+        protected virtual void OnSkillCompleted(Skill completedSkill)
+        {
         }
     }
 }
