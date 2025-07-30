@@ -1,3 +1,4 @@
+using System;
 using Arena.Collisions;
 using PersistentData;
 using UnityEngine;
@@ -44,5 +45,10 @@ public class StatusEffect : MonoBehaviour
     {
         Destroy(_buffVFX);
         Destroy(this);
+    }
+
+    public virtual Type GetClass()
+    {
+        return null;
     }
 }

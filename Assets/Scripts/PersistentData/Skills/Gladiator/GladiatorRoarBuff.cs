@@ -1,3 +1,5 @@
+using System;
+
 public class GladiatorRoarBuff : StatusEffect
 {
     public float damageBuffMultiplier = 2;
@@ -5,17 +7,28 @@ public class GladiatorRoarBuff : StatusEffect
 
     protected override void ApplyStatusEffect()
     {
-        combatant.bonusOutgoingDamageMultiplier *= damageBuffMultiplier;
-        combatant.bonusFlatDamageReduction += armorDebuff;
+        if (combatant != null)
+        {
+            combatant.bonusOutgoingDamageMultiplier *= damageBuffMultiplier;
+            combatant.bonusFlatDamageReduction += armorDebuff;
 
-        base.ApplyStatusEffect();
+            base.ApplyStatusEffect();
+        }
     }
 
     public override void RemoveStatusEffect()
     {
-        combatant.bonusOutgoingDamageMultiplier /= damageBuffMultiplier;
-        combatant.bonusFlatDamageReduction -= armorDebuff;
+        if (combatant != null)
+        {
+            combatant.bonusOutgoingDamageMultiplier /= damageBuffMultiplier;
+            combatant.bonusFlatDamageReduction -= armorDebuff;
 
-        base.RemoveStatusEffect();
+            base.RemoveStatusEffect();
+        }
+    }
+
+    public override Type GetClass()
+    {
+        return GetType();
     }
 }

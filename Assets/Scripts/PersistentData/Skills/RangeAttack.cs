@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Arena.Collisions;
 using PersistentData;
 using UnityEngine;
@@ -12,7 +11,7 @@ public class RangeAttack : SkillPart
     public GameObject projectileGameObject;
 
     // Override Execute skill so that it performs the attack
-    public override Task ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier = DefaultCombatData.DefaultMultiplier)
+    public override void ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier = DefaultCombatData.DefaultMultiplier)
     {
         if (projectileGameObject == null)
         {
@@ -34,7 +33,5 @@ public class RangeAttack : SkillPart
                 Debug.LogError($"{displayName} failed to find a projectile in the GameObject.");
             }
         }
-
-        return Task.CompletedTask;
     }
 }

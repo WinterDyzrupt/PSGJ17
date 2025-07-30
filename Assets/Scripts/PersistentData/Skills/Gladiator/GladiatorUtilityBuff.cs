@@ -1,3 +1,5 @@
+using System;
+
 public class GladiatorUtilityBuff : StatusEffect
 {
     public float armorDebuff = 100;
@@ -5,17 +7,28 @@ public class GladiatorUtilityBuff : StatusEffect
 
     protected override void ApplyStatusEffect()
     {
-        combatant.bonusFlatDamageReduction += armorDebuff;
-        combatant.bonusMovementSpeedMultiplier *= MovementSpeedMultiplierDebuff;
+        if (combatant != null)
+        {
+            combatant.bonusFlatDamageReduction += armorDebuff;
+            combatant.bonusMovementSpeedMultiplier *= MovementSpeedMultiplierDebuff;
 
-        base.ApplyStatusEffect();
+            base.ApplyStatusEffect();
+        }
     }
 
     public override void RemoveStatusEffect()
     {
-        combatant.bonusFlatDamageReduction -= armorDebuff;
-        combatant.bonusMovementSpeedMultiplier /= MovementSpeedMultiplierDebuff;
+        if (combatant != null)
+        {
+            combatant.bonusFlatDamageReduction -= armorDebuff;
+            combatant.bonusMovementSpeedMultiplier /= MovementSpeedMultiplierDebuff;
 
-        base.RemoveStatusEffect();
+            base.RemoveStatusEffect();
+        }
+    }
+
+    public override Type GetClass()
+    {
+        return GetType();
     }
 }
