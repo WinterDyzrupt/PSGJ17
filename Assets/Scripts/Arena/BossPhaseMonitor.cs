@@ -7,10 +7,11 @@ namespace Arena
     public class BossPhaseMonitor : MonoBehaviour
     {
         public Boss currentBoss;
+        public int currentPhaseNumber;
         public UnityEvent bossPhaseChangeEvent;
-        
+
+        private const int BasePhaseNumber = 1;
         private float _healthPerPhase;
-        private int _currentPhase;
 
         private void Start()
         {
@@ -32,11 +33,11 @@ namespace Arena
             // 1599             2401            3.00125
             // 760              3240            4.05
             var missingHealth = currentBoss.MaxHealth - currentBoss.currentHealth.Value; 
-            var newPhase = Mathf.FloorToInt(missingHealth / _healthPerPhase);
+            var newPhaseNumber = Mathf.FloorToInt(missingHealth / _healthPerPhase) + BasePhaseNumber;
 
-            if (newPhase > _currentPhase)
-            {
-                _currentPhase = newPhase;
+            if (newPhaseNumber > currentPhaseNumber)
+            { 
+                currentPhaseNumber = newPhaseNumber;
                 bossPhaseChangeEvent.Invoke();
             }
         }

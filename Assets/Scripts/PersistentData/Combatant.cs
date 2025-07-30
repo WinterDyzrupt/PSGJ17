@@ -1,3 +1,4 @@
+using Unity.Mathematics.Geometry;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
@@ -7,6 +8,7 @@ namespace PersistentData
     {
         private const float DefaultMultiplier = 1f;
         private const int DefaultAvoidAttackIntervalInSeconds = 10;
+        private const float MinimumDamageToReceive = 0f;
 
         public StringReference displayName;
         [TextArea] public string description;
@@ -60,7 +62,7 @@ namespace PersistentData
             Debug.Assert(combatantToGetValuesFrom.currentHealth != null,
                 $"{nameof(combatantToGetValuesFrom.currentHealth)} expected to be not null.");
 
-            this.displayName = combatantToGetValuesFrom.displayName;
+            this.displayName.Value = combatantToGetValuesFrom.displayName.Value;
             this.description = combatantToGetValuesFrom.description;
             this.sprite = combatantToGetValuesFrom.sprite;
 
@@ -133,7 +135,8 @@ namespace PersistentData
 
         public void ReceiveDamage(float initialDamage)
         {
-            var actualDamage = initialDamage * DamageReceivedMultiplier - FlatDamageReduction;
+            var reducedDamage = initialDamage * DamageReceivedMultiplier - FlatDamageReduction;
+            var actualDamage = Mathf.Max(reducedDamage, MinimumDamageToReceive);
             Debug.Log($"{displayName} taking initial damage: {initialDamage}; finalDamage: {actualDamage}");
 
             currentHealth.Value -= actualDamage;

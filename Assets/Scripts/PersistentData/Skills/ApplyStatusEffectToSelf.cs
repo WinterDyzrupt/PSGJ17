@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class ApplyStatusEffectToSelf : SkillPart
     public GameObject buffVFXPrefab;
     public float buffDurationInSeconds = 5;
 
-    public override void ExecuteSkill(Transform transform, FactionType faction)
+    public override Task ExecuteSkill(Transform transform, FactionType faction)
     {
         if (statusComponent == null)
         {
@@ -39,5 +40,7 @@ public class ApplyStatusEffectToSelf : SkillPart
                 Debug.LogError($"The script given to {displayName} wasn't of class StatusEffect.");
             }
         }
+
+        return Task.CompletedTask;
     }
 }
