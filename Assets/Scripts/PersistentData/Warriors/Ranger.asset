@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName:
     useConstant: 1
-    constantValue: Rogue
+    constantValue: Ranger
     variable: {fileID: 0}
   description: WarriorDescription2
   sprite: {fileID: 7482667652216324306, guid: 936d720a428cfe448a245fdcec600266, type: 3}
@@ -25,7 +25,7 @@ MonoBehaviour:
   baseMaxHealth: 100
   bonusMaxHealth: 30
   baseFlatDamageReduction: 0
-  bonusFlatDamageReduction: 2
+  bonusFlatDamageReduction: 1
   baseDamageReceivedMultiplier: 1
   bonusDamageReceivedMultiplier: 1
   baseOutgoingDamageMultiplier: 1
@@ -33,11 +33,11 @@ MonoBehaviour:
   baseMovementSpeed: 300
   bonusMovementSpeed: 0
   baseMovementSpeedMultiplier: 1
-  bonusMovementSpeedMultiplier: 1.1
+  bonusMovementSpeedMultiplier: 1.2
   baseCooldownReductionMultiplier: 1
-  bonusCooldownReductionMultiplier: 0.15
+  bonusCooldownReductionMultiplier: 0.9
   baseAvoidAttackCount: 0
-  bonusAvoidAttackCount: 1
+  bonusAvoidAttackCount: 0
   baseAvoidAttackIntervalInSeconds: 10
   bonusAvoidAttackIntervalInSeconds: 0
   basicAttack: {fileID: 11400000, guid: 0f4040111c2004e45b2165fc6e9bb1f8, type: 2}

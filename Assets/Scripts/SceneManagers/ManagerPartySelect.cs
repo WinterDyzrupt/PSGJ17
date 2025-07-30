@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using Helper;
 using PersistentData;
 using UnityEngine.UI;
+using TMPro;
 
 public class ManagerPartySelect : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class ManagerPartySelect : MonoBehaviour
     private Combatant[] _partyTemp;
     public int partySize = 4;
     public Image[] warriorDisplays;
+    public TMP_Text[] buttonTexts;
 
     // Initialize variables
     public void Awake()
@@ -47,9 +49,11 @@ public class ManagerPartySelect : MonoBehaviour
     {
         currentSelectionIndex = classNumberIndex;
         Debug.Log("selecting class" + currentSelectionIndex);
+
+        ConfirmWarriorSelection();
     }
 
-    public void ConfirmWarriorSelection()
+    private void ConfirmWarriorSelection()
     {
         if (currentSelectionIndex >= allWarriors.combatants.Count)
         {
@@ -75,6 +79,7 @@ public class ManagerPartySelect : MonoBehaviour
             Debug.Log(currentPartyMessage.ToString());
             // Display warrior sprite
             warriorDisplays[partySlot].sprite = _partyTemp[partySlot].sprite;
+            buttonTexts[partySlot].text = _partyTemp[partySlot].displayName;
 
             CheckToEnableContinue();
 

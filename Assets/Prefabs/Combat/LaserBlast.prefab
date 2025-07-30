@@ -108,7 +108,7 @@ MonoBehaviour:
   deathTime: 0
   instantiateOffset: 180
   projectileSpeed: 800
-  faction: {fileID: 0}
+  faction: {fileID: 7000269847361637934}
 --- !u!61 &7607319514964035317
 BoxCollider2D:
   m_ObjectHideFlags: 0

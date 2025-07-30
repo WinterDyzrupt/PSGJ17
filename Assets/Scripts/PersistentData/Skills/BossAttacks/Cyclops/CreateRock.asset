@@ -15,6 +15,6 @@ MonoBehaviour:
   displayName: That rock is staying there
   description: 
   baseDamage: 20
-  windupTimeInSeconds: 0.1
+  windupTimeInSeconds: 0.25
   recoveryTimeInSeconds: 0
   summonGameObject: {fileID: 26067508785476390, guid: 0bf41e65f3f8d614b8ad5288c366c782, type: 3}
