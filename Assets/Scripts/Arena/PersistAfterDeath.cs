@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using PersistentData;
 
 namespace Arena
 {
@@ -33,6 +34,7 @@ namespace Arena
         public void OnDeath()
         {
             RemoveStatusEffect();
+            gameObject.tag = Tags.Untagged;
             _spriteRenderer.sprite = deadSprite;
             _spriteRenderer.sortingOrder = deadSpriteLayer;
             _playerController.enabled = false;

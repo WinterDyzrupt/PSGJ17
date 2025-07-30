@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using PersistentData;
 using UnityEngine;
 
@@ -33,7 +34,7 @@ namespace Arena
             RotateOrientation();
         }
 
-        void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
             combatantRigidbody.linearVelocity = (currentCombatant.MovementSpeed * currentCombatant.MovementSpeedMultiplier) * _moveDirection;
         }
@@ -61,11 +62,11 @@ namespace Arena
             }
         }
 
-        public void ExecuteSkill(Skill skill)
+        public async Task ExecuteSkillAsync(Skill skill)
         {
             if (skill != null)
             {
-                skill.ExecuteSkill(
+                await skill.ExecuteSkillAsync(
                     orientationTransform,
                     _faction,
                     currentCombatant.CooldownReductionMultiplier,

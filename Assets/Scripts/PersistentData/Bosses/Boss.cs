@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using PersistentData.Skills.BossAttacks;
 using UnityEngine;
 
 namespace PersistentData.Bosses
@@ -6,6 +8,7 @@ namespace PersistentData.Bosses
     public class Boss : Combatant
     {
         public int numberOfPhases;
+        public List<SkillSetForPhase> allSkillsForAllPhases = new();
         public int fameValue;
 
         public override void SetValues(Combatant combatantToGetValuesFrom)
@@ -14,12 +17,14 @@ namespace PersistentData.Bosses
             var otherBoss = combatantToGetValuesFrom as Boss;
             Debug.Assert(otherBoss != null, nameof(combatantToGetValuesFrom) + " was expected to be a boss.");
             numberOfPhases = otherBoss.numberOfPhases;
+            allSkillsForAllPhases =  otherBoss.allSkillsForAllPhases;
         }
 
         public override void ResetValues()
         {
             base.ResetValues();
             numberOfPhases = 0;
+            allSkillsForAllPhases.Clear();
         }
     }
 }

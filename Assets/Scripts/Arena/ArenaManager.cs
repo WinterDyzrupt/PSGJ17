@@ -104,7 +104,7 @@ namespace Arena
         {
             Debug.Log("Initializing boss; boss index: " + bossIndex);
             var bossTemplate = bosses.combatants[bossIndex];
-            InitializeCombatant(currentBoss, bossTemplate, bossPrefab);
+            InitializeCombatant(currentBoss, bossTemplate, bossPrefab, Tags.Boss);
             Debug.Log("Boss: " + currentBoss);
 
             // install pips
@@ -130,15 +130,16 @@ namespace Arena
         private void SendNextWarriorIntoArena(Warrior currentWarriorPlaceholder, CombatantGroup party, GameObject prefab)
         {
             var nextWarrior = PrepareNextWarriorFromParty(party);
-            InitializeCombatant(currentWarriorPlaceholder, nextWarrior, prefab);
+            InitializeCombatant(currentWarriorPlaceholder, nextWarrior, prefab, Tags.Player);
         }
 
-        private void InitializeCombatant(Combatant combatantPlaceholder, Combatant template, GameObject prefab)
+        private void InitializeCombatant(Combatant combatantPlaceholder, Combatant template, GameObject prefab, string tagForCombatant)
         {
             combatantPlaceholder.ResetValues();
             combatantPlaceholder.SetValues(template);
             var newCombatant = Instantiate(prefab);
             newCombatant.GetComponent<CombatantController>().combatantSprite.sprite = combatantPlaceholder.sprite;
+            newCombatant.tag = tagForCombatant;
         }
 
         private void Update()
