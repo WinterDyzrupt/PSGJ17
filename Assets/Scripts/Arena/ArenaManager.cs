@@ -59,7 +59,7 @@ namespace Arena
         private Stopwatch _messageTimer;
         private TimeSpan _introMessageDisplayTime;
         private TimeSpan _warriorDeathMessageDisplayTime;
-        private int _totalPlayerMaxHealth = 0;
+        private float _totalPlayerMaxHealth = 0;
 
         private void Awake()
         {
@@ -79,7 +79,8 @@ namespace Arena
             // TODO: Remove when results are done
             //Debug.Assert(results != null, nameof(results) + " expected to be not null");
 
-            foreach (Combatant combatant in currentParty.combatants) { _totalPlayerMaxHealth += (int)combatant.MaxHealth; }
+            // Calculates and stores total health in party
+            foreach (Combatant combatant in currentParty.combatants) { _totalPlayerMaxHealth += combatant.MaxHealth; }
 
             InitializeBoss(selectedBossIndex, allBosses);
             SendNextWarriorIntoArena(currentWarrior, currentParty, currentWarriorPrefab);
@@ -240,15 +241,15 @@ namespace Arena
             Helper.CanvasHelper.ToggleCanvasGroup(canvasGroup);
 
             // Calculate Fame Earned Ratios
-            int currentPartyTotalRemainingHealth = 0;
+            float currentPartyTotalRemainingHealth = 0;
             foreach (Combatant combatant in currentParty.combatants) { currentPartyTotalRemainingHealth += (int)combatant.MaxHealth; }
             currentPartyTotalRemainingHealth += (int)currentWarrior.currentHealth;
             float playerRatio = currentPartyTotalRemainingHealth / _totalPlayerMaxHealth;
-            playerRatio = playerRatio > 0 ? playerRatio : 0.0f;
+            playerRatio = playerRatio > 0.0f ? playerRatio : 0.0f;
+            // Debug.Log($"Fame earned from remaining Player Health\nRemaining Health: {currentPartyTotalRemainingHealth}, Total Party Health: {_totalPlayerMaxHealth}\nPlayer Ratio: {playerRatio}");
 
             float bossRatio = currentBoss.currentHealth / currentBoss.MaxHealth;
-            bossRatio = bossRatio > 0 ? bossRatio : 0.0f; 
-
+            bossRatio = bossRatio > 0.0f ? bossRatio : 0.0f; 
 
             int fameEarned = (int)((1f + playerRatio - bossRatio) * currentBoss.fameValue);
 

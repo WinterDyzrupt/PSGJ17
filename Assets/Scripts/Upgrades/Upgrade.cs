@@ -1,4 +1,3 @@
-using System;
 using PersistentData;
 using UnityEngine;
 
@@ -16,11 +15,11 @@ public class Upgrade : ScriptableObject
     {
         int rankCost = 0;
 
-        if (IsMaxed || (fameCostPerRank?.Length ?? 0) < currentRank)
+        if ((fameCostPerRank?.Length ?? 0) < currentRank)
         {
             Debug.LogError($"fameCostPerRank doesn't have enough entries in {upgradeName}.");
         }
-        else
+        else if (!IsMaxed)
         {
             rankCost = fameCostPerRank[currentRank];
         }
