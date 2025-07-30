@@ -9,6 +9,7 @@ namespace PersistentData.Bosses
     {
         public int numberOfPhases;
         public List<SkillSetForPhase> allSkillsForAllPhases = new();
+        public int fameValue;
 
         public override void SetValues(Combatant combatantToGetValuesFrom)
         {

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Helper;
 using PersistentData;
+using UnityEngine.UI;
 
 public class ManagerTitle : MonoBehaviour
 {
@@ -13,9 +14,11 @@ public class ManagerTitle : MonoBehaviour
     public UpgradeGroup upgradesForAllWarriors;
     public CombatantGroup allWarriors;
 
+    public Button[] _mainButtons;
+
     private void Awake()
     {
-        Debug.Assert(upgradesForAllWarriors != null,  nameof(upgradesForAllWarriors) + " expected to be non-null.");
+        Debug.Assert(upgradesForAllWarriors != null, nameof(upgradesForAllWarriors) + " expected to be non-null.");
     }
 
     private void Start()
@@ -52,11 +55,18 @@ public class ManagerTitle : MonoBehaviour
 
     public void ToggleLevelSelect()
     {
+        ToggleTitleButtons();
         CanvasHelper.ToggleCanvasGroup(levelSelectPanel);
     }
 
     public void ToggleCredits()
     {
+        ToggleTitleButtons();
         CanvasHelper.ToggleCanvasGroup(creditsPanel);
+    }
+
+    private void ToggleTitleButtons()
+    {
+        foreach (Button button in _mainButtons) { button.interactable = !button.interactable; }
     }
 }

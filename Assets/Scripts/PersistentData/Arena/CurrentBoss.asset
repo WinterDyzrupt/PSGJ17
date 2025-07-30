@@ -17,12 +17,12 @@ MonoBehaviour:
     constantValue: Barnie
     variable: {fileID: 0}
   description: BossDescription1
-  sprite: {fileID: 7482667652216324306, guid: c92ef63b80783ea4ebe0d2c475378c50, type: 3}
+  sprite: {fileID: 21300000, guid: 53b23880256f8c343b323337b4ee423b, type: 3}
   currentHealth:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 406a907fe498a614e9042de00166b90d, type: 2}
-  baseMaxHealth: 100
+  baseMaxHealth: 3000
   bonusMaxHealth: 0
   baseFlatDamageReduction: 0
   bonusFlatDamageReduction: 0
@@ -45,3 +45,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e1ab072e796e9b545b21d83baa57a55d, type: 2}
   - {fileID: 11400000, guid: 7cd0e10d008cd6f45b6e4c60db879536, type: 2}
   - {fileID: 11400000, guid: 3892a6ce21ee6704ca7801a8a02e295e, type: 2}
+  fameValue: 600
