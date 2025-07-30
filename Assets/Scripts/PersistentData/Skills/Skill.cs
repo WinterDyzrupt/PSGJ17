@@ -1,6 +1,6 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using PersistentData;
 using UnityEngine;
 
@@ -49,7 +49,7 @@ public class Skill : ScriptableObject
 
     public float TotalCooldownTime => baseTotalCooldownTimeInSeconds * _totalCooldownTimeMultiplier;
     
-    public async Task ExecuteSkillAsync(Transform transformParent, FactionType faction, float cooldownMultiplier = DefaultCombatData.DefaultMultiplier, float damageMultiplier = DefaultCombatData.DefaultMultiplier)
+    public IEnumerator ExecuteSkillAsync(Transform transformParent, FactionType faction, float cooldownMultiplier = DefaultCombatData.DefaultMultiplier, float damageMultiplier = DefaultCombatData.DefaultMultiplier)
     {
         //Debug.Log($"Total cooldown: {baseTotalCooldownTimeInSeconds}; cooldown multiplier: {_totalCooldownTimeMultiplier} and cooldown percentage: {CooldownPercentage}.");
         // TODO: Refactor so that Update checks don't call for an execute if !isOffCooldown. (There might be a way in unity input system.) 
@@ -72,23 +72,23 @@ public class Skill : ScriptableObject
                     // this needs to be the correct transform from where it's spawned.
                     if (executePartsSerially)
                     {
-                        await Task.Delay(TimeSpan.FromSeconds(skillPart.windupTimeInSeconds));
+                        yield return new WaitForSeconds(skillPart.windupTimeInSeconds);
                     }
 
                     if (target == null)
                     {
                         Debug.Log("Executing skill with no specific target.");
-                        await skillPart.ExecuteSkill(transformParent, faction, damageMultiplier);
+                        skillPart.ExecuteSkill(transformParent, faction, damageMultiplier);
                     }
                     else
                     {
                         Debug.Log("Executing skill with a target.");
-                        await skillPart.ExecuteSkill(transformParent, faction, damageMultiplier, targetPosition, targetRotation);
+                        skillPart.ExecuteSkill(transformParent, faction, damageMultiplier, targetPosition, targetRotation);
                     }
 
                     if (executePartsSerially)
                     {
-                        await Task.Delay(TimeSpan.FromSeconds(skillPart.recoveryTimeInSeconds));
+                        yield return new WaitForSeconds(skillPart.recoveryTimeInSeconds);
                     }
                 }
             }

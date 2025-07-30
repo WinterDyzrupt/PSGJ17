@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Arena.Collisions;
 using Arena.Combat;
 using PersistentData;
@@ -19,25 +18,22 @@ public abstract class SkillPart : ScriptableObject
     // Where the skills will do something
     // It needs to know who fired it.
 
-    public virtual Task ExecuteSkill(Transform transform, FactionType faction)
-    {
-        return Task.CompletedTask;
-    }
-    
-    public virtual Task ExecuteSkill(Transform transform, FactionType faction,
+    public virtual void ExecuteSkill(Transform transform, FactionType faction) { }
+
+    public virtual void ExecuteSkill(Transform transform, FactionType faction,
         float damageMultiplier = DefaultCombatData.DefaultMultiplier)
     {
-        return ExecuteSkill(transform, faction);
+        ExecuteSkill(transform, faction);
     }
 
-    public virtual Task ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier, Vector3 targetPosition, Quaternion targetRotation)
+    public virtual void ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier, Vector3 targetPosition, Quaternion targetRotation)
     {
-        return ExecuteSkill(transform, faction, damageMultiplier);
+        ExecuteSkill(transform, faction, damageMultiplier);
     }
 
-    public virtual Task ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier, GameObject target)
+    public virtual void ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier, GameObject target)
     {
-        return ExecuteSkill(transform, faction, damageMultiplier, target.transform.position, target.transform.rotation);
+        ExecuteSkill(transform, faction, damageMultiplier, target.transform.position, target.transform.rotation);
     }
 
     protected void ConfigureCreatedObject(GameObject createdObject, FactionType faction, float timeToKeepObjectAliveInSeconds, float damageMultiplier = DefaultCombatData.DefaultMultiplier)

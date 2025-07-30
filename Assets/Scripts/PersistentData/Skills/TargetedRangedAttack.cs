@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace PersistentData.Skills
@@ -9,7 +8,7 @@ namespace PersistentData.Skills
         public GameObject attackPrefab;
         public float timeToKeepEffectAliveInSeconds = .25f;
 
-        public override Task ExecuteSkill(Transform transform, FactionType faction,
+        public override void ExecuteSkill(Transform transform, FactionType faction,
             float damageMultiplier, Vector3 targetPosition, Quaternion targetRotation)
         {
             if (attackPrefab == null)
@@ -21,8 +20,6 @@ namespace PersistentData.Skills
                 var attack = Instantiate(attackPrefab, targetPosition, targetRotation);
                 ConfigureCreatedObject(attack, faction, timeToKeepEffectAliveInSeconds, damageMultiplier);
             }
-
-            return Task.CompletedTask;
         }
     }
 }

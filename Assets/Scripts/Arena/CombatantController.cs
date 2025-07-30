@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using System.Collections;
 using PersistentData;
 using UnityEngine;
 
@@ -62,11 +62,11 @@ namespace Arena
             }
         }
 
-        public async Task ExecuteSkillAsync(Skill skill)
+        public IEnumerator ExecuteSkillAsync(Skill skill)
         {
             if (skill != null)
             {
-                await skill.ExecuteSkillAsync(
+                yield return skill.ExecuteSkillAsync(
                     orientationTransform,
                     _faction,
                     currentCombatant.CooldownReductionMultiplier,

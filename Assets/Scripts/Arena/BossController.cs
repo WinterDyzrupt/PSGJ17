@@ -12,7 +12,7 @@ namespace Arena
         public float minimumTimeBetweenActionsInSeconds = .5f;
         public float minimumDistanceForMeleeAttacks = 260f;
         public int currentPhaseNumber = 1;
-        
+
         private Boss _boss;
         private BossState _bossState;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Arena
         private List<Skill> _meleeSkills = new();
         private List<Skill> _rangedSkills = new();
         private BossPhaseMonitor _bossPhaseMonitor;
-        
+
         private void Start()
         {
             Debug.Assert(currentCombatant is Boss);
@@ -100,7 +100,7 @@ namespace Arena
                             // turn once preparation has started, since the turn will cause the warning-box to
                             // not line up with the attack-box
                             UpdateAimDirection(_player.transform.position - transform.position);
-                            
+
                             var distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
                             if (distanceToPlayer > minimumDistanceForMeleeAttacks)
                             {
@@ -147,7 +147,7 @@ namespace Arena
                             break;
                         case BossState.MovingTowardsPlayer:
                             Debug.Log("Moving towards player");
-                            
+
                             UpdateMoveDirection((_player.transform.position - transform.position));
                             UpdateAimDirection(_player.transform.position - transform.position);
                             _isMoving = true;
@@ -162,15 +162,15 @@ namespace Arena
                             _previousBossAction = BossState.StartingMeleeAttack;
                             break;
                         case BossState.WaitingForAttackToComplete:
-                            if (_attackTask.IsCompleted)
-                            {
-                                Debug.Log("Done waiting for attack to complete");
-                                _bossState = BossState.Thinking;
-                            }
-                            else
-                            {
-                                Debug.Log("...Still waiting for attack to complete...");
-                            }
+                            // if (_attackTask.IsCompleted)
+                            // {
+                            Debug.Log("Done waiting for attack to complete");
+                            _bossState = BossState.Thinking;
+                            // }
+                            // else
+                            // {
+                            //  Debug.Log("...Still waiting for attack to complete...");
+                            // }
 
                             break;
                         default:
@@ -196,7 +196,7 @@ namespace Arena
             if (skillToUse != null)
             {
                 Debug.Log($"Executing skill: {skillToUse.displayName}.");
-                _attackTask = ExecuteSkillAsync(skillToUse);
+                StartCoroutine(ExecuteSkillAsync(skillToUse));
                 _bossState = BossState.WaitingForAttackToComplete;
             }
             else

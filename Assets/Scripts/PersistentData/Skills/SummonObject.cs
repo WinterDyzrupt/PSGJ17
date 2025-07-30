@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CreateSummon", menuName = "Scriptable Objects/Skills/Part-CreateSummon")]
@@ -8,7 +7,7 @@ public class CreateSummon : SkillPart
     public GameObject summonGameObject;
 
     // Override Execute skill so that it performs the attack
-    public override Task ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier, Vector3 targetPosition, Quaternion targetRotation)
+    public override void ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier, Vector3 targetPosition, Quaternion targetRotation)
     {
         if (summonGameObject == null)
         {
@@ -29,7 +28,5 @@ public class CreateSummon : SkillPart
             // make sure it's not attached to the combatant
             createdSummon.transform.SetParent(null);
         }
-        
-        return Task.CompletedTask;
     }
 }

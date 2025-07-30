@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Arena.Collisions;
 using PersistentData;
 using Arena.Combat;
@@ -12,7 +11,7 @@ public class MeleeAttack : SkillPart
     public int framesToKeepEffectAlive = 1;
 
     // Override Execute skill so that it performs the attack
-    public override Task ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier = DefaultCombatData.DefaultMultiplier)
+    public override void ExecuteSkill(Transform transform, FactionType faction, float damageMultiplier = DefaultCombatData.DefaultMultiplier)
     {
         if (shapePrefab != null)
         {
@@ -31,7 +30,5 @@ public class MeleeAttack : SkillPart
         {
             Debug.LogError($"{displayName} doesn't have a prefab shape.");
         }
-
-        return Task.CompletedTask;
     }
 }

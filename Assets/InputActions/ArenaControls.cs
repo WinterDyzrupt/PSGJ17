@@ -380,7 +380,7 @@ public partial class @ArenaControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""246f40e1-8422-4a6d-978f-4b68d7350dbd"",
-                    ""path"": ""<Keyboard>/2"",
+                    ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";MouseKeyboard"",
