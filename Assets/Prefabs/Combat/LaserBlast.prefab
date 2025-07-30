@@ -106,7 +106,7 @@ MonoBehaviour:
   displayName: Laser Blast
   isDying: 0
   deathTime: 0
-  instantiateOffset: 180
+  instantiateOffset: 200
   projectileSpeed: 800
   faction: {fileID: 7000269847361637934}
 --- !u!61 &7607319514964035317
@@ -143,7 +143,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 32.297756, y: 0.44243622}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -153,7 +153,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 100, y: 20}
+  m_Size: {x: 63.72033, y: 53.62506}
   m_EdgeRadius: 0
 --- !u!50 &5135606966728445051
 Rigidbody2D:
