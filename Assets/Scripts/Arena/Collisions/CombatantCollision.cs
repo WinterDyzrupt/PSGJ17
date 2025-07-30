@@ -33,7 +33,7 @@ namespace Arena.Collisions
             Debug.Assert(currentCombatant != null, $"{nameof(currentCombatant)} was null");
             if (resetCurrentHealth)
             {
-                currentCombatant.currentHealth.Value = currentCombatant.maxHealth.Value;
+                currentCombatant.currentHealth.Value = currentCombatant.MaxHealth;
             }
         }
 
@@ -61,13 +61,15 @@ namespace Arena.Collisions
                 }
             }
         }
+        
         private void OnTriggerEnter2D(Collider2D otherObject)
         {
             if (otherObject.gameObject.TryGetComponent<DealsDamageOnCollision>(out var dealsDamageOnCollision))
             {
                 FactionType otherFaction = otherObject.gameObject.GetComponent<Faction>().faction;
 
-                Debug.Log($"Damage Detected: from {otherObject.name} with {otherFaction} to {gameObject.name} with {_faction}!");
+                Debug.Log(
+                    $"Collision with possible damage: from {otherObject.name} with faction: {otherFaction} to {gameObject.name} of faction: {_faction}!");
 
                 if (_faction != otherFaction)
                 {

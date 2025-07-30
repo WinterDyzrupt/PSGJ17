@@ -1,4 +1,5 @@
 using PersistentData;
+using PersistentData.Bosses;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -11,6 +12,8 @@ namespace Arena
         public TMP_Text displayNameBox;
         public Image healthBarImage;
 
+        private int _numberOfPhases;
+
         private void Awake()
         {
             Debug.Assert(combatant != null, $"Expected {nameof(combatant)} to be set.");
@@ -20,6 +23,11 @@ namespace Arena
 
         private void Start()
         {
+            if (combatant is Boss boss)
+            {
+                _numberOfPhases = boss.numberOfPhases;
+            }
+
             displayNameBox.text = combatant.displayName;
         }
 
@@ -27,7 +35,12 @@ namespace Arena
         {
             // For when current warrior changes
             displayNameBox.text = combatant.displayName;
-            healthBarImage.fillAmount = combatant.currentHealth.Value / combatant.maxHealth.Value;
+            healthBarImage.fillAmount = combatant.currentHealth.Value / combatant.MaxHealth;
+
+            if (_numberOfPhases > 0)
+            {
+                healthBarImage.material.mainTextureScale = new Vector2(_numberOfPhases, 1);
+            }
         }
     }
 }

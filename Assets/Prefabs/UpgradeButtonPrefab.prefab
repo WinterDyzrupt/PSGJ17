@@ -233,13 +233,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneManagers.ManagerUpgrade, Assembly-CSharp
-        m_MethodName: SelectUpgrade
-        m_Mode: 2
+      - m_Target: {fileID: 4384271196706092953}
+        m_TargetAssemblyTypeName: UpgradeButton, Assembly-CSharp
+        m_MethodName: SetAsSelected
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UpgradeButton, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -257,5 +257,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ac45305e04c124384ba7cc325a70db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Icon: {fileID: 938915473588122632}
+  icon: {fileID: 938915473588122632}
   upgrade: {fileID: 11400000, guid: eceda368555566443b52024c2407650c, type: 2}
+  currentSelectedUpgradePlaceholder: {fileID: 11400000, guid: 4a9bddb7390c5c54ba63c4264c986e7c, type: 2}
+  currentUpgradeSelection: {fileID: 11400000, guid: 24d462b71d28e854a99ca9bd4cdc1041, type: 2}
+  upgradeSelectedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: de04fc1b25469684dbefee241d79608d, type: 2}
+        m_TargetAssemblyTypeName: Events.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

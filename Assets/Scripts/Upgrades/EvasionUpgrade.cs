@@ -1,11 +1,17 @@
-using PersistentData.Warriors;
+using PersistentData;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Evasion", menuName = "Scriptable Objects/Upgrade/Evasion")]
+[CreateAssetMenu(fileName = "Evasion", menuName = "Scriptable Objects/Upgrades/Evasion")]
 public class EvasionUpgrade : Upgrade
 {
-        internal override void ApplyUpgrade(Warrior warrior, int rank)
-        {
-            // warrior.health = rank * 10 + warrior.baseHealth;
-        }
+    public int avoidAttackCountPerRank = 1;
+    public float avoidAttackIntervalInSecondsPerRank;
+
+    protected override void ApplyUpgrade(Combatant combatant, int rank)
+    {
+        base.ApplyUpgrade(combatant, rank);
+
+        combatant.bonusAvoidAttackCount = avoidAttackCountPerRank * rank;
+        combatant.bonusAvoidAttackIntervalInSeconds = avoidAttackIntervalInSecondsPerRank * rank;
+    }
 }

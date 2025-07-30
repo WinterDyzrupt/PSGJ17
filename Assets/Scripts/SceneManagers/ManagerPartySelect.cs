@@ -1,17 +1,27 @@
 using System.Collections.Generic;
+<<<<<<< HEAD
+=======
+using System.Text;
+>>>>>>> 912d3852974bcea060ff91076b237ab03fb7b944
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Helper;
 using PersistentData;
+<<<<<<< HEAD
 using PersistentData.Warriors;
 using UnityEngine.UI;
 
 
+=======
+using UnityEngine.UI;
+
+>>>>>>> 912d3852974bcea060ff91076b237ab03fb7b944
 public class ManagerPartySelect : MonoBehaviour
 {
     // Canvas Groups
     public CanvasGroup characterSelector;
     public Button toArenaButton;
+<<<<<<< HEAD
     public Party currentParty;
     public AllWarriors allWarriors;
     public int partySlot;
@@ -21,6 +31,16 @@ public class ManagerPartySelect : MonoBehaviour
     public Image[] warriorDisplays;
 
 
+=======
+    public CombatantGroup currentParty;
+    public CombatantGroup allWarriors;
+    public int partySlot;
+    public int currentSelectionIndex;
+    private Combatant[] _partyTemp;
+    public int partySize = 4;
+    public Image[] warriorDisplays;
+
+>>>>>>> 912d3852974bcea060ff91076b237ab03fb7b944
     // Initialize variables
     public void Awake()
     {
@@ -31,9 +51,15 @@ public class ManagerPartySelect : MonoBehaviour
     public void Start()
     {
         Debug.Assert(currentParty != null, "current party wasn't populated");
+<<<<<<< HEAD
         _partyTemp = new Warrior[partySize];
         CheckToEnableContinue();
         currentParty.warriors = new List<Warrior>();
+=======
+        _partyTemp = new Combatant[partySize];
+        CheckToEnableContinue();
+        currentParty.combatants = new List<Combatant>();
+>>>>>>> 912d3852974bcea060ff91076b237ab03fb7b944
         Debug.Log("ManagerPartySelect.Start CurrentParty: " + currentParty);
 
     }
@@ -53,7 +79,11 @@ public class ManagerPartySelect : MonoBehaviour
 
     public void ConfirmWarriorSelection()
     {
+<<<<<<< HEAD
         if (currentSelectionIndex >= allWarriors.warriors.Count)
+=======
+        if (currentSelectionIndex >= allWarriors.combatants.Count)
+>>>>>>> 912d3852974bcea060ff91076b237ab03fb7b944
         {
             Debug.LogError("currentSelectionIndex out of bounds");
         }
@@ -63,6 +93,7 @@ public class ManagerPartySelect : MonoBehaviour
         }
         else
         {
+<<<<<<< HEAD
             _partyTemp[partySlot] = allWarriors.warriors[currentSelectionIndex];
             // testing warrior log
             Debug.Log("Selected Warrior is:" + _partyTemp[partySlot]);
@@ -73,6 +104,20 @@ public class ManagerPartySelect : MonoBehaviour
                 Debug.Log("\n" + _partyTemp[n]);
             }
 
+=======
+            _partyTemp[partySlot] = allWarriors.combatants[currentSelectionIndex];
+            // testing warrior log
+            Debug.Log("Selected Warrior is:" + _partyTemp[partySlot]);
+            Debug.Log("Warrior is supposed to be:" + allWarriors.combatants[currentSelectionIndex]);
+            var currentPartyMessage = new StringBuilder();
+            currentPartyMessage.AppendLine("Current party is:");
+            for (int n = 0; n < _partyTemp.Length; n++)
+            {
+                currentPartyMessage.AppendLine($"\t{_partyTemp[n]}");
+            }
+
+            Debug.Log(currentPartyMessage.ToString());
+>>>>>>> 912d3852974bcea060ff91076b237ab03fb7b944
             // Display warrior sprite
             warriorDisplays[partySlot].sprite = _partyTemp[partySlot].sprite;
 
@@ -96,7 +141,11 @@ public class ManagerPartySelect : MonoBehaviour
 
     public void EnterArena()
     {
+<<<<<<< HEAD
         currentParty.warriors.AddRange(_partyTemp);
+=======
+        currentParty.combatants.AddRange(_partyTemp);
+>>>>>>> 912d3852974bcea060ff91076b237ab03fb7b944
         SceneManager.LoadScene(SceneData.ArenaSceneIndex);
     }
 

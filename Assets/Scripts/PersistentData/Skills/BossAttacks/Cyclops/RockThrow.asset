@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76307d2ab97a9bf4b969368dd32a8a4c, type: 3}
+  m_Name: RockThrow
+  m_EditorClassIdentifier: 
+  displayName: ARRGG
+  baseTotalCooldownTimeInSeconds: 5
+  executePartsSerially: 1
+  isRanged: 1
+  skillParts:
+  - {fileID: 11400000, guid: d35e4730f471f174c84ac1f31914bfb4, type: 2}
+  - {fileID: 11400000, guid: d45c36b9a1b87804e8dc654c126b300b, type: 2}
+  - {fileID: 11400000, guid: b71466702c649e149a7201a232756630, type: 2}

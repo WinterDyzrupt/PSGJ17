@@ -8,10 +8,15 @@ public class Projectile : MonoBehaviour
     private float timeElapsed;
     public float instantiateOffset = 100;
     public float projectileSpeed = 300;
-
+    public Faction faction;
     // Stretch
     // public Animator animator;
     // public Animation animation;
+
+    void Start()
+    {
+        Debug.Assert(faction != null, $"{displayName} doesn't have an assigned faction");
+    }
 
     void Update()
     {
@@ -27,15 +32,15 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void InitializeProjectile(FactionType faction)
+    public void InitializeProjectile(FactionType factionToInitializeTo)
     {
         transform.SetParent(null);
         transform.localScale = Vector3.one;
         Vector3 rotation = Quaternion.Euler(0, 0, transform.eulerAngles.z) * Vector3.right;
         transform.position += instantiateOffset * rotation;
         GetComponent<Rigidbody2D>().linearVelocity = projectileSpeed * (Vector2)rotation;
-
-        gameObject.AddComponent<Faction>().faction = faction;
+        
+        faction.faction = factionToInitializeTo;
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -45,6 +50,16 @@ public class Projectile : MonoBehaviour
 
     public virtual void ExecuteCollisionAction(Collider2D collider)
     {
+        /*         if (collider.gameObject.TryGetComponent(out Faction factionOther))
+                {
+                    if (faction.faction != factionOther.faction) { DestroyProjectile(); }
+                }
+                else { DestroyProjectile(); } */
+        // Destroy if no faction was found.
+        // Unsure if this is the perfect solution, but this makes sense to me on the surface.
+        // Maybe it would be more proper to put factions on the wall.
+
+        // Original Logic
         DestroyProjectile();
     }
 

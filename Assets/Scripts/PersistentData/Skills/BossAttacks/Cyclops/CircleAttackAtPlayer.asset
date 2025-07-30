@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f65df13166e904d912af55c73a9dd6, type: 3}
+  m_Name: CircleAttackAtPlayer
+  m_EditorClassIdentifier: 
+  displayName: AARRRGGG
+  description: 
+  baseDamage: 20
+  windupTimeInSeconds: 1
+  recoveryTimeInSeconds: 0
+  attackPrefab: {fileID: 2297243290199110805, guid: ee553b3b103c1b841a59239ceaeb5578, type: 3}
+  timeToKeepEffectAliveInSeconds: 0.25

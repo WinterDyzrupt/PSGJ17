@@ -1,53 +1,97 @@
-
 using PersistentData.Warriors;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Arena
 {
-    /// <summary>
-    /// Something to activate skills and pass information down to the skills
-    /// </summary>
-    public class PlayerController : MonoBehaviour
+    [RequireComponent(typeof(ArenaControls))]
+    public class PlayerController : CombatantController
     {
-        public Warrior currentWarrior;
-        private FactionType _faction;
+        public SpriteRenderer warriorDirectionIndicator;
+        private Warrior _currentWarrior;
+        private ArenaControls _arenaControls;
+        private InputAction _inputMove;
+        private InputAction _inputAim;
+        private InputAction _inputBasicAttack;
+        private InputAction _inputAbility1;
+        private InputAction _inputAbility2;
+        private InputAction _inputUtility;
+        private bool _isUsingGamepad;
 
         private void Awake()
         {
-            if (currentWarrior == null)
+            if (currentCombatant is Warrior)
             {
-                Debug.LogError($"Current Warrior hasn't been assigned to the PlayerController");
-            }
-        }
-
-        private void Start()
-        {
-            if (TryGetComponent(out Faction factionComponent))
-            {
-                _faction = factionComponent.faction;
+                _currentWarrior = currentCombatant as Warrior;
             }
             else
             {
-                Debug.LogError($"{gameObject.name} doesn't have a faction.");
+                Debug.LogError($"Assigned combatant in {gameObject.name} is not a Warrior.");
             }
+            _arenaControls = new();
         }
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            UpdateMoveDirection(_inputMove.ReadValue<Vector2>());
+            if (!_isUsingGamepad)
             {
-                ExecuteSkill(currentWarrior.basicAttack);
+                UpdateAimDirection((Vector2)(Camera.main.ScreenToWorldPoint(_inputAim.ReadValue<Vector2>()) - transform.position));
             }
-            if (Input.GetKeyDown(KeyCode.G))
+            else
             {
-                ExecuteSkill(currentWarrior.ability1);
+                UpdateAimDirection(_inputAim.ReadValue<Vector2>());
             }
+
+            // Checks to see if any of the skill buttons are held down
+            // Let the cooldown feature dictate when skills are activated
+            if (_inputBasicAttack.IsPressed()) ExecuteSkillAsync(_currentWarrior.basicAttack);
+            if (_inputAbility1.IsPressed()) ExecuteSkillAsync(_currentWarrior.ability1);
+            if (_inputAbility2.IsPressed()) ExecuteSkillAsync(_currentWarrior.ability2);
+            if (_inputUtility.IsPressed()) ExecuteSkillAsync(_currentWarrior.utility);
         }
 
-
-        public void ExecuteSkill(Skill skill)
+        void OnEnable()
         {
-            skill.ExecuteSkill(transform, _faction);
+            _inputMove = _arenaControls.Warrior.Move;
+            _inputMove.Enable();
+
+            _inputAim = _arenaControls.Warrior.Aim;
+            _inputAim.Enable();
+
+            _inputBasicAttack = _arenaControls.Warrior.BasicAttack;
+            _inputBasicAttack.Enable();
+
+            _inputAbility1 = _arenaControls.Warrior.Ability1;
+            _inputAbility1.Enable();
+
+            _inputAbility2 = _arenaControls.Warrior.Ability2;
+            _inputAbility2.Enable();
+
+            _inputUtility = _arenaControls.Warrior.Utility;
+            _inputUtility.Enable();
+        }
+
+        void OnDisable()
+        {
+            _arenaControls.Disable();
+
+            _inputMove.Disable();
+
+            _inputAim.Disable();
+
+            _inputBasicAttack.Disable();
+
+            _inputAbility1.Disable();
+
+            _inputAbility2.Disable();
+
+            _inputUtility.Disable();
+        }
+
+        public void OnDeviceChange(PlayerInput playerInput)
+        {
+            _isUsingGamepad = playerInput.currentControlScheme.Equals("Gamepad");
         }
     }
 }

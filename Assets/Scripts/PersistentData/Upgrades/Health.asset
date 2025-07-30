@@ -26,3 +26,4 @@ MonoBehaviour:
   fameCostPerRank: 64000000c800000090010000
   maxRank: 3
   currentRank: 0
+  healthPerRank: 10

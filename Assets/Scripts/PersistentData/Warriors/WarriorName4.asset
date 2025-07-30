@@ -12,13 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c044d79bcfd55541b17496fd6870d09, type: 3}
   m_Name: WarriorName4
   m_EditorClassIdentifier: 
-  displayName: WarriorDisplayName4
-  description: Description4
-  maxHealth:
+  displayName:
     useConstant: 1
-    constantValue: 100
+    constantValue: WarriorDisplayName4
     variable: {fileID: 0}
+  description: Description4
+  sprite: {fileID: 7482667652216324306, guid: 541ad95999b50f54eae6904cf7cbb689, type: 3}
   currentHealth:
-    useConstant: 1
+    useConstant: 0
     constantValue: 0
     variable: {fileID: 0}
+  baseMaxHealth: 150
+  bonusMaxHealth: 30
+  baseFlatDamageReduction: 0
+  bonusFlatDamageReduction: 2
+  baseDamageReceivedMultiplier: 1
+  bonusDamageReceivedMultiplier: 1
+  baseOutgoingDamageMultiplier: 1
+  bonusOutgoingDamageMultiplier: 1
+  baseMovementSpeed: 300
+  bonusMovementSpeed: 0
+  baseMovementSpeedMultiplier: 1
+  bonusMovementSpeedMultiplier: 1.1
+  baseCooldownReductionMultiplier: 1
+  bonusCooldownReductionMultiplier: 0.15
+  baseAvoidAttackCount: 0
+  bonusAvoidAttackCount: 1
+  baseAvoidAttackIntervalInSeconds: 10
+  bonusAvoidAttackIntervalInSeconds: 0
+  basicAttack: {fileID: 0}
+  ability1: {fileID: 0}
+  ability2: {fileID: 0}
+  utility: {fileID: 0}
