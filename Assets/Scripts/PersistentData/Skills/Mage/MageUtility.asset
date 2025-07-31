@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MageUtility
   m_EditorClassIdentifier: 
   displayName: Summon Ice Wall
-  baseTotalCooldownTimeInSeconds: 3
+  baseTotalCooldownTimeInSeconds: 10
   executePartsSerially: 0
   isRanged: 0
   skillParts:
-  - {fileID: 11400000, guid: 00e8316f4940f284b81faa936b41b0b4, type: 2}
+  - {fileID: 11400000, guid: ac8c0f665e15a5b4e9ca0632b4b01a3f, type: 2}

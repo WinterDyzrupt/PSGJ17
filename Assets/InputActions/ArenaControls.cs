@@ -281,18 +281,7 @@ public partial class @ArenaControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bca0ca5b-bfed-4a55-9aa5-e3511078328a"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";MouseKeyboard"",
-                    ""action"": ""BasicAttack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b875fc14-4aaf-40e1-98f6-a7de431ca6f0"",
-                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";MouseKeyboard"",
@@ -314,18 +303,7 @@ public partial class @ArenaControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ea5450d0-4b7e-4454-ab18-5fb1cb5f5e8c"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";MouseKeyboard"",
-                    ""action"": ""Ability1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""085c1fec-dfe6-4c18-97bb-ee1514cb9bc6"",
-                    ""path"": ""<Keyboard>/delete"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";MouseKeyboard"",
@@ -347,7 +325,7 @@ public partial class @ArenaControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4a1ef11d-5071-4dca-bbac-0c44725e9091"",
-                    ""path"": ""<Keyboard>/2"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";MouseKeyboard"",
@@ -358,7 +336,7 @@ public partial class @ArenaControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""41a3251c-6e5f-482a-a3d0-0010ee4504a8"",
-                    ""path"": ""<Keyboard>/end"",
+                    ""path"": ""<Keyboard>/rightCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";MouseKeyboard"",
@@ -380,7 +358,7 @@ public partial class @ArenaControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""246f40e1-8422-4a6d-978f-4b68d7350dbd"",
-                    ""path"": ""<Keyboard>/3"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";MouseKeyboard"",
@@ -391,7 +369,7 @@ public partial class @ArenaControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""09e25502-a674-410a-9e62-0f0d63d64159"",
-                    ""path"": ""<Keyboard>/pageDown"",
+                    ""path"": ""<Keyboard>/numpad0"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";MouseKeyboard"",

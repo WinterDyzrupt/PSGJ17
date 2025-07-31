@@ -16,4 +16,5 @@ MonoBehaviour:
   baseTotalCooldownTimeInSeconds: 0
   executePartsSerially: 0
   isRanged: 0
-  skillParts: []
+  skillParts:
+  - {fileID: 11400000, guid: c10eae4ee05dc0840aa0f64d4e485681, type: 2}
