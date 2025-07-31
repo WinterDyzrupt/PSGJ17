@@ -11,6 +11,7 @@ public class ManagerPartySelect : MonoBehaviour
 {
     // Canvas Groups
     public CanvasGroup characterSelector;
+    public CanvasGroup settingsPanel;
     public Button toArenaButton;
     public CombatantGroup currentParty;
     public CombatantGroup allWarriors;
@@ -110,4 +111,8 @@ public class ManagerPartySelect : MonoBehaviour
         SceneManager.LoadScene(SceneData.MainMenuSceneIndex);
     }
 
+    public void ToggleSettings()
+    {
+        CanvasHelper.ToggleCanvasGroup(settingsPanel);
+    }
 }

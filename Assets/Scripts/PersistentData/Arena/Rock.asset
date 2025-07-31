@@ -32,7 +32,7 @@ MonoBehaviour:
   bonusOutgoingDamageMultiplier: 1
   baseMovementSpeed: 0
   bonusMovementSpeed: 0
-  baseMovementSpeedMultiplier: 1
+  baseMovementSpeedMultiplier: 0
   bonusMovementSpeedMultiplier: 1
   baseCooldownReductionMultiplier: 1
   bonusCooldownReductionMultiplier: 1

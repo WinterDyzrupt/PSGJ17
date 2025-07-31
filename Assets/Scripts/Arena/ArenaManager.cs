@@ -20,8 +20,6 @@ namespace Arena
 
         public Boss currentBoss;
 
-        //public FloatVariable  currentBossHealth;
-
         public CombatantGroup currentParty;
 
         public Warrior currentWarrior;
@@ -36,8 +34,7 @@ namespace Arena
 
         public int warriorDeathMessageDisplayTimeInSeconds = 2;
 
-        public Canvas results;
-
+        public CanvasGroup settingsPanel;
         public CanvasGroup resultsVictory;
         public TMP_Text victoryFame;
         public CanvasGroup resultsDefeat;
@@ -49,13 +46,11 @@ namespace Arena
         public RectTransform bossHealthBarRectTransform;
         public GameObject healthBarPipPrefab;
 
-
-        /// <summary>
-        /// TODO: probably replace with button
-        /// </summary>
-        public int resultsDisplayTimeInSeconds = 2;
-
         private ArenaState _currentState;
+        private ArenaState _stateBeforePause;
+        private float _unpausedTimeScale;
+        private bool _isShowingMessage;
+        private bool _isSettingsShown;
         private Stopwatch _messageTimer;
         private TimeSpan _introMessageDisplayTime;
         private TimeSpan _warriorDeathMessageDisplayTime;
@@ -69,18 +64,21 @@ namespace Arena
             Debug.Assert(currentBoss != null, nameof(currentBoss) + " expected to be not null");
             Debug.Assert(selectedBossIndex != null, nameof(selectedBossIndex) + " expected to be not null.");
             Debug.Assert(currentParty != null, nameof(currentParty) + " expected to be not null.");
-            Debug.Assert(currentParty.combatants != null, nameof(currentParty.combatants) + " expected to be not null.");
+            Debug.Assert(currentParty.combatants != null,
+                nameof(currentParty.combatants) + " expected to be not null.");
             Debug.Assert(currentParty.combatants.Count > 0, "Expected more than 0 warriors in current party");
             Debug.Assert(currentWarrior != null, nameof(currentWarrior) + " expected to be not null.");
-            Debug.Assert(currentWarrior.currentHealth != null, nameof(currentWarrior.currentHealth) + " expected to be not null.");
+            Debug.Assert(currentWarrior.currentHealth != null,
+                nameof(currentWarrior.currentHealth) + " expected to be not null.");
             Debug.Assert(currentWarriorPrefab != null, nameof(currentWarriorPrefab) + " expected to be not null.");
             Debug.Assert(introMessage != null, nameof(introMessage) + " expected to be not null.");
             Debug.Assert(warriorDeathMessage != null, nameof(warriorDeathMessage) + " expected to be not null.");
-            // TODO: Remove when results are done
-            //Debug.Assert(results != null, nameof(results) + " expected to be not null");
 
             // Calculates and stores total health in party
-            foreach (Combatant combatant in currentParty.combatants) { _totalPlayerMaxHealth += combatant.MaxHealth; }
+            foreach (Combatant combatant in currentParty.combatants)
+            {
+                _totalPlayerMaxHealth += combatant.MaxHealth;
+            }
 
             InitializeBoss(selectedBossIndex, allBosses);
             SendNextWarriorIntoArena(currentWarrior, currentParty, currentWarriorPrefab);
@@ -88,6 +86,7 @@ namespace Arena
             _messageTimer = new Stopwatch();
             _introMessageDisplayTime = TimeSpan.FromSeconds(introMessageDisplayTimeInSeconds);
             _warriorDeathMessageDisplayTime = TimeSpan.FromSeconds(warriorDeathMessageDisplayTimeInSeconds);
+            _unpausedTimeScale = Time.timeScale;
             _currentState = ArenaState.Awake;
 
             Debug.Log("ArenaManager Awake end");
@@ -128,13 +127,15 @@ namespace Arena
         /// </summary>
         /// <param name="currentWarriorPlaceholder"></param>
         /// <param name="party"></param>
-        private void SendNextWarriorIntoArena(Warrior currentWarriorPlaceholder, CombatantGroup party, GameObject prefab)
+        private void SendNextWarriorIntoArena(Warrior currentWarriorPlaceholder, CombatantGroup party,
+            GameObject prefab)
         {
             var nextWarrior = PrepareNextWarriorFromParty(party);
             InitializeCombatant(currentWarriorPlaceholder, nextWarrior, prefab, Tags.Player);
         }
 
-        private void InitializeCombatant(Combatant combatantPlaceholder, Combatant template, GameObject prefab, string tagForCombatant)
+        private void InitializeCombatant(Combatant combatantPlaceholder, Combatant template, GameObject prefab,
+            string tagForCombatant)
         {
             combatantPlaceholder.ResetValues();
             combatantPlaceholder.SetValues(template);
@@ -184,6 +185,7 @@ namespace Arena
                         SendNextWarriorIntoArena(currentWarrior, currentParty, currentWarriorPrefab);
                         _currentState = ArenaState.CombatStart;
                     }
+
                     break;
 
                 case ArenaState.DisplayingPartyDeathMessage:
@@ -202,6 +204,9 @@ namespace Arena
 
                 case ArenaState.DisplayingResults:
                     // Do nothing, player should click a button to go back to title or party select.
+                    break;
+                case ArenaState.CombatPaused:
+                    // Do nothing, wait for unpause and state change.
                     break;
                 case ArenaState.Unknown:
                 default:
@@ -229,6 +234,8 @@ namespace Arena
 
         private void ShowMessage(Canvas message, Stopwatch timer)
         {
+            Pause();
+            _isShowingMessage = true;
             timer.Restart();
             message.enabled = true;
             message.gameObject.SetActive(true);
@@ -242,14 +249,18 @@ namespace Arena
 
             // Calculate Fame Earned Ratios
             float currentPartyTotalRemainingHealth = 0;
-            foreach (Combatant combatant in currentParty.combatants) { currentPartyTotalRemainingHealth += (int)combatant.MaxHealth; }
+            foreach (Combatant combatant in currentParty.combatants)
+            {
+                currentPartyTotalRemainingHealth += (int)combatant.MaxHealth;
+            }
+
             currentPartyTotalRemainingHealth += (int)currentWarrior.currentHealth;
             float playerRatio = currentPartyTotalRemainingHealth / _totalPlayerMaxHealth;
             playerRatio = playerRatio > 0.0f ? playerRatio : 0.0f;
             // Debug.Log($"Fame earned from remaining Player Health\nRemaining Health: {currentPartyTotalRemainingHealth}, Total Party Health: {_totalPlayerMaxHealth}\nPlayer Ratio: {playerRatio}");
 
             float bossRatio = currentBoss.currentHealth / currentBoss.MaxHealth;
-            bossRatio = bossRatio > 0.0f ? bossRatio : 0.0f; 
+            bossRatio = bossRatio > 0.0f ? bossRatio : 0.0f;
 
             int fameEarned = (int)((1f + playerRatio - bossRatio) * currentBoss.fameValue);
 
@@ -280,6 +291,8 @@ namespace Arena
             {
                 timer.Stop();
                 message.enabled = false;
+                _isShowingMessage = false;
+                Unpause();
                 return true;
             }
 
@@ -288,14 +301,76 @@ namespace Arena
 
         public void OnWarriorDeath()
         {
-            Debug.LogWarning("Warrior death.");
+            Debug.Log("Warrior death.");
             _currentState = ArenaState.WarriorDeath;
         }
 
         public void OnBossDeath()
         {
-            Debug.LogWarning("Boss death.");
+            Debug.Log("Boss death.");
             _currentState = ArenaState.BossDeath;
+        }
+
+
+        public void ToggleSettings()
+        {
+            Debug.Log("Toggled settings.");
+            if (_isSettingsShown)
+            {
+                OnSettingsClosed();
+                _isSettingsShown = false;
+            }
+            else
+            {
+                _isSettingsShown = true;
+                OnSettingsOpened();
+            }
+        }
+
+        public void OnSettingsOpened()
+        {
+            Pause();
+            Helper.CanvasHelper.ToggleCanvasGroup(settingsPanel);
+            if (_isShowingMessage)
+            {
+                _messageTimer.Stop();
+            }
+            _stateBeforePause = _currentState;
+            _currentState = ArenaState.CombatPaused;
+            Debug.Log("Opened settings.");
+        }
+
+        public void OnSettingsClosed()
+        {
+            Debug.Log("Closed settings.");
+            Helper.CanvasHelper.ToggleCanvasGroup(settingsPanel);
+            _currentState = _stateBeforePause;
+            if (_isShowingMessage)
+            {
+                _messageTimer.Start();
+            }
+            Unpause();
+        }
+
+        private void Pause()
+        {
+            // Protection against accidental repeated pauses
+            if (Time.timeScale != 0f)
+            {
+                _unpausedTimeScale = Time.timeScale;
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                Debug.LogWarning("Trying to pause while already paused");
+            }
+            Debug.Log("Paused; unpausedTimeScale: " + _unpausedTimeScale);
+        }
+
+        private void Unpause()
+        {
+            Debug.Log("Unpausing, setting timeScale to: " + _unpausedTimeScale);
+            Time.timeScale = _unpausedTimeScale;
         }
 
         private enum ArenaState
