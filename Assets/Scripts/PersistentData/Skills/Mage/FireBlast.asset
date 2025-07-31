@@ -17,4 +17,4 @@ MonoBehaviour:
   baseDamage: 20
   windupTimeInSeconds: 0
   recoveryTimeInSeconds: 0
-  projectileGameObject: {fileID: 390150444203895657, guid: d3f29d005d1ea054b9df7e87676f9323, type: 3}
+  projectileGameObject: {fileID: 390150444203895657, guid: 0dc535893d7f75241950f2ec864e6308, type: 3}

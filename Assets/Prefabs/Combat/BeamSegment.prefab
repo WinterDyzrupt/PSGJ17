@@ -210,3 +210,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   faction: {fileID: -4225851625382175635}
   statusEffectPrefab: {fileID: 703926124765593791, guid: b53ef7cfbead2784bb095d3dc9d32dbd, type: 3}
+  buffDurationInSeconds: 5

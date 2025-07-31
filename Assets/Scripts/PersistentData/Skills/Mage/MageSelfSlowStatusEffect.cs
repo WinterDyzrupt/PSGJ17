@@ -1,15 +1,14 @@
 using System;
-using UnityEngine;
 
-public class MageSlowedStatusEffect : StatusEffect
+public class MageSelfSlowStatusEffect : StatusEffect
 {
-    public float speedDebuff = 0.95f;
+    public float MovementSpeedMultiplierDebuff = 0.1f;
 
     protected override void ApplyStatusEffect()
     {
         if (combatant != null)
         {
-            combatant.bonusMovementSpeedMultiplier *= speedDebuff;
+            combatant.bonusMovementSpeedMultiplier *= MovementSpeedMultiplierDebuff;
 
             base.ApplyStatusEffect();
         }
@@ -19,7 +18,7 @@ public class MageSlowedStatusEffect : StatusEffect
     {
         if (combatant != null)
         {
-            combatant.bonusMovementSpeedMultiplier /= speedDebuff;
+            combatant.bonusMovementSpeedMultiplier /= MovementSpeedMultiplierDebuff;
 
             base.RemoveStatusEffect();
         }

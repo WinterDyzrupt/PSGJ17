@@ -5,6 +5,7 @@ public class ApplyStatusEffectOnHit : MonoBehaviour
 {
     public Faction faction;
     public GameObject statusEffectPrefab;
+    public float buffDurationInSeconds;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -35,6 +36,7 @@ public class ApplyStatusEffectOnHit : MonoBehaviour
 
     private void ApplyStatusEffect(GameObject target)
     {
-        target.AddComponent(statusEffectPrefab.GetComponent<StatusEffect>().GetClass());
+        StatusEffect statusEffect = (StatusEffect)target.AddComponent(statusEffectPrefab.GetComponent<StatusEffect>().GetClass());
+        statusEffect.buffDurationInSeconds = buffDurationInSeconds;
     }
 }

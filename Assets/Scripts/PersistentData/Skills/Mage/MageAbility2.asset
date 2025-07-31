@@ -17,6 +17,7 @@ MonoBehaviour:
   executePartsSerially: 1
   isRanged: 0
   skillParts:
+  - {fileID: 11400000, guid: bacde63c530a05e43a3c5ae8931a1606, type: 2}
   - {fileID: 11400000, guid: b15edde15bf74cf4fbce2ee6b46bc25c, type: 2}
   - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
   - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
