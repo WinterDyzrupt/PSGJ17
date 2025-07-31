@@ -17,7 +17,7 @@ MonoBehaviour:
     constantValue: Rogue
     variable: {fileID: 0}
   description: Warriordescription3
-  sprite: {fileID: 7482667652216324306, guid: 64070817d4f214b4f8193818e9c0c81a, type: 3}
+  sprite: {fileID: 21300000, guid: 120e1a0c538da88469ef5e29f251e7d4, type: 3}
   currentHealth:
     useConstant: 0
     constantValue: 0
