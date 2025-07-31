@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RangerAbility2
   m_EditorClassIdentifier: 
   displayName: 
-  baseTotalCooldownTimeInSeconds: 0
+  baseTotalCooldownTimeInSeconds: 20
   executePartsSerially: 0
   isRanged: 0
   skillParts:
