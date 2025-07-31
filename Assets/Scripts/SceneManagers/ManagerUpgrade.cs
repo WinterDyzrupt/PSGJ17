@@ -1,3 +1,4 @@
+using Helper;
 using PersistentData;
 using TMPro;
 using UnityEngine;
@@ -16,12 +17,14 @@ namespace SceneManagers
         public Button purchaseButton;
         public IntVariable currentFame;
         public CombatantGroup allWarriors;
-        
+        public CanvasGroup settingsPanel;
+
         public string maxedDisplayString = "Maxed";
 
         private void Awake()
         {
-            Debug.Assert(currentUpgradeSelection != null,  nameof(currentUpgradeSelection) + " expected to be non null.");
+            Debug.Assert(currentUpgradeSelection != null,
+                nameof(currentUpgradeSelection) + " expected to be non null.");
         }
 
         private void Start()
@@ -63,8 +66,10 @@ namespace SceneManagers
         private void RefreshUpgradeTextFields(Upgrade upgrade)
         {
             Debug.Assert(upgrade != null, nameof(upgrade) + " expected to be non-null.");
-            Debug.Assert(upgrade.upgradeDescription != null, nameof(upgrade.upgradeDescription) + " expected to be non-null.");
-            Debug.Assert(upgrade.upgradeDescription.Length > upgrade.currentRank, "Expected upgrade to have more descriptions.");
+            Debug.Assert(upgrade.upgradeDescription != null,
+                nameof(upgrade.upgradeDescription) + " expected to be non-null.");
+            Debug.Assert(upgrade.upgradeDescription.Length > upgrade.currentRank,
+                "Expected upgrade to have more descriptions.");
 
             if (upgrade)
             {
@@ -78,11 +83,11 @@ namespace SceneManagers
                 {
                     Debug.LogError($"{upgrade.name} does not have a valid description or have enough elements.");
                 }
-                
+
                 if (upgrade.IsMaxed)
                 {
                     purchaseButton.interactable = false;
-                    UpdateCostFields("Maxed");
+                    UpdateCostFields(maxedDisplayString);
                 }
                 else
                 {
@@ -101,7 +106,12 @@ namespace SceneManagers
             fameAmount.text = $"{currentFame.value}\n{costOfSkill}";
         }
 
-        public void PurchaseUpgrade()
+        public void OnToggleSettingsPanel()
+        {
+            CanvasHelper.ToggleCanvasGroup(settingsPanel);
+        }
+
+    public void PurchaseUpgrade()
         {
             var upgrade = currentUpgradeSelection.upgrade;
             // Deduct Fame

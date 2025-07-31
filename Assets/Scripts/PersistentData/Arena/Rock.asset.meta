@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scripts/PersistentData/Arena/Rock.asset.meta
-guid: a3497e940bf689746ae1c7d07d6d1acd
-========
-guid: 8dbee4139718e624a872e9b12374a9ff
->>>>>>>> origin/main:Assets/Scripts/PersistentData/Bosses/AllBosses.asset.meta
+guid: 7eaac8410f6c3d645809f500480d12b8
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

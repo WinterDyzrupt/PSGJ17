@@ -9,6 +9,7 @@ public class ManagerTitle : MonoBehaviour
     // Canvas Groups
     public CanvasGroup levelSelectPanel;
     public CanvasGroup creditsPanel;
+    public CanvasGroup settingsPanel;
 
     public IntVariable selectedBossIndex;
     public UpgradeGroup upgradesForAllWarriors;
@@ -63,6 +64,12 @@ public class ManagerTitle : MonoBehaviour
     {
         ToggleTitleButtons();
         CanvasHelper.ToggleCanvasGroup(creditsPanel);
+    }
+
+    public void ToggleSettings()
+    {
+        ToggleTitleButtons();
+        CanvasHelper.ToggleCanvasGroup(settingsPanel);
     }
 
     private void ToggleTitleButtons()
