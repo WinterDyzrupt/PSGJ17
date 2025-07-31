@@ -12,6 +12,7 @@ namespace PersistentData
     /// </summary>
     public class ScriptableObjectsToPersist : MonoBehaviour
     {
+        public FloatVariable volumeLevel;
         public IntVariable selectedBossIndex;
         public IntVariable currentFame;
         public IntVariable lifetimeFame;

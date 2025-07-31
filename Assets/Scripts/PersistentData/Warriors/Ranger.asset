@@ -17,7 +17,7 @@ MonoBehaviour:
     constantValue: Ranger
     variable: {fileID: 0}
   description: WarriorDescription2
-  sprite: {fileID: 7482667652216324306, guid: 936d720a428cfe448a245fdcec600266, type: 3}
+  sprite: {fileID: 21300000, guid: 76fe969e2825f20489a6852f0d34e0d9, type: 3}
   currentHealth:
     useConstant: 0
     constantValue: 0
