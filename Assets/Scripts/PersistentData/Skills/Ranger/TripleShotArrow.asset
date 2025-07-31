@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: 
   description: 
-  baseDamage: 0
+  baseDamage: 10
   windupTimeInSeconds: 0
   recoveryTimeInSeconds: 0.25
   projectileGameObject: {fileID: 390150444203895657, guid: 417dce5bcf57e984b8963ca112abb259, type: 3}

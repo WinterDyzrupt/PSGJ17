@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09acb87bae8604f4d8734d14eb60f943, type: 3}
-  m_Name: RogueUtility
+  m_Script: {fileID: 11500000, guid: 97ef59cf018d027489d243d1861b98a7, type: 3}
+  m_Name: PartIceBeamHead
   m_EditorClassIdentifier: 
   displayName: 
-  baseTotalCooldownTimeInSeconds: 10
-  executePartsSerially: 0
-  isRanged: 0
-  skillParts:
-  - {fileID: 11400000, guid: ac8c0f665e15a5b4e9ca0632b4b01a3f, type: 2}
+  description: 
+  baseDamage: 5
+  windupTimeInSeconds: 0
+  recoveryTimeInSeconds: 0.09
+  projectileGameObject: {fileID: 782739032926199509, guid: dfd15aafdb8c8584a8de6d07e86e08dc, type: 3}

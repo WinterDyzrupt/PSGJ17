@@ -9,7 +9,7 @@ public class StatusEffect : MonoBehaviour
     public float buffDurationInSeconds;
     public GameObject buffVFXPrefab;
     protected Combatant combatant;
-    private float _elapsedTime = 0;
+    protected float _elapsedTime = 0;
     private GameObject _buffVFX;
 
     void Start()

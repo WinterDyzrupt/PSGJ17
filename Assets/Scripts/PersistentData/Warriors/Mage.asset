@@ -17,15 +17,15 @@ MonoBehaviour:
     constantValue: Mage
     variable: {fileID: 0}
   description: Description4
-  sprite: {fileID: 7482667652216324306, guid: 541ad95999b50f54eae6904cf7cbb689, type: 3}
+  sprite: {fileID: 21300000, guid: 541ad95999b50f54eae6904cf7cbb689, type: 3}
   currentHealth:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 0}
   baseMaxHealth: 80
-  bonusMaxHealth: 30
+  bonusMaxHealth: 10
   baseFlatDamageReduction: 0
-  bonusFlatDamageReduction: 2
+  bonusFlatDamageReduction: 1.5
   baseDamageReceivedMultiplier: 1
   bonusDamageReceivedMultiplier: 1
   baseOutgoingDamageMultiplier: 1
@@ -33,11 +33,11 @@ MonoBehaviour:
   baseMovementSpeed: 300
   bonusMovementSpeed: 0
   baseMovementSpeedMultiplier: 1
-  bonusMovementSpeedMultiplier: 1.1
+  bonusMovementSpeedMultiplier: 1.2
   baseCooldownReductionMultiplier: 1
-  bonusCooldownReductionMultiplier: 0.15
+  bonusCooldownReductionMultiplier: 0.95
   baseAvoidAttackCount: 0
-  bonusAvoidAttackCount: 1
+  bonusAvoidAttackCount: 0
   baseAvoidAttackIntervalInSeconds: 10
   bonusAvoidAttackIntervalInSeconds: 0
   basicAttack: {fileID: 11400000, guid: dc34c5a7084f02947ae9ed6883fbe5f3, type: 2}

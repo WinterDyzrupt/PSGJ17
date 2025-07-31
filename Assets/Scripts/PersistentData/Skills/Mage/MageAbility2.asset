@@ -12,9 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09acb87bae8604f4d8734d14eb60f943, type: 3}
   m_Name: MageAbility2
   m_EditorClassIdentifier: 
-  displayName: 
-  baseTotalCooldownTimeInSeconds: 5
-  executePartsSerially: 0
+  displayName: Ice Beam
+  baseTotalCooldownTimeInSeconds: 30
+  executePartsSerially: 1
   isRanged: 0
   skillParts:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: bacde63c530a05e43a3c5ae8931a1606, type: 2}
+  - {fileID: 11400000, guid: b15edde15bf74cf4fbce2ee6b46bc25c, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}
+  - {fileID: 11400000, guid: 72a70c4ff2a7fa343a3f0f1a20f9acba, type: 2}

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09acb87bae8604f4d8734d14eb60f943, type: 3}
   m_Name: RangerUtility
   m_EditorClassIdentifier: 
-  displayName: 
-  baseTotalCooldownTimeInSeconds: 0
+  displayName: placeholder
+  baseTotalCooldownTimeInSeconds: 10
   executePartsSerially: 0
   isRanged: 0
-  skillParts: []
+  skillParts:
+  - {fileID: 11400000, guid: ac8c0f665e15a5b4e9ca0632b4b01a3f, type: 2}
