@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using System.Collections;
 using PersistentData;
 using UnityEngine;
 
@@ -62,20 +62,25 @@ namespace Arena
             }
         }
 
-        public async Task ExecuteSkillAsync(Skill skill)
+        public IEnumerator ExecuteSkillAsync(Skill skill)
         {
             if (skill != null)
             {
-                await skill.ExecuteSkillAsync(
+                yield return skill.ExecuteSkillAsync(
                     orientationTransform,
                     _faction,
                     currentCombatant.CooldownReductionMultiplier,
                     currentCombatant.OutgoingDamageMultiplier);
+                OnSkillCompleted(skill);
             }
             else
             {
                 Debug.LogWarning($"Attempted to activate skill on {gameObject.name} but was given null. Was it supposed to be missing?");
             }
+        }
+
+        protected virtual void OnSkillCompleted(Skill completedSkill)
+        {
         }
     }
 }

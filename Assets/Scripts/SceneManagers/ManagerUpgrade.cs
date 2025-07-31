@@ -14,9 +14,6 @@ namespace SceneManagers
         public TMP_Text selectedName;
         public TMP_Text selectedDescription;
         public Button purchaseButton;
-        public CanvasGroup[] panels;
-        public Button[] toggleButtons;
-        public Image[] tabImages;
         public IntVariable currentFame;
         public CombatantGroup allWarriors;
         
@@ -59,6 +56,7 @@ namespace SceneManagers
         {
             selectedName.text = "";
             selectedDescription.text = "";
+            UpdateCostFields();
             purchaseButton.interactable = false;
         }
 
@@ -74,6 +72,7 @@ namespace SceneManagers
                 if (upgrade.currentRank < upgrade.upgradeDescription.Length)
                 {
                     selectedDescription.text = upgrade.upgradeDescription[upgrade.currentRank];
+                    UpdateCostFields(upgrade.GetCostForNextRank().ToString());
                 }
                 else
                 {
@@ -83,18 +82,23 @@ namespace SceneManagers
                 if (upgrade.IsMaxed)
                 {
                     purchaseButton.interactable = false;
-                    purchaseButton.GetComponentInChildren<TMP_Text>().text = maxedDisplayString;
+                    UpdateCostFields("Maxed");
                 }
                 else
                 {
                     purchaseButton.interactable = upgrade.CanAffordNextRank(currentFame);
-                    purchaseButton.GetComponentInChildren<TMP_Text>().text = upgrade.GetCostForNextRank().ToString();
+                    UpdateCostFields(upgrade.GetCostForNextRank().ToString());
                 }
             }
             else
             {
                 Debug.LogWarning("RefreshUpgradeTextFields called for null upgrade.");
             }
+        }
+
+        private void UpdateCostFields(string costOfSkill = "0")
+        {
+            fameAmount.text = $"{currentFame.value}\n{costOfSkill}";
         }
 
         public void PurchaseUpgrade()
@@ -108,15 +112,6 @@ namespace SceneManagers
             RefreshButtons();
             RefreshFameTextFields(currentFame);
             RefreshUpgradeTextFields(upgrade);
-        }
-
-        //Panel Methods
-        public void TogglePanels()
-        {
-            foreach (CanvasGroup panel in panels) Helper.CanvasHelper.ToggleCanvasGroup(panel);
-            foreach (Button button in toggleButtons) button.interactable = !button.interactable;
-
-            (tabImages[1].color, tabImages[0].color) = (tabImages[0].color, tabImages[1].color);
         }
     }
 }

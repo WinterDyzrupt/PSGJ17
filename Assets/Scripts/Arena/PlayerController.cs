@@ -45,10 +45,28 @@ namespace Arena
 
             // Checks to see if any of the skill buttons are held down
             // Let the cooldown feature dictate when skills are activated
-            if (_inputBasicAttack.IsPressed()) ExecuteSkillAsync(_currentWarrior.basicAttack);
-            if (_inputAbility1.IsPressed()) ExecuteSkillAsync(_currentWarrior.ability1);
-            if (_inputAbility2.IsPressed()) ExecuteSkillAsync(_currentWarrior.ability2);
-            if (_inputUtility.IsPressed()) ExecuteSkillAsync(_currentWarrior.utility);
+            Skill skill = null;
+            if (_inputBasicAttack.IsPressed())
+            {
+                skill = _currentWarrior.basicAttack;
+            }
+            else if (_inputAbility1.IsPressed())
+            {
+                skill = _currentWarrior.ability1;
+            }
+            else if (_inputAbility2.IsPressed())
+            {
+                skill = _currentWarrior.ability2;
+            }
+            else if (_inputUtility.IsPressed())
+            {
+                skill = _currentWarrior.utility;
+            }
+
+            if (skill != null && skill.IsOffCooldown)
+            {
+                StartCoroutine(ExecuteSkillAsync(skill));
+            }
         }
 
         void OnEnable()

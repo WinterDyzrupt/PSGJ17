@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Barnie Angry
   baseTotalCooldownTimeInSeconds: 3
+  executePartsSerially: 1
+  isRanged: 0
   skillParts:
   - {fileID: 11400000, guid: 1a3d82ae6d9f68b49896d7038758a484, type: 2}
   - {fileID: 11400000, guid: d7000bb4cdce76944a553ebd23342cbd, type: 2}
-  executePartsSerially: 1

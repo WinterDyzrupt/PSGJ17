@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c044d79bcfd55541b17496fd6870d09, type: 3}
-  m_Name: WarriorName3
+  m_Name: Rogue
   m_EditorClassIdentifier: 
   displayName:
     useConstant: 1
-    constantValue: WarriorDisplayName3
+    constantValue: Rogue
     variable: {fileID: 0}
   description: Warriordescription3
   sprite: {fileID: 7482667652216324306, guid: 64070817d4f214b4f8193818e9c0c81a, type: 3}
@@ -40,7 +40,7 @@ MonoBehaviour:
   bonusAvoidAttackCount: 1
   baseAvoidAttackIntervalInSeconds: 10
   bonusAvoidAttackIntervalInSeconds: 0
-  basicAttack: {fileID: 0}
-  ability1: {fileID: 0}
-  ability2: {fileID: 0}
-  utility: {fileID: 0}
+  basicAttack: {fileID: 11400000, guid: 4d46788aee72c5a478bc23d6e64ee78e, type: 2}
+  ability1: {fileID: 11400000, guid: 90a97c34f7c6b494db5c9f7a9b4be068, type: 2}
+  ability2: {fileID: 11400000, guid: 2dec9ff7b16375240badc17b705b6122, type: 2}
+  utility: {fileID: 11400000, guid: 59fe00844531fd64a96585daf08607ca, type: 2}

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Art/UI/TitleScreen.png.meta
 guid: 5122f31d46ced174d9ae7fecd3e14fe6
+========
+guid: 13de6883dd312b04dbdd732b38c47b56
+>>>>>>>> ef7ce122b6d25b186a2f5dbb7b53619af8af5843:Assets/Sprites/Arena/ArenaBalcony.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

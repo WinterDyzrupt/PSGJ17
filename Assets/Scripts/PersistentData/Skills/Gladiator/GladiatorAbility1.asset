@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Trident Throw
   baseTotalCooldownTimeInSeconds: 0.7
-  executePartsSerially: 0
+  executePartsSerially: 1
   isRanged: 0
   skillParts:
   - {fileID: 11400000, guid: 847abe75832ed5a46b7c19b036fbd858, type: 2}

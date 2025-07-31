@@ -15,6 +15,8 @@ MonoBehaviour:
   displayName: Gladiator Utility
   description: Become invincible for a second at the cost of movement speed.
   baseDamage: 0
-  statusComponent: {fileID: 11500000, guid: 3186b3df5095d9b4098cf4658732f550, type: 3}
+  windupTimeInSeconds: 0
+  recoveryTimeInSeconds: 0
+  statusEffectPrefab: {fileID: 3876534353502471683, guid: bf6d2bb832cc27f45a844cc3b1a134e0, type: 3}
   buffVFXPrefab: {fileID: 3955225239749614313, guid: 1baa608f4f3b7c543aa06e86ec76778c, type: 3}
   buffDurationInSeconds: 1

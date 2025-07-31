@@ -1,46 +1,35 @@
 using System;
-using System.Threading.Tasks;
-using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ApplyBuffToSelf", menuName = "Scriptable Objects/Skills/Part-ApplyBuffToSelf")]
 public class ApplyStatusEffectToSelf : SkillPart
 {
-    public MonoScript statusComponent;
+    public GameObject statusEffectPrefab;
     public GameObject buffVFXPrefab;
     public float buffDurationInSeconds = 5;
 
-    public override Task ExecuteSkill(Transform transform, FactionType faction)
+    public override void ExecuteSkill(Transform transform, FactionType faction)
     {
-        if (statusComponent == null)
+        if (statusEffectPrefab != null && statusEffectPrefab.TryGetComponent(out StatusEffect statusEffectComponent))
         {
-            Debug.LogError($"{displayName} wasn't assigned a script.");
-        }
-        else
-        {
-            Type statusEffectClass = statusComponent.GetClass();
+            Type statusEffectChildClass = statusEffectComponent.GetClass();
 
-            if (typeof(StatusEffect).IsAssignableFrom(statusEffectClass))
+            StatusEffect statusEffect = (StatusEffect)transform.parent.gameObject.AddComponent(statusEffectChildClass);
+
+            statusEffect.buffDurationInSeconds = buffDurationInSeconds;
+
+            if (buffVFXPrefab == null)
             {
-                StatusEffect statusEffectComponent = (StatusEffect)transform.parent.gameObject.AddComponent(statusEffectClass);
-
-                statusEffectComponent.buffDurationInSeconds = buffDurationInSeconds;
-
-                if (buffVFXPrefab == null)
-                {
-                    Debug.LogWarning($"{displayName} was not given a VFX prefab.");
-                }
-                else
-                {
-                    statusEffectComponent.buffVFXPrefab = buffVFXPrefab;
-                }
+                Debug.LogWarning($"{displayName} was not given a VFX prefab.");
             }
             else
             {
-                Debug.LogError($"The script given to {displayName} wasn't of class StatusEffect.");
+                statusEffect.buffVFXPrefab = buffVFXPrefab;
             }
         }
-
-        return Task.CompletedTask;
+        else
+        {
+            Debug.LogError($"{displayName} wasn't assigned a script.");
+        }
     }
 }
